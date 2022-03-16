@@ -4,9 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidSamples/HealthApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2601851851851852" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/drawable/border_line.xml" value="0.3625" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_login.xml" value="0.24468954248366012" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_regi.xml" value="0.24468954248366012" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_work.xml" value="0.24468954248366012" />
       </map>
     </option>
   </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="jbr-11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
