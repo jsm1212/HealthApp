@@ -15,6 +15,12 @@
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".WorkBbsDetailActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".WorkBbsActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".WorkActivity"
                 android:exported="true"/>
         <activity

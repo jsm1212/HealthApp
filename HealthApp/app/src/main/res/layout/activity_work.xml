@@ -15,4 +15,10 @@
             android:layout_height="83dp" android:id="@+id/textView"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+    <Button
+            android:text="게시판 목록으로 이동"
+            android:layout_width="221dp"
+            android:layout_height="51dp" android:id="@+id/goToBbs"
+            app:layout_constraintBottom_toTopOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="188dp" android:layout_marginBottom="88dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
