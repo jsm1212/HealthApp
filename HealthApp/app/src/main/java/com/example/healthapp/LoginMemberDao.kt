@@ -24,6 +24,10 @@ interface LoginMemberService{
     @POST("/checkEmail_M")
     fun checkEmail_M(@Body dto:LoginMemberDto): Call<String>
 
+    // 닉네임 중복 확인
+    @POST("/checkNickname_M")
+    fun checkNickname_M(@Body dto:LoginMemberDto): Call<String>
+
     // 회원 전체 조회
     @GET("/allMember")
     fun allMember(): Call<List<LoginMemberDto>>
@@ -123,6 +127,18 @@ class LoginMemberDao {
         if(response == null) return null
 
         return response?.body() as List<LoginMemberDto>
+    }
+
+    fun checkNickname_M(dto: LoginMemberDto): String?{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(LoginMemberService::class.java)
+
+        val call = service?.checkNickname_M(dto)
+
+        val response = call?.execute()
+
+        return response?.body() as String
     }
 
 }
