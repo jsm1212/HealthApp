@@ -1,7 +1,9 @@
 package com.example.healthapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -18,24 +20,21 @@ class WorkBbsActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         val workBbsList = WorkBbsDao.getInstance().getBbsList()
 
-        if(workBbsList != null) {
-            val workBbsAdapter = WorkBbsCustomAdapter(this, workBbsList)
+        val workBbsAdapter = WorkBbsCustomAdapter(this, workBbsList!!)
 
-            recyclerView.adapter = workBbsAdapter
+        recyclerView.adapter = workBbsAdapter
 
-            val layout = LinearLayoutManager(this)
-            recyclerView.layoutManager = layout
+        val layout = LinearLayoutManager(this)
+        recyclerView.layoutManager = layout
 
-            recyclerView.setHasFixedSize(true)
-        }else{
-            val workBbsAdapter = WorkBbsCustomAdapter(this, emptyList)
+        recyclerView.setHasFixedSize(true)
 
-            recyclerView.adapter = workBbsAdapter
+        val WorkBbsWriteBtn = findViewById<Button>(R.id.WorkBbsWriteBtn)
 
-            val layout = LinearLayoutManager(this)
-            recyclerView.layoutManager = layout
-
-            recyclerView.setHasFixedSize(true)
+        WorkBbsWriteBtn.setOnClickListener {
+            val intent = Intent(this, WorkBbsWriteActivity::class.java)
+            startActivity(intent)
         }
+
     }
 }

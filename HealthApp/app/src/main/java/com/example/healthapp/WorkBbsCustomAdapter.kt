@@ -24,24 +24,20 @@ class WorkBbsCustomAdapter(private val context: Context, private val dto: ArrayL
 
 }
 
-// 게시글의 번호를 매기기위한 변수
-var contentNum : Int = 1
 class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
-    private val WorkBbsNum = itemView.findViewById<TextView>(R.id.WorkBbsNum)
     private val WorkBbsTitle = itemView.findViewById<TextView>(R.id.WorkBbsTitle)
     private val WorkBbsWriter = itemView.findViewById<TextView>(R.id.WorkBbsWriter)
     private val WorkBbsWdate = itemView.findViewById<TextView>(R.id.WorkBbsWdate)
 
     // 데이터 바인딩
     fun bind(dto:WorkBbsDto, context: Context){
-        WorkBbsNum.text = contentNum++.toString()
         WorkBbsTitle.text = dto.title
         WorkBbsWriter.text = dto.nickname
         WorkBbsWdate.text = dto.wdate
 
         //itemView 클릭 시 이벤트
         itemView.setOnClickListener {
-            contentNum = 1
+
             // 게시글 디테일로 이동
             Intent(context, WorkBbsDetailActivity::class.java).apply {
 
