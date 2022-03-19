@@ -29,19 +29,18 @@ class LoginActivity : AppCompatActivity() {
             val id = loginEditId.text.toString().trim()
             val pwd = loginEditPwd.text.toString().trim()
 
-            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id,pwd,"","","",0,"","",3,""))
-            if(dto != null){
-                LoginMemberDao.user= dto
+            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id, pwd, "", "", "", 0, "", "", 3, ""))
+            if (dto != null) {
+                LoginMemberDao.user = dto
 
                 Toast.makeText(this, "${dto.nickname}님 환영합니다", Toast.LENGTH_LONG).show()
 
                 val i = Intent(this, WorkActivity::class.java)
                 startActivity(i)
-            }else {
-                Toast.makeText(this,"아이디나 비밀번호를 확인하세요", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "아이디나 비밀번호를 확인하세요", Toast.LENGTH_LONG).show()
             }
         }
-
         // 카카오 API 로그인 에러처리
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
@@ -128,7 +127,8 @@ class LoginActivity : AppCompatActivity() {
         val moveFindIdPwd = findViewById<TextView>(R.id.moveFIndIdPwd)
 
         moveFindIdPwd.setOnClickListener{
-
+            val i = Intent(this, FindActivity::class.java)
+            startActivity(i)
         }
     }
 }

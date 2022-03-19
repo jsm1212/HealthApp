@@ -31,6 +31,14 @@ interface LoginMemberService{
     // 회원 전체 조회
     @GET("/allMember")
     fun allMember(): Call<List<LoginMemberDto>>
+
+    // 아이디 찾기
+    @POST("/findId_M")
+    fun findId_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
+
+    // 비밀번호 찾기
+    @POST("/findPwd_M")
+    fun findPwd_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
 }
 class LoginMemberDao {
 
@@ -140,5 +148,44 @@ class LoginMemberDao {
 
         return response?.body() as String
     }
+
+    fun findId_M(dto: LoginMemberDto): LoginMemberDto?{
+        var response: Response<LoginMemberDto>? = null
+
+        try {
+            val retrofit = RetrofitClient.getInstance()
+
+            val service = retrofit?.create(LoginMemberService::class.java)
+
+            val call = service?.findId_M(dto)
+
+            response = call?.execute()
+        }catch (e:Exception){
+            response = null
+        }
+        if(response == null) return null
+
+        return response?.body() as LoginMemberDto
+    }
+
+    fun findPwd_M(dto: LoginMemberDto): LoginMemberDto?{
+        var response: Response<LoginMemberDto>? = null
+
+        try {
+            val retrofit = RetrofitClient.getInstance()
+
+            val service = retrofit?.create(LoginMemberService::class.java)
+
+            val call = service?.findPwd_M(dto)
+
+            response = call?.execute()
+        }catch (e:Exception){
+            response = null
+        }
+        if(response == null) return null
+
+        return response?.body() as LoginMemberDto
+    }
+
 
 }

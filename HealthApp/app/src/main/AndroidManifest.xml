@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS" /> <!--sms문자보내기-->
 
     <application
             android:name=".GlobalApplication"
