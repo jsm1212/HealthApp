@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".WorkBbsActivity">
+        tools:context=".workbbs.WorkBbsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="517dp"
@@ -49,7 +49,7 @@
     <Button
             android:text="글쓰기"
             android:layout_width="90dp"
-            android:layout_height="45dp" android:id="@+id/WorkBbsWriteBtn"
+            android:layout_height="45dp" android:id="@+id/goWorkBbsWirte"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" android:layout_marginTop="4dp"/>

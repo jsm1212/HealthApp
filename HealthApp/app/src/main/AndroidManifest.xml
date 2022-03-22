@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
             android:name=".GlobalApplication"
@@ -15,16 +16,16 @@
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
         <activity
-                android:name=".WorkBbsWriteActivity"
+                android:name=".workbbs.WorkBbsWriteActivity"
                 android:exported="true"/>
         <activity
-                android:name=".WorkBbsDetailActivity"
+                android:name=".workbbs.WorkBbsDetailActivity"
                 android:exported="true"/>
         <activity
-                android:name=".WorkBbsActivity"
+                android:name=".workbbs.WorkBbsActivity"
                 android:exported="true"/>
         <activity
-                android:name=".WorkActivity"
+                android:name=".workbbs.WorkActivity"
                 android:exported="true"/>
         <activity
                 android:name=".RegiActivity"

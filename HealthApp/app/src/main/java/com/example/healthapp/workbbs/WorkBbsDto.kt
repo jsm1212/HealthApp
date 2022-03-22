@@ -1,4 +1,4 @@
-package com.example.healthapp
+package com.example.healthapp.workbbs
 
 import android.os.Parcel
 import android.os.Parcelable

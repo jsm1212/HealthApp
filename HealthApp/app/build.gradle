@@ -34,12 +34,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+    }
 }
 
 dependencies {
     // 파이어베이스
     implementation platform('com.google.firebase:firebase-bom:29.2.0')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation 'com.firebaseui:firebase-ui-storage:7.2.0'
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'  // Retrofit 라이브러리
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0' // Gson 변환기 라이브러리

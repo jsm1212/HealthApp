@@ -1,4 +1,4 @@
-package com.example.healthapp
+package com.example.healthapp.workbbs
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.healthapp.R
 
 class WorkBbsActivity : AppCompatActivity() {
 
@@ -29,9 +30,9 @@ class WorkBbsActivity : AppCompatActivity() {
 
         recyclerView.setHasFixedSize(true)
 
-        val WorkBbsWriteBtn = findViewById<Button>(R.id.WorkBbsWriteBtn)
+        val goWorkBbsWirte = findViewById<Button>(R.id.goWorkBbsWirte)
 
-        WorkBbsWriteBtn.setOnClickListener {
+        goWorkBbsWirte.setOnClickListener {
             val intent = Intent(this, WorkBbsWriteActivity::class.java)
             startActivity(intent)
         }

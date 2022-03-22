@@ -1,4 +1,4 @@
-package com.example.healthapp
+package com.example.healthapp.workbbs
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.healthapp.R
 
 class WorkBbsCustomAdapter(private val context: Context, private val dto: ArrayList<WorkBbsDto>) : RecyclerView.Adapter<ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -30,7 +31,7 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
     private val WorkBbsWdate = itemView.findViewById<TextView>(R.id.WorkBbsWdate)
 
     // 데이터 바인딩
-    fun bind(dto:WorkBbsDto, context: Context){
+    fun bind(dto: WorkBbsDto, context: Context){
         WorkBbsTitle.text = dto.title
         WorkBbsWriter.text = dto.nickname
         WorkBbsWdate.text = dto.wdate
