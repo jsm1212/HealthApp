@@ -3,6 +3,7 @@ package com.example.healthapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import kotlinx.android.synthetic.main.activity_regi.*
 
@@ -40,6 +41,8 @@ class RegiActivity : AppCompatActivity() {
                 R.id.regiWomenRadioBtn ->  gender= "여"
             }
         }
+
+
 
         // 아이디 중복검사
         idCheckBtn.setOnClickListener {
@@ -99,17 +102,19 @@ class RegiActivity : AppCompatActivity() {
 
             if(pwd == pwdCheck){
 
-
                 val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(id,pwd,name,nickname,gender,age,email,tel,3,""))
+//                Log.d("@@@@@에러메시지", msg!!)
 
                 if(msg == "y"){
                     Toast.makeText(this,"가입이 완료되었습니다. 로그인해주세요", Toast.LENGTH_LONG).show()
-
                     val i = Intent(this, LoginActivity::class.java)
                     startActivity(i)
+                }else{
+                    Toast.makeText(this,"$msg", Toast.LENGTH_LONG).show()
                 }
 
-            }else{
+            }
+            else{
                 Toast.makeText(this, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_LONG).show()
             }
         }

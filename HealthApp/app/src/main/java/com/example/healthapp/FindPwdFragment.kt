@@ -31,7 +31,6 @@ class FindPwdFragment : Fragment() {
             val dto = LoginMemberDao.getInstance().findPwd_M(LoginMemberDto(id,"",name,"","",0,"",tel,0,""))
 
             if(dto != null){
-                Log.d("@@@@@findPwd", dto.pwd!!)
 
                 val smsManager = SmsManager.getDefault()
                 smsManager.sendTextMessage(dto.tel,null,dto.pwd,null,null)

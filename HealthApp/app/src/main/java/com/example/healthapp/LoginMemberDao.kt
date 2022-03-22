@@ -99,6 +99,7 @@ class LoginMemberDao {
 
             response = call?.execute()
         }catch (e:Exception){
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~!!!!"+e.toString())
             response = null
         }
         if(response == null) return null

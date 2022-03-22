@@ -28,12 +28,6 @@
                 android:name=".FindFragmentMenu"
                 android:exported="true"/>
         <activity
-                android:name=".FindPwdActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".FindIdActivity"
-                android:exported="true"/>
-        <activity
                 android:name=".WorkActivity"
                 android:exported="true"/>
         <activity
