@@ -15,6 +15,24 @@
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
         <activity
+                android:name=".mypage.MypageWriteActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageRoutineActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageReplyActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageLikeActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageInformUpdateActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".admin.AdminTrainerActivity"
                 android:exported="true"/>
         <activity
