@@ -6,19 +6,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".WorkActivity">
-
     <TextView
+            android:id="@+id/textView"
             android:text="메인화면"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:layout_width="175dp"
-            android:layout_height="83dp" android:id="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            android:textSize="30dp" android:gravity="center"
+            android:layout_width="200dp" android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.1"/>
     <Button
-            android:text="게시판 목록으로 이동"
-            android:layout_width="221dp"
-            android:layout_height="51dp" android:id="@+id/goToBbs"
-            app:layout_constraintBottom_toTopOf="@+id/textView" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="188dp" android:layout_marginBottom="88dp"/>
+            android:id="@+id/goToBbs"
+            android:text="게시판"
+            android:layout_width="200dp" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="100dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:id="@+id/goToMypage"
+            android:text="마이페이지"
+            android:layout_width="200dp" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/goToBbs"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <Button
+            android:id="@+id/goToAdmin"
+            android:text="관리자페이지"
+            android:layout_width="200dp" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/goToMypage"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
