@@ -6,5 +6,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mypage.MypageLikeActivity">
-
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyLike"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"/>
+    <TextView
+            android:text="내가 공감한 글"
+            android:gravity="center" android:textSize="30sp"
+            android:layout_width="match_parent" android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
