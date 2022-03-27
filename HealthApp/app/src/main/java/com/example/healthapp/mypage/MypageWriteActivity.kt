@@ -23,8 +23,7 @@ class MypageWriteActivity : AppCompatActivity() {
 
         var recycleV = findViewById<RecyclerView>(R.id.recyWrite)
 
-        val bbslist = WorkBbsDao.getInstance().getBbsList()
-        val adap = AdapterWriter(this, bbslist!!)
+        val adap = AdapterWriter(this, test)
         recycleV.adapter = adap
 
         val layout = LinearLayoutManager(this)

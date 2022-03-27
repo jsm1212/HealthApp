@@ -8,7 +8,7 @@ import com.example.healthapp.R
 import com.example.healthapp.WorkBbsDto
 
 class MypageLikeActivity : AppCompatActivity() {
-    var data = arrayListOf<WorkBbsDto>(
+    var test = arrayListOf<WorkBbsDto>(
         WorkBbsDto(0, "zzz", "z닉", "이것은 제목이다이다이다이다이다이것은 제목이다이다이다이다이다이것은 제목이다이다이다이다이다", "이것ㅇㄴ 내용이다다다다",
             "2020.03.01",0, 0, 0, 0, 10, 20, "이미지경로"),
         WorkBbsDto(0, "ccc", "c닉", "제목이다이다이다이다이다", "내용이다다다다",
@@ -23,7 +23,7 @@ class MypageLikeActivity : AppCompatActivity() {
 
         var recycleV = findViewById<RecyclerView>(R.id.recyLike)
 
-        val adap = AdapterLike(this, data)
+        val adap = AdapterLike(this, test)
         recycleV.adapter = adap
 
         val layout = LinearLayoutManager(this)

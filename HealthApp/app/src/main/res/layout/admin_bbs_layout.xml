@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+    <TextView
+            android:id="@+id/abTitle"
+            android:hint="제목" android:gravity="center"
+            android:layout_width="300dp" android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    <TextView
+            android:id="@+id/abNick"
+            android:hint="닉네임" android:gravity="center"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/abTitle"
+            app:layout_constraintTop_toTopOf="@+id/abTitle"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/abDate"
+            android:hint="작성일" android:gravity="center"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/abNick"
+            app:layout_constraintTop_toTopOf="@+id/abNick"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/abBad"
+            android:hint="신고" android:gravity="center"
+            android:layout_width="65dp" android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/abDate"
+            app:layout_constraintTop_toTopOf="@+id/abDate"
+            android:layout_marginStart="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

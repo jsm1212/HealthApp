@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp">
+    <TextView
+            android:id="@+id/atId"
+            android:layout_width="150dp" android:layout_height="wrap_content"
+            android:hint="아이디" android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:id="@+id/atNick"
+            android:layout_width="150dp" android:layout_height="wrap_content"
+            android:hint="닉네임" android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/atId"
+            app:layout_constraintStart_toStartOf="@+id/atId"
+            android:layout_marginTop="5dp"/>
+    <TextView
+            android:id="@+id/atName"
+            android:layout_width="150dp" android:layout_height="wrap_content"
+            android:hint="이름" android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@+id/atNick"
+            app:layout_constraintStart_toStartOf="@+id/atNick"
+            android:layout_marginTop="5dp"/>
+    <TextView
+            android:id="@+id/atEmail"
+            android:layout_width="250dp" android:layout_height="wrap_content"
+            android:hint="이메일" android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/atId"
+            app:layout_constraintTop_toTopOf="@+id/atId"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/atTel"
+            android:layout_width="250dp" android:layout_height="wrap_content"
+            android:hint="전화번호" android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/atNick"
+            app:layout_constraintTop_toTopOf="@+id/atNick"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/atRegiDate"
+            android:layout_width="250dp" android:layout_height="wrap_content"
+            android:hint="가입일" android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/atName"
+            app:layout_constraintTop_toTopOf="@+id/atName"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/atMember"
+            android:layout_width="80dp" android:layout_height="wrap_content"
+            android:hint="회원수" android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/atEmail"
+            app:layout_constraintTop_toTopOf="@+id/atEmail"
+            android:layout_marginStart="5dp"/>
+    <TextView
+            android:id="@+id/atBad"
+            android:layout_width="80dp" android:layout_height="wrap_content"
+            android:hint="경고" android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/atMember"
+            app:layout_constraintTop_toTopOf="@+id/atMember"
+            android:layout_marginStart="5dp"/>
+    <Button
+            android:id="@+id/atUpdateBtn"
+            android:text="수정" android:textSize="13sp"
+            android:layout_width="80dp" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/atMember"
+            app:layout_constraintStart_toStartOf="@+id/atMember"/>
+    <Button
+            android:id="@+id/atDeleteBtn"
+            android:text="삭제" android:textSize="13sp"
+            android:layout_width="80dp" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/atBad"
+            app:layout_constraintEnd_toEndOf="@+id/atBad"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
