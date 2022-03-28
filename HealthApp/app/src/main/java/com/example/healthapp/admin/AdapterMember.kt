@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.LoginMemberDto
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDto
 
 // 회원 신고수 추가되면 수정
 class AdapterMember(private val context: Context, private val dataList: ArrayList<LoginMemberDto>)

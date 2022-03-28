@@ -34,7 +34,7 @@
         <activity
                 android:name=".mypage.MypageActivity"
                 android:exported="true"/>
-        <activityx
+        <activity
                 android:name=".admin.AdminTrainerActivity"
                 android:exported="true"/>
         <activity

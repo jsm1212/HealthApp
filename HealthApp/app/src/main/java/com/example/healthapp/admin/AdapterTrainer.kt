@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDto
+import com.example.healthapp.workbbs.WorkBbsDto
 
 // 트레이너 dto 추가되면 수정
 class AdapterTrainer(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)

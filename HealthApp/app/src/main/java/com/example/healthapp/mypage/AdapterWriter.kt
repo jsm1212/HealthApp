@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDto
+import com.example.healthapp.workbbs.WorkBbsDto
 
 class AdapterWriter(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
 :RecyclerView.Adapter<AdapterWriter.ItemViewHolder>() {

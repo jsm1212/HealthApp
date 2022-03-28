@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDto
+import com.example.healthapp.workbbs.WorkBbsDto
 
 // dto에 신고횟수 추가 필요
 class AdapterBbs(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)

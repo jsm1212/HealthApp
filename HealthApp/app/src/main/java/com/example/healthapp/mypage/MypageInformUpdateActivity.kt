@@ -83,7 +83,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                 .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
                     MypageDao.getInstance().updateMember_M(LoginMemberDto(
                         "", "", "", updateNick.text.toString(),"", 0,
-                        updateEmail.text.toString(), updateTel.text.toString(),0, ""))
+                        updateEmail.text.toString(), updateTel.text.toString(),0, "", ""))
 
                     val itt = Intent(this, MypageActivity::class.java)
                     startActivity(itt)

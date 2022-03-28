@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDto
+import com.example.healthapp.workbbs.WorkBbsDto
 
 // 운동 dto 추가되면 수정
 class MypageRoutineActivity : AppCompatActivity() {

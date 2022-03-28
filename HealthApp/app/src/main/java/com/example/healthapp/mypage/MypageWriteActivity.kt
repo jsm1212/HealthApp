@@ -5,8 +5,7 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.WorkBbsDao
-import com.example.healthapp.WorkBbsDto
+import com.example.healthapp.workbbs.WorkBbsDto
 
 class MypageWriteActivity : AppCompatActivity() {
     var test = arrayListOf<WorkBbsDto>(
