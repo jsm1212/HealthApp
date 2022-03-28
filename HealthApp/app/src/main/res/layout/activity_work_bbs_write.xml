@@ -81,11 +81,5 @@
             app:layout_constraintEnd_toEndOf="@+id/imageUploadBtn"
             app:layout_constraintStart_toStartOf="@+id/imageUploadBtn"
             app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
-    <Button
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button3"
-            app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteTitle"
-            app:layout_constraintBottom_toTopOf="@+id/WorkBbsWriteTitle"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

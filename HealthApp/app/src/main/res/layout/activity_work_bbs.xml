@@ -8,18 +8,18 @@
         tools:context=".workbbs.WorkBbsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="517dp"
-            android:layout_height="0dp"
+            android:layout_width="517sp"
+            android:layout_height="0sp"
             app:layout_constraintHeight_percent="0.75"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/recyclerView" app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintVertical_bias="0.445"/>
+            app:layout_constraintVertical_bias="0.545"/>
     <EditText
-            android:layout_width="216dp"
-            android:layout_height="45dp"
+            android:layout_width="216sp"
+            android:layout_height="45sp"
             android:inputType="textPersonName"
             android:textSize="15sp"
             android:ems="10"
@@ -29,8 +29,8 @@
             android:layout_marginEnd="4dp"/>
     <Button
             android:text="검색"
-            android:layout_width="70dp"
-            android:layout_height="45dp"
+            android:layout_width="70sp"
+            android:layout_height="45sp"
             android:id="@+id/WorkBbsSearchBtn"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/recyclerView"
@@ -38,8 +38,8 @@
             android:layout_marginBottom="8dp"/>
     <TextView
             android:text="커뮤니티"
-            android:layout_width="100dp"
-            android:layout_height="39dp"
+            android:layout_width="100sp"
+            android:layout_height="39sp"
             android:id="@+id/ComunityTitle"
             android:gravity="center"
             android:textSize="20sp"
@@ -48,8 +48,8 @@
             android:layout_marginBottom="60dp"/>
     <Button
             android:text="글쓰기"
-            android:layout_width="90dp"
-            android:layout_height="45dp" android:id="@+id/goWorkBbsWirte"
+            android:layout_width="90sp"
+            android:layout_height="45sp" android:id="@+id/goWorkBbsWirte"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@+id/recyclerView"
             app:layout_constraintTop_toBottomOf="@+id/recyclerView" android:layout_marginTop="4dp"/>

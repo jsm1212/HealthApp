@@ -89,10 +89,6 @@ class WorkBbsWriteActivity : AppCompatActivity() {
                 .show()
         }
 
-        // test 버튼
-        b.button3.setOnClickListener {
-            println(uriToString())
-        }
     }
 
     // 첨부할 사진 선택 시작함수(갤러리이동)
