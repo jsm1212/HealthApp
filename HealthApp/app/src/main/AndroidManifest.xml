@@ -80,7 +80,7 @@
                 android:name=".login.LoginActivity"
                 android:exported="true"/>
         <activity
-                android:name=".CalendarActivity"
+                android:name=".fragment.CalendarFragment"
                 android:exported="true"/>
         <activity
                 android:name=".MainActivity"

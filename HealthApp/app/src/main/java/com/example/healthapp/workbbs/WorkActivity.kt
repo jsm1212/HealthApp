@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.healthapp.R
 import com.example.healthapp.fragment.BbsFragment
+import com.example.healthapp.fragment.CalendarFragment
 import com.example.healthapp.fragment.MypageFragment
 import com.example.healthapp.fragment.WorklistFragment
 
@@ -55,6 +56,8 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
             fr = WorklistFragment(this)
         }else if(view?.id == R.id.MyPageBtn){
             fr = MypageFragment(this)
+        }else if(view?.id == R.id.myCalendarBtn){
+            fr = CalendarFragment(this)
         }
 
         val fm = supportFragmentManager
