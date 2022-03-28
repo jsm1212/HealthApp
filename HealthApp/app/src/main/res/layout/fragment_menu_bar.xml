@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <Button
+            android:id="@+id/workListBtn"
+            android:text="운동목록"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:layout_weight="1"/>
+    <Button
+            android:id="@+id/BbsListBtn"
+            android:text="커뮤니티"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:layout_weight="1"/>
+    <Button
+            android:id="@+id/myCalendarBtn"
+            android:text="나의일정"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:layout_weight="1"/>
+    <Button
+            android:id="@+id/MyPageBtn"
+            android:text="마이페이지"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            android:layout_weight="1"/>
+</LinearLayout>

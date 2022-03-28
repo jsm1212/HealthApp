@@ -5,14 +5,20 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".WorkActivity">
+        tools:context=".workbbs.WorkActivity">
 
-    <TextView
-            android:text="메인화면"
-            android:textSize="30dp"
-            android:gravity="center"
-            android:layout_width="175dp"
-            android:layout_height="83dp" android:id="@+id/textView"
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="900dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:id="@+id/frView">
+    </FrameLayout>
+
+    <fragment
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/menuNaviBar"
+            android:name="com.example.healthapp.fragment.MenuBarFragment"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

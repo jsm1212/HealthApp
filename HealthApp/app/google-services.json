@@ -22,14 +22,7 @@
           }
         },
         {
-          "client_id": "1011601613020-cfqmjm3vr4fvm63872m9cfk7a9js843u.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.healthapp",
-            "certificate_hash": "e5ef8b2f5c288567c275d9dee67adae5d0a5f12e"
-          }
-        },
-        {
+          
           "client_id": "1011601613020-tj7ck131os9pj856h2avt1roih1fbu78.apps.googleusercontent.com",
           "client_type": 3
         }

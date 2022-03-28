@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".workbbs.WorkBbsWriteActivity">
+    <TextView
+            android:text="Add Images"
+            android:layout_width="wrap_content"
+            android:layout_height="32sp"
+            android:id="@+id/textView4"
+            android:textSize="20sp"
+            android:gravity="center|left"
+            app:layout_constraintTop_toBottomOf="@+id/WorkBbsWriteTitle"
+            android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteTitle"/>
+    <EditText
+            android:layout_width="495sp"
+            android:layout_height="50sp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:textSize="23sp"
+            android:gravity="center|left"
+            android:hint="title..."
+            android:background="@android:color/transparent"
+            android:id="@+id/WorkBbsWriteTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"/>
+    <EditText
+            android:layout_width="495sp"
+            android:layout_height="430sp"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:gravity="top|left"
+            android:textSize="20sp"
+            android:background="@null"
+            android:hint="content..."
+            android:id="@+id/WorkBbsWriteContent"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="@+id/WorkBbsWriteTitle"
+            app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/WorkSelectedImg"
+            android:layout_marginTop="12dp"/>
+    <TextView
+            android:text="No file selected"
+            android:layout_width="397sp"
+            android:layout_height="30sp"
+            android:id="@+id/WorkSelectedImg"
+            android:textSize="15sp"
+            android:gravity="center|left"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toTopOf="@+id/imageUploadBtn"
+            app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
+    <Button
+            android:text="사진선택"
+            android:layout_width="95sp"
+            android:layout_height="38sp" android:id="@+id/imageUploadBtn"
+            app:layout_constraintEnd_toEndOf="@+id/WorkBbsWriteTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" android:layout_marginTop="6dp"/>
+    <Button
+            android:text="작성하기"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp" android:id="@+id/WorkBbsWriteBtn"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/WorkBbsWriteContent"
+            app:layout_constraintTop_toTopOf="@+id/goToListBtn"
+            app:layout_constraintBottom_toBottomOf="@+id/goToListBtn"/>
+    <Button
+            android:text="목록으로"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp" android:id="@+id/goToListBtn"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteContent"
+            app:layout_constraintTop_toBottomOf="@+id/WorkBbsWriteContent" android:layout_marginTop="8dp"/>
+    <Button
+            android:text="다시선택"
+            android:layout_width="95sp"
+            android:layout_height="35sp" android:id="@+id/WorkBbsReSelectImg"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/imageUploadBtn"
+            app:layout_constraintStart_toStartOf="@+id/imageUploadBtn"
+            app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

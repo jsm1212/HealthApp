@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp"
+        android:id="@+id/testest">
+    <CheckBox
+            android:id="@+id/mywCheck"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:id="@+id/mywTitle"
+            android:layout_width="370dp" android:layout_height="wrap_content"
+            android:hint="제목" android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/mywCheck"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:id="@+id/mywDate"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:hint="작성날짜" android:textSize="15sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mywTitle"/>
+    <TextView
+            android:id="@+id/mywReadcount"
+            android:layout_width="50dp" android:layout_height="wrap_content"
+            android:hint="조회수" android:textSize="15sp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mywDate"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

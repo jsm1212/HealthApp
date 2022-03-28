@@ -1,11 +1,10 @@
-package com.example.healthapp
+package com.example.healthapp.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
-import kotlinx.android.synthetic.main.activity_regi.*
+import com.example.healthapp.R
 
 class RegiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
