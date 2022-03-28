@@ -185,7 +185,15 @@ class LoginActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful) {
                 it.result?.user?.displayName
-                Log.d("@@@@@사용자이름",it.result?.user?.displayName!!)
+                Log.d("@@@@@구글사용자이름",it.result?.user?.displayName!!)
+                Log.d("@@@@@구글사용자이메일",it.result?.user?.email!!)
+
+                val idmsg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(it.result?.user?.email!!,"","","","",0,"","",4,"",""))
+
+                if(idmsg=="n"){
+//                    val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(it.result?.user?.email!!, ))
+                }
+
             }else {
 
             }
