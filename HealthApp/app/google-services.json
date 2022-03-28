@@ -14,6 +14,15 @@
       },
       "oauth_client": [
         {
+          "client_id": "1011601613020-4u3f9vo0u4m4egpn8lfqer6qakl008pv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.healthapp",
+            "certificate_hash": "794356744ff105423bd941faedc54b352557e94b"
+          }
+        },
+        {
+          
           "client_id": "1011601613020-tj7ck131os9pj856h2avt1roih1fbu78.apps.googleusercontent.com",
           "client_type": 3
         }
