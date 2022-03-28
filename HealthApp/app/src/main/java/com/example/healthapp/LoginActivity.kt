@@ -1,5 +1,6 @@
 package com.example.healthapp
 
+import android.app.Activity
 import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,12 +10,30 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.*
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.auth.api.signin.SignInAccount
+import com.google.firebase.auth.*
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.ktx.Firebase
+import com.kakao.auth.authorization.AuthorizationResult
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
+
+    private val googleSignIntent by lazy {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken(getString(R.string.default_web_client_id)).requestEmail().build()
+        GoogleSignIn.getClient(this, gso).signInIntent
+    }
+
+    companion object {
+        const val RESULT_CODE =10
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -29,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
             val id = loginEditId.text.toString().trim()
             val pwd = loginEditPwd.text.toString().trim()
 
-            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id, pwd, "", "", "", 0, "", "", 3, ""))
+            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id, pwd, "", "", "", 0, "", "", 3, "",""))
             if (dto != null) {
                 LoginMemberDao.user = dto
 
@@ -90,15 +109,15 @@ class LoginActivity : AppCompatActivity() {
                         val kakaoName = user.kakaoAccount!!.profile!!.nickname
                         val kakaoNum = user.id.toString()
 
-                        val idmsg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,""))
+                        val idmsg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
 
                         if(idmsg == "n"){
-                            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,""))
+                            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
                             if(dto != null) {
                                 LoginMemberDao.user = dto
                             }
                         }else{
-                            val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,""))
+                            val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
                             System.out.println(msg)
                         }
                         Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()
@@ -129,6 +148,49 @@ class LoginActivity : AppCompatActivity() {
         moveFindIdPwd.setOnClickListener{
             val i = Intent(this, FindActivity::class.java)
             startActivity(i)
+        }
+
+        sign_in_button.setOnClickListener {
+            startActivityForResult(googleSignIntent, RESULT_CODE)
+        }
+
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+
+            result?.let{
+                if(it.isSuccess){
+                    it.signInAccount?.displayName
+                    it.signInAccount?.email
+                    Log.e("Value", it.signInAccount?.email!!)
+                }else{
+                    Log.e("Value", "error")
+                }
+            }
+
+            if(result!!.isSuccess){
+                firebaseLogin(result.signInAccount!!)
+            }
+        }
+    }
+
+    private fun firebaseLogin(googleAccount: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(googleAccount.idToken, null)
+
+        FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
+            if(it.isSuccessful) {
+                it.result?.user?.displayName
+                Log.d("@@@@@사용자이름",it.result?.user?.displayName!!)
+            }else {
+
+            }
+        }.addOnFailureListener {
+
         }
     }
 }

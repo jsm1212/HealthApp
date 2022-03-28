@@ -48,7 +48,7 @@ class RegiActivity : AppCompatActivity() {
         idCheckBtn.setOnClickListener {
             val id = editId.text.toString().trim()
 
-            val msg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(id,"","","","",0,"","",0,""))
+            val msg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(id,"","","","",0,"","",0,"",""))
 
             if(msg == "n"){
                 idCheck.text="이미 사용중인 아이디입니다."
@@ -62,7 +62,7 @@ class RegiActivity : AppCompatActivity() {
         nicknameCheckBtn.setOnClickListener {
             val nickname = editNickname.text.toString().trim()
 
-            val msg = LoginMemberDao.getInstance().checkNickname_M(LoginMemberDto("","","",nickname,"",0,"","",0,""))
+            val msg = LoginMemberDao.getInstance().checkNickname_M(LoginMemberDto("","","",nickname,"",0,"","",0,"",""))
 
             if(msg == "n"){
                 nicknameCheck.text="이미 사용중인 닉네임입니다."
@@ -76,7 +76,7 @@ class RegiActivity : AppCompatActivity() {
         emailCheckBtn.setOnClickListener {
             val email = editEmail.text.toString().trim()
 
-            val msg = LoginMemberDao.getInstance().checkEmail_M(LoginMemberDto("","","","","",0,email,"",0,""))
+            val msg = LoginMemberDao.getInstance().checkEmail_M(LoginMemberDto("","","","","",0,email,"",0,"",""))
 
             if(msg == "n"){
                 emailCheck.text="이미 사용중인 이메일입니다."
@@ -102,7 +102,7 @@ class RegiActivity : AppCompatActivity() {
 
             if(pwd == pwdCheck){
 
-                val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(id,pwd,name,nickname,gender,age,email,tel,3,""))
+                val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(id,pwd,name,nickname,gender,age,email,tel,3,"",""))
 //                Log.d("@@@@@에러메시지", msg!!)
 
                 if(msg == "y"){
