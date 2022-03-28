@@ -5,47 +5,16 @@
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SEND_SMS" /> <!--sms문자보내기-->
 
     <application
             android:name=".GlobalApplication"
             android:allowBackup="true"
-            android:icon="@mipmap/icon"
+            android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/icon_round"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
-        <activity
-                android:name=".mypage.MypageWriteActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".mypage.MypageRoutineActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".mypage.MypageReplyActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".mypage.MypageLikeActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".mypage.MypageInformUpdateActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".mypage.MypageActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminTrainerActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminBbsActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminMemberActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminActivity"
-                android:exported="true"/>
         <activity
                 android:name=".workbbs.WorkBbsWriteActivity"
                 android:exported="true"/>
@@ -57,18 +26,6 @@
                 android:exported="true"/>
         <activity
                 android:name=".workbbs.WorkActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".FindActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".FindPwdFragment"
-                android:exported="true"/>
-        <activity
-                android:name=".FindIdFragment"
-                android:exported="true"/>
-        <activity
-                android:name=".FindFragmentMenu"
                 android:exported="true"/>
         <activity
                 android:name=".RegiActivity"

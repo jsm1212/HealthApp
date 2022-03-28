@@ -24,21 +24,9 @@ interface LoginMemberService{
     @POST("/checkEmail_M")
     fun checkEmail_M(@Body dto:LoginMemberDto): Call<String>
 
-    // 닉네임 중복 확인
-    @POST("/checkNickname_M")
-    fun checkNickname_M(@Body dto:LoginMemberDto): Call<String>
-
     // 회원 전체 조회
     @GET("/allMember")
     fun allMember(): Call<List<LoginMemberDto>>
-
-    // 아이디 찾기
-    @POST("/findId_M")
-    fun findId_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
-
-    // 비밀번호 찾기
-    @POST("/findPwd_M")
-    fun findPwd_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
 }
 class LoginMemberDao {
 
@@ -99,7 +87,6 @@ class LoginMemberDao {
 
             response = call?.execute()
         }catch (e:Exception){
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~!!!!"+e.toString())
             response = null
         }
         if(response == null) return null
@@ -137,56 +124,5 @@ class LoginMemberDao {
 
         return response?.body() as List<LoginMemberDto>
     }
-
-    fun checkNickname_M(dto: LoginMemberDto): String?{
-        val retrofit = RetrofitClient.getInstance()
-
-        val service = retrofit?.create(LoginMemberService::class.java)
-
-        val call = service?.checkNickname_M(dto)
-
-        val response = call?.execute()
-
-        return response?.body() as String
-    }
-
-    fun findId_M(dto: LoginMemberDto): LoginMemberDto?{
-        var response: Response<LoginMemberDto>? = null
-
-        try {
-            val retrofit = RetrofitClient.getInstance()
-
-            val service = retrofit?.create(LoginMemberService::class.java)
-
-            val call = service?.findId_M(dto)
-
-            response = call?.execute()
-        }catch (e:Exception){
-            response = null
-        }
-        if(response == null) return null
-
-        return response?.body() as LoginMemberDto
-    }
-
-    fun findPwd_M(dto: LoginMemberDto): LoginMemberDto?{
-        var response: Response<LoginMemberDto>? = null
-
-        try {
-            val retrofit = RetrofitClient.getInstance()
-
-            val service = retrofit?.create(LoginMemberService::class.java)
-
-            val call = service?.findPwd_M(dto)
-
-            response = call?.execute()
-        }catch (e:Exception){
-            response = null
-        }
-        if(response == null) return null
-
-        return response?.body() as LoginMemberDto
-    }
-
 
 }
