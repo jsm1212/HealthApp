@@ -43,7 +43,7 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
 
         val fm = supportFragmentManager
         val fragmentTransaction = fm.beginTransaction()
-        fragmentTransaction.add(R.id.frView, WorklistFragment(this))
+        fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
         fragmentTransaction.commit()
     }
 
@@ -53,7 +53,7 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
         if(view?.id == R.id.BbsListBtn){
             fr = BbsFragment(this)
         }else if(view?.id == R.id.workListBtn){
-            fr = WorklistFragment(this)
+            fr = WorklistFragment(this, applicationContext)
         }else if(view?.id == R.id.MyPageBtn){
             fr = MypageFragment(this)
         }else if(view?.id == R.id.myCalendarBtn){

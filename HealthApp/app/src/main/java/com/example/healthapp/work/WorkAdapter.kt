@@ -10,13 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 
-class WorkAdapter(private val context: Context, private val dataList: ArrayList<WorkVo>):
-    RecyclerView.Adapter<WorkAdapter.ItemViewHolder>(),Filterable {
-
+class WorkAdapter(private val context: Context, private val dataList: ArrayList<WorkVo>) :
+    RecyclerView.Adapter<WorkAdapter.ItemViewHolder>(), Filterable {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view =LayoutInflater.from(context).inflate(R.layout.view_item_layout, parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.view_item_layout, parent, false)
         return ItemViewHolder(view)
 
     }
@@ -26,40 +25,27 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
     }
 
     override fun getItemCount(): Int {
-        return dataList.size
+        return filterData!!.size
     }
 
 
-    private var filterData:ArrayList<WorkVo>?=dataList
+    private var filterData: ArrayList<WorkVo>? = dataList
 
     override fun getFilter(): Filter {
-        return object : Filter(){
+        return object : Filter() {
             override fun performFiltering(constraint: CharSequence?): FilterResults {
-                println("~~~~~~~~~~~~$constraint")
-                val filterNum:Int=constraint.toString().toInt()
-                filterData = if (filterNum==0) {
+                val filterNum: Int = constraint.toString().toInt()
+                filterData = if (filterNum == 0) {
                     dataList
                 } else {
-                    println("~~~~~~~~~~~~else~~~~")
                     val filteringList = ArrayList<WorkVo>()
-                    println("~~~~~~~~~~~~filteringList~~~~")
-                     for (item in dataList) {
-                        println("~~~~~~~~~~~~${item.workcategory}")
-                        if (item.workcategory == filterNum-1) filteringList.add(item)
-
-                    }
-                    println("~~~~~~~~~~~~forend~~~~")
-                    for(item in filteringList) {
-                        println("${item.name}, ")
-                        println("${item.explanation}, ")
-                        println("${item.workcategory}, ")
+                    for (item in dataList) {
+                        if (item.workcategory == filterNum - 1) filteringList.add(item)
                     }
                     filteringList
                 }
-                println("~~~~~~~~~~~~if end~~~~")
-                val filterResult=FilterResults()
-                filterResult.values=filterData
-                println("~~~~~~~~~~~~filterResult end~~~~")
+                val filterResult = FilterResults()
+                filterResult.values = filterData
                 return filterResult
             }
 
@@ -70,16 +56,11 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
     }
 
 
-    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
+    class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         //private val workimg = itemView.findViewById<ImageView>(R.id.workimg)
         private val userName = itemView.findViewById<TextView>(R.id.workname)
         private val workexplanation = itemView.findViewById<TextView>(R.id.workexplanation)
-        private val workCategory= itemView.findViewById<TextView>(R.id.workcategory)
-
-
-
-
-
+        private val workCategory = itemView.findViewById<TextView>(R.id.workcategory)
 
 
         fun bind(WorkVo: WorkVo, context: Context) {
@@ -96,11 +77,19 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
             //workimg.text= "123"
             userName.text = WorkVo.name
             workexplanation.text = WorkVo.explanation
-            when(WorkVo.workcategory){
-                0->{workCategory.text="어깨"}
-                1->{workCategory.text="가슴"}
-                2->{workCategory.text="배"}
-                3->{workCategory.text="하체"}
+            when (WorkVo.workcategory) {
+                0 -> {
+                    workCategory.text = "어깨"
+                }
+                1 -> {
+                    workCategory.text = "가슴"
+                }
+                2 -> {
+                    workCategory.text = "배"
+                }
+                3 -> {
+                    workCategory.text = "하체"
+                }
             }
 
             //itemView 클릭시
