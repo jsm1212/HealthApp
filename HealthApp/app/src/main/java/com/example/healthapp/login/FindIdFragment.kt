@@ -1,7 +1,6 @@
-package com.example.healthapp
+package com.example.healthapp.login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.healthapp.R
 
 class FindIdFragment : Fragment() {
 

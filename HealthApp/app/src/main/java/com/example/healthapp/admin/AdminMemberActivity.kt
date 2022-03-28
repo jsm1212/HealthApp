@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.healthapp.LoginMemberDto
+import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
-import com.example.healthapp.mypage.AdapterWriter
 
 // 회원 신고수 추가되면 수정
 class AdminMemberActivity : AppCompatActivity() {

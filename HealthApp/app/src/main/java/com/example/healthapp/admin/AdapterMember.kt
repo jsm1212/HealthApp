@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.healthapp.LoginMemberDto
+import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
 
 // 회원 신고수 추가되면 수정

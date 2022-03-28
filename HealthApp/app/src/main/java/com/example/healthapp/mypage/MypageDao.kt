@@ -1,16 +1,14 @@
 package com.example.healthapp.mypage
 
 import com.example.healthapp.*
+import com.example.healthapp.login.LoginMemberDto
 import retrofit2.Call
-import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface MypageService {
     // 회원정보 수정
     @POST("/updateMember_M")
-    fun updateMember_M(dto:LoginMemberDto): Call<String>
+    fun updateMember_M(dto: LoginMemberDto): Call<String>
 }
 class MypageDao {
     companion object{
@@ -24,7 +22,7 @@ class MypageDao {
         }
     }
 
-    fun updateMember_M(dto:LoginMemberDto): LoginMemberDto?{
+    fun updateMember_M(dto: LoginMemberDto): LoginMemberDto?{
         val retrofit = RetrofitClient.getInstance()
         val service = retrofit?.create(MypageService::class.java)
         val call = service?.updateMember_M(dto)

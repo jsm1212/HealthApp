@@ -5,17 +5,15 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.isInvisible
-import androidx.core.view.isVisible
-import com.example.healthapp.LoginMemberDao
+import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.databinding.ActivityWorkBbsWriteBinding
+import com.example.healthapp.fragment.BbsFragment
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
@@ -68,7 +66,7 @@ class WorkBbsWriteActivity : AppCompatActivity() {
             Toast.makeText(this,"작성이 완료되었습니다.", Toast.LENGTH_LONG).show()
 
             // 게시글 목록으로 이동
-            val i = Intent(this, WorkBbsActivity::class.java)
+            val i = Intent(this, BbsFragment::class.java)
             startActivity(i)
         }
 
@@ -83,7 +81,7 @@ class WorkBbsWriteActivity : AppCompatActivity() {
                         deleteImg()
                     }
                     // 게시글 목록으로 이동
-                    val i = Intent(this, WorkBbsActivity::class.java)
+                    val i = Intent(this, BbsFragment::class.java)
                     startActivity(i)
                 }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
                 .show()

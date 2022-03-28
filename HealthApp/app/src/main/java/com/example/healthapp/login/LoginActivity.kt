@@ -1,4 +1,4 @@
-package com.example.healthapp
+package com.example.healthapp.login
 
 import android.app.Activity
 import android.content.ContentValues.TAG
@@ -10,16 +10,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import com.example.healthapp.R
 import com.example.healthapp.workbbs.WorkActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.auth.api.signin.SignInAccount
 import com.google.firebase.auth.*
 import com.google.firebase.auth.GoogleAuthProvider
-import com.google.firebase.ktx.Firebase
-import com.kakao.auth.authorization.AuthorizationResult
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
@@ -110,15 +108,18 @@ class LoginActivity : AppCompatActivity() {
                         val kakaoName = user.kakaoAccount!!.profile!!.nickname
                         val kakaoNum = user.id.toString()
 
-                        val idmsg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
+                        val idmsg = LoginMemberDao.getInstance()
+                            .getId_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
 
                         if(idmsg == "n"){
-                            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
+                            val dto = LoginMemberDao.getInstance()
+                                .login_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
                             if(dto != null) {
                                 LoginMemberDao.user = dto
                             }
                         }else{
-                            val msg = LoginMemberDao.getInstance().register_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
+                            val msg = LoginMemberDao.getInstance()
+                                .register_M(LoginMemberDto(kakaoName,kakaoNum,kakaoName,kakaoName,"?",0,"?","?",4,"",""))
                             System.out.println(msg)
                         }
                         Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()

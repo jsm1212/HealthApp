@@ -1,8 +1,8 @@
-package com.example.healthapp
+package com.example.healthapp.login
 
+import com.example.healthapp.RetrofitClient
 import retrofit2.Call
 import retrofit2.Response
-import retrofit2.create
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -10,23 +10,23 @@ import retrofit2.http.POST
 interface LoginMemberService{
     // 아이디 중복 확인
     @POST("/getId_M")
-    fun getId_M(@Body dto:LoginMemberDto): Call<String>
+    fun getId_M(@Body dto: LoginMemberDto): Call<String>
 
     // 로그인
     @POST("/login_M")
-    fun login_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
+    fun login_M(@Body dto: LoginMemberDto): Call<LoginMemberDto>
 
     // 회원가입
     @POST("/register_M")
-    fun register_M(@Body dto:LoginMemberDto): Call<String>
+    fun register_M(@Body dto: LoginMemberDto): Call<String>
 
     // 이메일 중복 확인
     @POST("/checkEmail_M")
-    fun checkEmail_M(@Body dto:LoginMemberDto): Call<String>
+    fun checkEmail_M(@Body dto: LoginMemberDto): Call<String>
 
     // 닉네임 중복 확인
     @POST("/checkNickname_M")
-    fun checkNickname_M(@Body dto:LoginMemberDto): Call<String>
+    fun checkNickname_M(@Body dto: LoginMemberDto): Call<String>
 
     // 회원 전체 조회
     @GET("/allMember")
@@ -34,19 +34,19 @@ interface LoginMemberService{
 
     // 아이디 찾기
     @POST("/findId_M")
-    fun findId_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
+    fun findId_M(@Body dto: LoginMemberDto): Call<LoginMemberDto>
 
     // 비밀번호 찾기
     @POST("/findPwd_M")
-    fun findPwd_M(@Body dto:LoginMemberDto): Call<LoginMemberDto>
+    fun findPwd_M(@Body dto: LoginMemberDto): Call<LoginMemberDto>
 }
 class LoginMemberDao {
 
     companion object{
-        var loginMemberDao:LoginMemberDao? = null
-        var user:LoginMemberDto? = null
+        var loginMemberDao: LoginMemberDao? = null
+        var user: LoginMemberDto? = null
 
-        fun getInstance():LoginMemberDao{
+        fun getInstance(): LoginMemberDao {
             if(loginMemberDao == null){
                 loginMemberDao = LoginMemberDao()
             }
@@ -54,7 +54,7 @@ class LoginMemberDao {
         }
     }
 
-    fun getId_M(dto:LoginMemberDto): String?{
+    fun getId_M(dto: LoginMemberDto): String?{
         val retrofit = RetrofitClient.getInstance()
 
         val service = retrofit?.create(LoginMemberService::class.java)
@@ -66,7 +66,7 @@ class LoginMemberDao {
         return response?.body() as String
     }
 
-    fun login_M(dto:LoginMemberDto): LoginMemberDto?{
+    fun login_M(dto: LoginMemberDto): LoginMemberDto?{
 
         var response: Response<LoginMemberDto>? = null
 
@@ -86,7 +86,7 @@ class LoginMemberDao {
         return response?.body() as LoginMemberDto
     }
 
-    fun register_M(dto:LoginMemberDto): String?{
+    fun register_M(dto: LoginMemberDto): String?{
 
         var response: Response<String>? = null
 

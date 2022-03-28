@@ -11,9 +11,10 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.example.healthapp.LoginMemberDao
-import com.example.healthapp.LoginMemberDto
+import com.example.healthapp.login.LoginMemberDao
+import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
+import com.example.healthapp.fragment.MypageFragment
 
 class MypageInformUpdateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,11 +82,13 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                 .setTitle("수정").setMessage("정보수정완료")
                 .setCancelable(false)
                 .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
-                    MypageDao.getInstance().updateMember_M(LoginMemberDto(
+                    MypageDao.getInstance().updateMember_M(
+                        LoginMemberDto(
                         "", "", "", updateNick.text.toString(),"", 0,
-                        updateEmail.text.toString(), updateTel.text.toString(),0, "", ""))
+                        updateEmail.text.toString(), updateTel.text.toString(),0, "", "")
+                    )
 
-                    val itt = Intent(this, MypageActivity::class.java)
+                    val itt = Intent(this, MypageFragment::class.java)
                     startActivity(itt)
                 }).show()
         }

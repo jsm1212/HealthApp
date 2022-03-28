@@ -32,7 +32,7 @@
                 android:name=".mypage.MypageInformUpdateActivity"
                 android:exported="true"/>
         <activity
-                android:name=".mypage.MypageActivity"
+                android:name=".fragment.MypageFragment"
                 android:exported="true"/>
         <activity
                 android:name=".admin.AdminTrainerActivity"
@@ -53,28 +53,31 @@
                 android:name=".workbbs.WorkBbsDetailActivity"
                 android:exported="true"/>
         <activity
-                android:name=".workbbs.WorkBbsActivity"
+                android:name=".fragment.BbsFragment"
                 android:exported="true"/>
         <activity
                 android:name=".workbbs.WorkActivity"
                 android:exported="true"/>
         <activity
-                android:name=".FindActivity"
+                android:name=".login.FindActivity"
                 android:exported="true"/>
         <activity
-                android:name=".FindPwdFragment"
+                android:name=".login.FindPwdFragment"
                 android:exported="true"/>
         <activity
-                android:name=".FindIdFragment"
+                android:name=".fragment.WorklistFragment"
+                android:exported="true" />
+        <activity
+                android:name=".login.FindIdFragment"
                 android:exported="true"/>
         <activity
-                android:name=".FindFragmentMenu"
+                android:name=".login.FindFragmentMenu"
                 android:exported="true"/>
         <activity
-                android:name=".RegiActivity"
+                android:name=".login.RegiActivity"
                 android:exported="true"/>
         <activity
-                android:name=".LoginActivity"
+                android:name=".login.LoginActivity"
                 android:exported="true"/>
         <activity
                 android:name=".MainActivity"
