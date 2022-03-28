@@ -10,9 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-<<<<<<< HEAD
 import com.example.healthapp.workbbs.WorkActivity
-=======
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -26,7 +24,6 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_login.*
->>>>>>> origin/jeon
 
 class LoginActivity : AppCompatActivity() {
 

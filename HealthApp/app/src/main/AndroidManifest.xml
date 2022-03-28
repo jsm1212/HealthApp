@@ -27,6 +27,8 @@
                 android:exported="true"/>
         <activity
                 android:name=".workbbs.WorkActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".FindActivity"
                 android:exported="true"/>
         <activity
