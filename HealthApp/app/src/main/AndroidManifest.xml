@@ -80,6 +80,9 @@
                 android:name=".login.LoginActivity"
                 android:exported="true"/>
         <activity
+                android:name=".CalendarActivity"
+                android:exported="true"/>
+        <activity
                 android:name=".MainActivity"
                 android:exported="true">
             <intent-filter>
