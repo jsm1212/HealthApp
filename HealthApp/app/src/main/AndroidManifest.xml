@@ -10,12 +10,42 @@
     <application
             android:name=".GlobalApplication"
             android:allowBackup="true"
-            android:icon="@mipmap/ic_launcher"
+            android:icon="@mipmap/icon"
             android:label="@string/app_name"
-            android:roundIcon="@mipmap/ic_launcher_round"
+            android:roundIcon="@mipmap/icon_round"
             android:supportsRtl="true"
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
+        <activity
+                android:name=".mypage.MypageWriteActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageRoutineActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageReplyActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageLikeActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageInformUpdateActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".mypage.MypageActivity"
+                android:exported="true"/>
+        <activityx
+                android:name=".admin.AdminTrainerActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".admin.AdminBbsActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".admin.AdminMemberActivity"
+                android:exported="true"/>
+        <activity
+                android:name=".admin.AdminActivity"
+                android:exported="true"/>
         <activity
                 android:name=".workbbs.WorkBbsWriteActivity"
                 android:exported="true"/>

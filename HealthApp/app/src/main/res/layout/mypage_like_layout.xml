@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="10dp">
+    <TextView
+            android:id="@+id/mylTitle"
+            android:layout_width="350dp" android:layout_height="wrap_content"
+            android:hint="제목" android:textSize="20sp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:id="@+id/mylPerson"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:hint="작성자"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mylTitle"
+            android:layout_marginStart="10dp"/>
+    <TextView
+            android:id="@+id/mylDate"
+            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:hint="작성날짜"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mylPerson"
+            android:layout_marginStart="10dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

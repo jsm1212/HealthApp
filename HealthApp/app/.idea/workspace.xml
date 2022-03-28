@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e946b918-d05e-4f61-a2cf-a3f998120328" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/AdapterLike.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/AdapterReply.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/AdapterRoutine.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/AdapterWriter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/mypage_like_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/mypage_reply_layout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/res/layout/mypage_routine_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/RetrofitClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/RetrofitClient.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageInformUpdateActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageInformUpdateActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageLikeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageLikeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageReplyActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageReplyActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageRoutineActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageRoutineActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageWriteActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/healthapp/mypage/MypageWriteActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/drawable/mypage_btn_shape.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/drawable/mypage_line.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_admin_bbs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_admin_bbs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_admin_member.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_admin_member.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_admin_trainer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_admin_trainer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_mypage.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_mypage.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_like.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_like.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_reply.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_reply.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_routine.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_routine.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_write.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_mypage_write.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="26sJcMFRlLofyl2LXFe0i5F5aHZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../Scoop2/apps/android-sdk/current" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="e946b918-d05e-4f61-a2cf-a3f998120328" name="변경" comment="" />
+      <created>1648206439386</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648206439386</updated>
+    </task>
+    <servers />
+  </component>
+</project>
