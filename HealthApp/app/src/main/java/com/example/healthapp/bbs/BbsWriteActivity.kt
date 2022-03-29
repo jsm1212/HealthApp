@@ -1,4 +1,4 @@
-package com.example.healthapp.workbbs
+package com.example.healthapp.bbs
 
 import android.Manifest
 import android.app.Activity
@@ -11,15 +11,14 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.healthapp.databinding.ActivityBbsWriteBinding
 import com.example.healthapp.login.LoginMemberDao
-import com.example.healthapp.databinding.ActivityWorkBbsWriteBinding
-import com.example.healthapp.fragment.BbsFragment
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
-class WorkBbsWriteActivity : AppCompatActivity() {
+class BbsWriteActivity : AppCompatActivity() {
 
-    val b by lazy { ActivityWorkBbsWriteBinding.inflate(layoutInflater) }
+    val b by lazy { ActivityBbsWriteBinding.inflate(layoutInflater) }
 
     val REQUEST_CODE = 200
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,14 +58,14 @@ class WorkBbsWriteActivity : AppCompatActivity() {
             val images = uriToString()
 
             // 서버로 데이터 전달 후 Toast 노출
-            WorkBbsDao.getInstance().writebbs(
-                WorkBbsDto(0, id, nickname, title, content,"",
+            BbsDao.getInstance().writebbs(
+                BbsDto(0, id, nickname, title, content,"",
                 0, 0, 0, 0, 0, 0, images)
             )
             Toast.makeText(this,"작성이 완료되었습니다.", Toast.LENGTH_LONG).show()
 
             // 게시글 목록으로 이동
-            val i = Intent(this, BbsFragment::class.java)
+            val i = Intent(this, WorkActivity::class.java)
             startActivity(i)
         }
 
@@ -81,12 +80,27 @@ class WorkBbsWriteActivity : AppCompatActivity() {
                         deleteImg()
                     }
                     // 게시글 목록으로 이동
-                    val i = Intent(this, BbsFragment::class.java)
+                    val i = Intent(this, WorkActivity::class.java)
                     startActivity(i)
                 }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
                 .show()
         }
+    }
 
+    // 뒤로가기버튼 터치 이벤트
+    override fun onBackPressed() {
+        AlertDialog.Builder(this).setTitle("알림") // 제목
+            .setMessage("게시글 목록으로 돌아가시겠습니까??\n작성된 글은 저장되지 않습니다")   // 메세지
+            .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
+            .setPositiveButton("확인"){ _, _ ->   // 확인 누를시
+                if (imgUriArr != null){     // 업로드했던 이미지가 있으면 삭제
+                    deleteImg()
+                }
+                // 게시글 목록으로 이동
+                val i = Intent(this, WorkActivity::class.java)
+                startActivity(i)
+            }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
+            .show()
     }
 
     // 첨부할 사진 선택 시작함수(갤러리이동)

@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsDto
+import com.example.healthapp.bbs.BbsDto
 
 // 트레이너 dto 추가되면 수정
-class AdapterTrainer(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
+class AdapterTrainer(private val context: Context, private val dataList: ArrayList<BbsDto>)
     : RecyclerView.Adapter<AdapterTrainer.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val atid = itemView.findViewById<TextView>(R.id.atId)
@@ -22,7 +22,7 @@ class AdapterTrainer(private val context: Context, private val dataList: ArrayLi
         private val atmember = itemView.findViewById<TextView>(R.id.atMember)
         private val atbad = itemView.findViewById<TextView>(R.id.atBad)
 
-        fun bind(dto: WorkBbsDto, context: Context){
+        fun bind(dto: BbsDto, context: Context){
 //            ltitle.text = dto.title
 //            lperson.text = dto.nickname
 //            ldate.text = dto.wdate

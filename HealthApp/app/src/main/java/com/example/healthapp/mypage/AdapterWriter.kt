@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsDto
+import com.example.healthapp.bbs.BbsDto
 
-class AdapterWriter(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
+class AdapterWriter(private val context: Context, private val dataList: ArrayList<BbsDto>)
 :RecyclerView.Adapter<AdapterWriter.ItemViewHolder>() {
     class ItemViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         private val wtitle = itemView.findViewById<TextView>(R.id.mywTitle)
         private val wdate = itemView.findViewById<TextView>(R.id.mywDate)
         private val wread = itemView.findViewById<TextView>(R.id.mywReadcount)
 
-        fun bind(dto: WorkBbsDto, context: Context){
+        fun bind(dto: BbsDto, context: Context){
             wtitle.text = dto.title
             wdate.text = dto.wdate
             wread.text = dto.readcount.toString()

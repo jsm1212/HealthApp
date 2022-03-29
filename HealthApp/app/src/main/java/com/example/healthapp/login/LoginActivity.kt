@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkActivity
+import com.example.healthapp.bbs.WorkActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount

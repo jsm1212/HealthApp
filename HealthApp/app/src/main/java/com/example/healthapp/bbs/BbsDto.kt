@@ -1,10 +1,10 @@
-package com.example.healthapp.workbbs
+package com.example.healthapp.bbs
 
 import android.os.Parcel
 import android.os.Parcelable
 
-class WorkBbsDto(val seq:Int?, val id:String?, val nickname:String?, val title:String?, val content:String?, val wdate:String?,
-                 val ref:Int?, val step:Int?, val depth:Int?, val del:Int?, val readcount:Int?, val bbsLike:Int?, val bbsImage:String?) : Parcelable {
+class BbsDto(val seq:Int?, val id:String?, val nickname:String?, val title:String?, val content:String?, val wdate:String?,
+             val ref:Int?, val step:Int?, val depth:Int?, val del:Int?, val readcount:Int?, val bbsLike:Int?, val bbsImage:String?) : Parcelable {
     constructor(p: Parcel) : this(
         p.readInt(), p.readString(), p.readString(), p.readString(), p.readString(), p.readString(),
         p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readString()
@@ -30,12 +30,12 @@ class WorkBbsDto(val seq:Int?, val id:String?, val nickname:String?, val title:S
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<WorkBbsDto> {
-        override fun createFromParcel(parcel: Parcel): WorkBbsDto {
-            return WorkBbsDto(parcel)
+    companion object CREATOR : Parcelable.Creator<BbsDto> {
+        override fun createFromParcel(parcel: Parcel): BbsDto {
+            return BbsDto(parcel)
         }
 
-        override fun newArray(size: Int): Array<WorkBbsDto?> {
+        override fun newArray(size: Int): Array<BbsDto?> {
             return arrayOfNulls(size)
         }
     }

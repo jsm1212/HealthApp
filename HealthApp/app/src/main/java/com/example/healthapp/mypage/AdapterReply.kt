@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsDto
+import com.example.healthapp.bbs.BbsDto
 
-class AdapterReply(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
+class AdapterReply(private val context: Context, private val dataList: ArrayList<BbsDto>)
     : RecyclerView.Adapter<AdapterReply.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val rpreply = itemView.findViewById<TextView>(R.id.myrpReply)
         private val rptitle = itemView.findViewById<TextView>(R.id.myrpTitle)
         private val rpdate = itemView.findViewById<TextView>(R.id.myrpDate)
 
-        fun bind(dto: WorkBbsDto, context: Context){
+        fun bind(dto: BbsDto, context: Context){
             rpreply.text = "댓글입니다\n댓글입니다\n댓글입니다" // 댓글은 어디에...?
             rptitle.text = dto.title
             rpdate.text = dto.wdate

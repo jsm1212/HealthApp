@@ -2,11 +2,7 @@ package com.example.healthapp.admin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.mypage.AdapterLike
-import com.example.healthapp.workbbs.WorkBbsDto
 
 class AdminTrainerActivity : AppCompatActivity() {
     // 트레이너 dto생성되면 수정

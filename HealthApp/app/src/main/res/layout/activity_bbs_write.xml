@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".workbbs.WorkBbsWriteActivity">
+        tools:context=".bbs.BbsWriteActivity">
     <TextView
             android:text="Add Images"
             android:layout_width="wrap_content"
@@ -30,7 +30,7 @@
             android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"/>
     <EditText
             android:layout_width="495sp"
-            android:layout_height="430sp"
+            android:layout_height="500sp"
             android:inputType="textPersonName"
             android:ems="10"
             android:gravity="top|left"

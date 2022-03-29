@@ -47,16 +47,16 @@
                 android:name=".admin.AdminActivity"
                 android:exported="true"/>
         <activity
-                android:name=".workbbs.WorkBbsWriteActivity"
+                android:name=".bbs.BbsWriteActivity"
                 android:exported="true"/>
         <activity
-                android:name=".workbbs.WorkBbsDetailActivity"
+                android:name=".bbs.WorkBbsDetailActivity"
                 android:exported="true"/>
         <activity
                 android:name=".fragment.BbsFragment"
                 android:exported="true"/>
         <activity
-                android:name=".workbbs.WorkActivity"
+                android:name=".bbs.WorkActivity"
                 android:exported="true"/>
         <activity
                 android:name=".login.FindActivity"

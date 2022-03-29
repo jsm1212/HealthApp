@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsDto
+import com.example.healthapp.bbs.BbsDto
 
-class AdapterLike(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
+class AdapterLike(private val context: Context, private val dataList: ArrayList<BbsDto>)
     : RecyclerView.Adapter<AdapterLike.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val ltitle = itemView.findViewById<TextView>(R.id.mylTitle)
         private val lperson = itemView.findViewById<TextView>(R.id.mylPerson)
         private val ldate = itemView.findViewById<TextView>(R.id.mylDate)
 
-        fun bind(dto: WorkBbsDto, context: Context){
+        fun bind(dto: BbsDto, context: Context){
             ltitle.text = dto.title
             lperson.text = dto.nickname
             ldate.text = dto.wdate

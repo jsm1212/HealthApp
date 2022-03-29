@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsDto
+import com.example.healthapp.bbs.BbsDto
 
 // dto에 신고횟수 추가 필요
-class AdapterBbs(private val context: Context, private val dataList: ArrayList<WorkBbsDto>)
+class AdapterBbs(private val context: Context, private val dataList: ArrayList<BbsDto>)
     : RecyclerView.Adapter<AdapterBbs.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val abtitle = itemView.findViewById<TextView>(R.id.abTitle)
@@ -18,7 +18,7 @@ class AdapterBbs(private val context: Context, private val dataList: ArrayList<W
         private val abdate = itemView.findViewById<TextView>(R.id.abDate)
         private val abbad = itemView.findViewById<TextView>(R.id.abBad)
 
-        fun bind(dto: WorkBbsDto, context: Context){
+        fun bind(dto: BbsDto, context: Context){
             abtitle.text = dto.title
             abnick.text = dto.nickname
             abdate.text = dto.wdate

@@ -11,15 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.workbbs.WorkBbsCustomAdapter
-import com.example.healthapp.workbbs.WorkBbsDao
-import com.example.healthapp.workbbs.WorkBbsDto
-import com.example.healthapp.workbbs.WorkBbsWriteActivity
+import com.example.healthapp.bbs.*
 
 class BbsFragment(val activity:Context) : Fragment() {
 
-    var emptyList = arrayListOf<WorkBbsDto>(
-        WorkBbsDto(null, "", "", "등록된 게시글이 없습니다.", ".", "", 0, 0, 0, 0, 0, 0, null)
+    var emptyList = arrayListOf<BbsDto>(
+        BbsDto(null, "", "", "등록된 게시글이 없습니다.", ".", "", 0, 0, 0, 0, 0, 0, null)
     )
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,7 +24,7 @@ class BbsFragment(val activity:Context) : Fragment() {
         val view = inflater.inflate(R.layout.fragment_bbs, container, false)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
-        val workBbsList = WorkBbsDao.getInstance().getBbsList()
+        val workBbsList = BbsDao.getInstance().getBbsList()
 
         val workBbsAdapter = WorkBbsCustomAdapter(activity, workBbsList!!)
 
@@ -41,7 +38,7 @@ class BbsFragment(val activity:Context) : Fragment() {
         val goWorkBbsWirte = view.findViewById<Button>(R.id.goWorkBbsWirte)
 
         goWorkBbsWirte.setOnClickListener {
-            val intent = Intent(activity, WorkBbsWriteActivity::class.java)
+            val intent = Intent(activity, BbsWriteActivity::class.java)
             startActivity(intent)
         }
 
