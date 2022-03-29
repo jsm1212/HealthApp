@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface WorkBbsService {
 
@@ -15,6 +16,9 @@ interface WorkBbsService {
     // 게시판 글 작성하기
     @POST("/writebbs_M")
     fun writebbs(@Body dto: BbsDto) : Call<String>
+
+    @GET("/deleteBbs")
+    fun deleteBbs(@Query("seq") seq: Int) : Call<String>
 }
 
 class BbsDao {
@@ -46,6 +50,17 @@ class BbsDao {
 
         val service = retrofit?.create(WorkBbsService::class.java)
         val call = service?.writebbs(dto)
+        val response = call?.execute()
+
+        return response?.body() as String
+    }
+
+    // 게시판 글 삭제하기
+    fun deleteBbs(seq: Int) :String{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(WorkBbsService::class.java)
+        val call = service?.deleteBbs(seq)
         val response = call?.execute()
 
         return response?.body() as String

@@ -7,15 +7,16 @@
         android:layout_height="match_parent"
         tools:context=".bbs.BbsWriteActivity">
     <TextView
+            android:id="@+id/textView4"
             android:text="Add Images"
             android:layout_width="wrap_content"
             android:layout_height="32sp"
-            android:id="@+id/textView4"
             android:textSize="20sp"
             android:gravity="center|left"
             app:layout_constraintTop_toBottomOf="@+id/WorkBbsWriteTitle"
             android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteTitle"/>
     <EditText
+            android:id="@+id/WorkBbsWriteTitle"
             android:layout_width="495sp"
             android:layout_height="50sp"
             android:inputType="textPersonName"
@@ -24,7 +25,6 @@
             android:gravity="center|left"
             android:hint="title..."
             android:background="@android:color/transparent"
-            android:id="@+id/WorkBbsWriteTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"/>

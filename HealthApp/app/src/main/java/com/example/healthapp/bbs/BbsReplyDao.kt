@@ -13,6 +13,9 @@ interface BbsReplyService{
     @GET("/getReplyList_M")
     fun getReplyList(@Query("seq") seq:Int) : Call<ArrayList<BbsReplyDto>>
 
+    @POST("/writeReply_M")
+    fun writeReply(@Body dto: BbsReplyDto) : Call<String>
+
 }
 
 class BbsReplyDao {
@@ -37,6 +40,17 @@ class BbsReplyDao {
         val response = call?.execute()
 
         return response?.body() as ArrayList<BbsReplyDto>
+    }
+
+    // 댓글 작성하기
+    fun writeReply(dto: BbsReplyDto) : String{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(BbsReplyService::class.java)
+        val call = service?.writeReply(dto)
+        val response = call?.execute()
+
+        return response?.body() as String
     }
 
 }

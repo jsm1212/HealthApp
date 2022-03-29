@@ -12,6 +12,9 @@
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin_bbs.xml" value="0.2" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin_member.xml" value="0.264" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin_trainer.xml" value="0.264" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_bbs_detail.xml" value="0.3333333333333333" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_bbs_update.xml" value="0.3333333333333333" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_bbs_write.xml" value="0.34479166666666666" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_find.xml" value="0.16145833333333334" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_find_fragment_menu.xml" value="0.3804878048780488" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_find_id.xml" value="0.16875" />
@@ -34,7 +37,7 @@
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/admin_bbs_layout.xml" value="0.4" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/admin_member_layout.xml" value="0.264" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/admin_trainer_layout.xml" value="0.4" />
-        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/bbs_detail_layout_item.xml" value="0.6" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/bbs_detail_layout_item.xml" value="0.5" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/bbs_layout_item.xml" value="0.34479166666666666" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/fragment_bbs.xml" value="0.3333333333333333" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/fragment_calendar.xml" value="0.3333333333333333" />

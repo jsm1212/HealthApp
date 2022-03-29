@@ -41,7 +41,7 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
         itemView.setOnClickListener {
 
             // 게시글 디테일로 이동
-            Intent(context, WorkBbsDetailActivity::class.java).apply {
+            Intent(context, BbsDetailActivity::class.java).apply {
 
                 // 디테일로 가져갈 데이터
                 putExtra("WorkBbsData", dto)

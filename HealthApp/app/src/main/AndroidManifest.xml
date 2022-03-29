@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SEND_SMS" /> <!--sms문자보내기-->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
             android:name=".GlobalApplication"
@@ -16,6 +16,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
+        <activity
+                android:name=".bbs.BbsUpdateActivity"
+                android:exported="true"/>
         <activity
                 android:name=".mypage.MypageWriteActivity"
                 android:exported="true"/>
@@ -50,8 +53,9 @@
                 android:name=".bbs.BbsWriteActivity"
                 android:exported="true"/>
         <activity
-                android:name=".bbs.WorkBbsDetailActivity"
-                android:exported="true"/>
+                android:name=".bbs.BbsDetailActivity"
+                android:exported="true"
+                android:windowSoftInputMode="adjustResize|adjustPan"/>
         <activity
                 android:name=".fragment.BbsFragment"
                 android:exported="true"/>
@@ -66,7 +70,7 @@
                 android:exported="true"/>
         <activity
                 android:name=".fragment.WorklistFragment"
-                android:exported="true" />
+                android:exported="true"/>
         <activity
                 android:name=".login.FindIdFragment"
                 android:exported="true"/>
