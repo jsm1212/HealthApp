@@ -3,11 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin.xml" value="0.32135416666666666" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin_bbs.xml" value="0.32135416666666666" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_admin_member.xml" value="0.32135416666666666" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_calendar.xml" value="0.36614583333333334" />
         <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/activity_main.xml" value="0.3482789855072464" />
+        <entry key="..\:/HealthApp/HealthApp/app/src/main/res/layout/fragment_calendar.xml" value="0.32135416666666666" />
       </map>
     </option>
   </component>
-  <!-- 우빈님 파일 -->
   <component name="ExternalStorageConfigurationManager" enabled="true" />
 </project>
