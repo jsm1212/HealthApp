@@ -42,7 +42,7 @@
                         android:layout_height="28sp" android:id="@+id/bbsDetailWdate" android:layout_weight="1"/>
                 <TextView
                         android:id="@+id/bbsDetailRcLike"
-                        android:text="53 / ❤21"
+                        android:text="❤21 / 53"
                         android:layout_width="20sp"
                         android:layout_marginRight="5sp"
                         android:textSize="16sp"
