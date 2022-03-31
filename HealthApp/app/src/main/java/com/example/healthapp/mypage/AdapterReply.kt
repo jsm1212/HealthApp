@@ -29,9 +29,12 @@ class AdapterReply(private val context: Context, private val dataList: ArrayList
 
             val moveData = BbsDao.bbsData
 
+            // dto.replyNum = 해당 게시글의 seq번호
+
             // 게시글 디테일로 이동
             itemView.setOnClickListener {
                 Intent(context, BbsDetailActivity::class.java).apply {
+                    BbsDao.bbsSeq = dto.replyNum
                     putExtra("WorkBbsData", moveData)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
