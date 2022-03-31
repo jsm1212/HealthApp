@@ -38,8 +38,7 @@ class BbsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
         // 서버에서 가져온 데이터 세팅
-        val data = BbsDao.getInstance().bbsDetail(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!)
-            //intent.getParcelableExtra<BbsDto>("WorkBbsData")
+        val data = intent.getParcelableExtra<BbsDto>("WorkBbsData")
         println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + data?.title)
 
         // -----------------------------------게시글-----------------------------------
@@ -57,9 +56,7 @@ class BbsDetailActivity : AppCompatActivity() {
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
             BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
-
-            b.bbsDetailRcLike.visibility = View.GONE
-            //reLoadView()    // 화면 새로고침
+            reLoadView()    // 화면 새로고침
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {

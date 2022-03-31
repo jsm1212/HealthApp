@@ -38,18 +38,16 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
         WorkBbsWriter.text = dto.nickname
         WorkBbsWdate.text = dto.wdate
 
-        //val detailDto = BbsDao.getInstance().bbsDetail(dto.seq!!, LoginMemberDao.user?.id!!)
-
         //itemView 클릭 시 이벤트
         itemView.setOnClickListener {
 
             // 게시글 디테일로 이동
             Intent(context, BbsDetailActivity::class.java).apply {
-
+                val detailDto = BbsDao.getInstance().bbsDetail(dto.seq!!, LoginMemberDao.user?.id!!)
 
                 BbsDao.bbsSeq = dto.seq
                 // 디테일로 가져갈 데이터
-                //putExtra("WorkBbsData", detailDto)
+                putExtra("WorkBbsData", detailDto)
 
                 // 새로운 task 생성
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

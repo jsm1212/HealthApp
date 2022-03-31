@@ -61,6 +61,7 @@
                 android:exported="true"/>
         <activity
                 android:name=".bbs.WorkActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
                 android:exported="true"/>
         <activity
                 android:name=".login.FindActivity"
