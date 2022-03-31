@@ -6,19 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".admin.AdminBbsActivity">
+    <TextView
+            android:id="@+id/textab"
+            android:text="게시판 관리"
+            android:gravity="center" android:textSize="30sp"
+            android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyBbs"
             android:layout_width="match_parent"
-            android:layout_height="800dp"/>
-    <Button
-            android:id="@+id/adbBtn"
-            android:text="Button"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            app:layout_constraintTop_toBottomOf="@+id/recyBbs"/>
-    <TextView
-            android:text="게시판 관리"
-            android:gravity="center" android:textSize="30sp"
-            android:layout_width="match_parent" android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            android:layout_height="800dp"
+            app:layout_constraintTop_toBottomOf="@+id/textab"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

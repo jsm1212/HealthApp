@@ -1,32 +1,48 @@
 package com.example.healthapp.mypage
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.bbs.BbsDto
+import com.example.healthapp.bbs.BbsDao
+import com.example.healthapp.bbs.BbsReplyDto
+import com.example.healthapp.bbs.WorkBbsDetailActivity
 
-class AdapterReply(private val context: Context, private val dataList: ArrayList<BbsDto>)
-    : RecyclerView.Adapter<AdapterReply.ItemViewHolder>() {
+// putExtra수정수정수정 BbsDto 넘기기
+class AdapterReply(private val context: Context, private val dataList: ArrayList<BbsReplyDto>)
+: RecyclerView.Adapter<AdapterReply.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val rpreply = itemView.findViewById<TextView>(R.id.myrpReply)
         private val rptitle = itemView.findViewById<TextView>(R.id.myrpTitle)
         private val rpdate = itemView.findViewById<TextView>(R.id.myrpDate)
+        private val rplike = itemView.findViewById<TextView>(R.id.myrpLike)
 
-        fun bind(dto: BbsDto, context: Context){
-            rpreply.text = "댓글입니다\n댓글입니다\n댓글입니다" // 댓글은 어디에...?
+        fun bind(dto: BbsReplyDto, context: Context){
+            rpreply.text = dto.content
             rptitle.text = dto.title
-            rpdate.text = dto.wdate
+            rpdate.text = dto.wdtae
+            rplike.text = dto.replyLike.toString()
+
+            val moveData = BbsDao.bbsData
+
+            // 게시글 디테일로 이동
+            itemView.setOnClickListener {
+                Intent(context, WorkBbsDetailActivity::class.java).apply {
+                    putExtra("WorkBbsData", moveData)
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run { context.startActivity(this) }
+            }
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterReply.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.mypage_reply_layout, parent, false)
-        return AdapterReply.ItemViewHolder(view)
+        return ItemViewHolder(view)
     }
-    override fun onBindViewHolder(holder: AdapterReply.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
     }
     override fun getItemCount(): Int {

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.healthapp">
+          xmlns:tools="http://schemas.android.com/tools" package="com.example.healthapp">
 
     <uses-permission android:name="android.permission.INTERNET"/> <!-- 추가 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.SEND_SMS" /> <!--sms문자보내기-->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
             android:name=".GlobalApplication"
@@ -16,6 +16,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.HealthApp"
             android:usesCleartextTraffic="true">
+        <activity
+                android:name=".Timer"
+                android:exported="true"/>
         <activity
                 android:name=".mypage.MypageWriteActivity"
                 android:exported="true"/>
@@ -66,7 +69,7 @@
                 android:exported="true"/>
         <activity
                 android:name=".fragment.WorklistFragment"
-                android:exported="true" />
+                android:exported="true"/>
         <activity
                 android:name=".login.FindIdFragment"
                 android:exported="true"/>

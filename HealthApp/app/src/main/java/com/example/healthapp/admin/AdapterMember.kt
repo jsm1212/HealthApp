@@ -1,17 +1,24 @@
 package com.example.healthapp.admin
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
+import com.example.healthapp.login.LoginActivity
 
-// 회원 신고수 추가되면 수정
 class AdapterMember(private val context: Context, private val dataList: ArrayList<LoginMemberDto>)
-    : RecyclerView.Adapter<AdapterMember.ItemViewHolder>() {
+:RecyclerView.Adapter<AdapterMember.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val amid = itemView.findViewById<TextView>(R.id.amId)
         private val amnick = itemView.findViewById<TextView>(R.id.amNick)
@@ -19,8 +26,8 @@ class AdapterMember(private val context: Context, private val dataList: ArrayLis
         private val amemail = itemView.findViewById<TextView>(R.id.amEmail)
         private val amtel = itemView.findViewById<TextView>(R.id.amTel)
         private val amregi = itemView.findViewById<TextView>(R.id.amRegiDate)
-        private val ambad = itemView.findViewById<TextView>(R.id.amBad)
 
+        @SuppressLint("ResourceAsColor")
         fun bind(dto: LoginMemberDto, context: Context){
             amid.text = dto.id
             amnick.text = dto.nickname
@@ -28,14 +35,17 @@ class AdapterMember(private val context: Context, private val dataList: ArrayLis
             amemail.text = dto.email
             amtel.text = dto.tel
             amregi.text = dto.regidate
-//            ambad.text = dto.wdate
+
+//            if(dto.del == 1){
+//                itemView.setBackgroundColor(R.color.red)
+//            }
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterMember.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.admin_member_layout, parent, false)
-        return AdapterMember.ItemViewHolder(view)
+        return ItemViewHolder(view)
     }
-    override fun onBindViewHolder(holder: AdapterMember.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
     }
     override fun getItemCount(): Int {

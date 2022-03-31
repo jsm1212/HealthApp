@@ -18,9 +18,9 @@ interface WorkBbsService {
 }
 
 class BbsDao {
-
     companion object{
         var workBbsDao: BbsDao? = null
+        var bbsData: BbsDto? = null // 내 댓글 목록에 필요
 
         fun getInstance(): BbsDao {
             if(workBbsDao == null){

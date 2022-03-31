@@ -6,19 +6,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mypage.MypageReplyActivity">
+    <TextView
+            android:id="@+id/textrp"
+            android:text="내 댓글"
+            android:gravity="center" android:textSize="20sp"
+            android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyReply"
             android:layout_width="match_parent"
-            android:layout_height="700dp"/>
+            android:layout_height="700dp"
+            app:layout_constraintTop_toBottomOf="@+id/textrp"/>
     <Button
-            android:id="@+id/myrBtn"
-            android:text="Button"
+            android:id="@+id/myrpAllBtn"
+            android:text="전체선택"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             app:layout_constraintTop_toBottomOf="@+id/recyReply"/>
-    <TextView
-            android:text="내 댓글"
-            android:gravity="center" android:textSize="30sp"
-            android:layout_width="match_parent" android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+            android:id="@+id/myrpDeleteBtn"
+            android:text="삭제"
+            android:layout_width="wrap_content" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/recyReply"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

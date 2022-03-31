@@ -17,8 +17,7 @@ class LoginMemberDto(val id:String?, val pwd:String?, val name:String?, val nick
         parcel.readInt(),
         parcel.readString(),
         parcel.readString()
-    ) {
-    }
+    ) {}
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
@@ -38,6 +37,10 @@ class LoginMemberDto(val id:String?, val pwd:String?, val name:String?, val nick
         return 0
     }
 
+    override fun toString(): String {
+        return "LoginMemberDto(id=$id, pwd=$pwd, name=$name, nickname=$nickname, gender=$gender, age=$age, email=$email, tel=$tel, auth=$auth, regidate=$regidate, trainer=$trainer)"
+    }
+
     companion object CREATOR : Parcelable.Creator<LoginMemberDto> {
         override fun createFromParcel(parcel: Parcel): LoginMemberDto {
             return LoginMemberDto(parcel)
@@ -46,9 +49,5 @@ class LoginMemberDto(val id:String?, val pwd:String?, val name:String?, val nick
         override fun newArray(size: Int): Array<LoginMemberDto?> {
             return arrayOfNulls(size)
         }
-    }
-
-    override fun toString(): String {
-        return "LoginMemberDto(id=$id, pwd=$pwd, name=$name, nickname=$nickname, gender=$gender, age=$age, email=$email, tel=$tel, auth=$auth, regidate=$regidate, trainer=$trainer)"
     }
 }

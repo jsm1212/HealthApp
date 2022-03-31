@@ -6,10 +6,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mypage.MypageWriteActivity">
+    <TextView
+            android:id="@+id/textw"
+            android:text="내 게시글"
+            android:gravity="center" android:textSize="20sp"
+            android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyWrite"
             android:layout_width="match_parent"
-            android:layout_height="700dp"/>
+            android:layout_height="700dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textw"/>
     <Button
             android:id="@+id/mywAllBtn"
             android:text="전체선택"
@@ -26,9 +33,4 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"/>
-    <TextView
-            android:text="내 게시글"
-            android:gravity="center" android:textSize="30sp"
-            android:layout_width="match_parent" android:layout_height="90dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,19 +6,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".mypage.MypageRoutineActivity">
+    <TextView
+            android:id="@+id/textrt"
+            android:text="운동루틴목록"
+            android:gravity="center" android:textSize="20sp"
+            android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyRoutine"
             android:layout_width="match_parent"
-            android:layout_height="700dp"/>
+            android:layout_height="700dp"
+            app:layout_constraintTop_toBottomOf="@+id/textrt"/>
     <Button
-            android:id="@+id/myrtBtn"
-            android:text="Button"
+            android:id="@+id/myrtAllBtn"
+            android:text="전체선택"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             app:layout_constraintTop_toBottomOf="@+id/recyRoutine"/>
-    <TextView
-            android:text="내 루틴"
-            android:gravity="center" android:textSize="30sp"
-            android:layout_width="match_parent" android:layout_height="100dp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+    <Button
+            android:id="@+id/myrtDeleteBtn"
+            android:text="삭제"
+            android:layout_width="wrap_content" android:layout_height="50dp"
+            app:layout_constraintTop_toBottomOf="@+id/recyRoutine"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
