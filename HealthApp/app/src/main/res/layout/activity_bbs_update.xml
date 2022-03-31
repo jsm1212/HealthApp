@@ -12,8 +12,9 @@
             android:layout_width="95sp"
             android:layout_height="38sp" android:id="@+id/BbsUpdateUploadBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="@+id/BbsUpdateTitle" android:layout_marginTop="6dp"/>
-    <TextView
+            app:layout_constraintEnd_toEndOf="@+id/BbsUpdateTitle" android:layout_marginTop="6dp"
+            tools:visibility="visible"/>
+    <EditText
             android:id="@+id/BbsUpdateTitle"
             android:layout_width="495sp"
             android:layout_height="50sp"

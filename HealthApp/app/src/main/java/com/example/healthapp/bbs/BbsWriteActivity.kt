@@ -71,19 +71,7 @@ class BbsWriteActivity : AppCompatActivity() {
 
         // 목록으로 버튼 클릭시 이벤트
         b.goToListBtn.setOnClickListener {
-            // 목록으로 이동하는 알림창 띄우기
-            AlertDialog.Builder(this).setTitle("알림") // 제목
-                .setMessage("게시글 목록으로 돌아가시겠습니까??\n작성된 글은 저장되지 않습니다")   // 메세지
-                .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
-                .setPositiveButton("확인"){ _, _ ->   // 확인 누를시
-                    if (imgUriArr != null){     // 업로드했던 이미지가 있으면 삭제
-                        deleteImg()
-                    }
-                    // 게시글 목록으로 이동
-                    val i = Intent(this, WorkActivity::class.java)
-                    startActivity(i)
-                }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
-                .show()
+            onBackPressed()
         }
     }
 
@@ -97,8 +85,7 @@ class BbsWriteActivity : AppCompatActivity() {
                     deleteImg()
                 }
                 // 게시글 목록으로 이동
-                val i = Intent(this, WorkActivity::class.java)
-                startActivity(i)
+                super.onBackPressed()
             }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
             .show()
     }
@@ -210,7 +197,6 @@ class BbsWriteActivity : AppCompatActivity() {
                 println("파일삭제 실패")
             }
         }
-
     }
 
 }

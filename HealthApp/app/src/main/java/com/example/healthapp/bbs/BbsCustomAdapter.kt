@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
+import com.example.healthapp.login.LoginMemberDao
 
 class WorkBbsCustomAdapter(private val context: Context, private val dto: ArrayList<BbsDto>) : RecyclerView.Adapter<ItemViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -37,14 +38,18 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
         WorkBbsWriter.text = dto.nickname
         WorkBbsWdate.text = dto.wdate
 
+        //val detailDto = BbsDao.getInstance().bbsDetail(dto.seq!!, LoginMemberDao.user?.id!!)
+
         //itemView 클릭 시 이벤트
         itemView.setOnClickListener {
 
             // 게시글 디테일로 이동
             Intent(context, BbsDetailActivity::class.java).apply {
 
+
+                BbsDao.bbsSeq = dto.seq
                 // 디테일로 가져갈 데이터
-                putExtra("WorkBbsData", dto)
+                //putExtra("WorkBbsData", detailDto)
 
                 // 새로운 task 생성
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

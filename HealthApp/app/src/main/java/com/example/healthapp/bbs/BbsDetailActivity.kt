@@ -23,29 +23,54 @@ class BbsDetailActivity : AppCompatActivity() {
 
     val b by lazy { ActivityBbsDetailBinding.inflate(layoutInflater) }
 
-    private lateinit var viewPager: ViewPager2
+//    private lateinit var viewPager: ViewPager2
+//
+//    var replyList : ArrayList<BbsReplyDto>? = null
 
-    var replyList : ArrayList<BbsReplyDto>? = null
+    // 아직 구현하지 못한 기능
+    /*
+    1. 뷰페이저기능
+    2. 좋아요기능
+    4. 댓글 수정, 삭제, 답글기능
+    */
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
-        // adapter에서 가져온 데이터 세팅
-        val data = intent.getParcelableExtra<BbsDto>("WorkBbsData")
+        // 서버에서 가져온 데이터 세팅
+        val data = BbsDao.getInstance().bbsDetail(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!)
+            //intent.getParcelableExtra<BbsDto>("WorkBbsData")
+        println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + data?.title)
 
         // -----------------------------------게시글-----------------------------------
         // 가져온 데이터로 TextView세팅
         b.bbsDetailTitle.text = data?.title                                  // 게시글 제목
         b.bbsDetailWriter.text = "${data?.nickname}(${data?.id})"            // 게시글 작성자
         b.bbsDetailWdate.text = data?.wdate                                  // 게시글 작성일
-        b.bbsDetailRcLike.text = "❤${data?.readcount} / ${data?.bbsLike}"   // 게시글 조회수/좋아요
+        b.bbsDetailRcLike.text = "❤${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
         b.bbsDetailContent.text = data?.content
         if(LoginMemberDao.user?.id == data?.id){
             b.bbsUpdateView.visibility = View.VISIBLE
             b.bbsDeleteView.visibility = View.VISIBLE
         }
+        // 좋아요 터치시 이벤트(좋아요누르기전)
+        b.bbsDetailRcLike.setOnClickListener {
+            // 코드
+            BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
+
+            b.bbsDetailRcLike.visibility = View.GONE
+            //reLoadView()    // 화면 새로고침
+        }
+        // 목록으로 클릭시 이벤트
+        b.goToBbsList.setOnClickListener {
+            super.onBackPressed()
+        }
         // 수정 클릭시 이벤트
         b.bbsUpdateView.setOnClickListener{
+            //화면 새로고침
+            this.startActivity(intent) //현재 액티비티 재실행 실시
+            this.overridePendingTransition(0, 0) //효과 없애기
+
             val intent = Intent(this, BbsUpdateActivity::class.java)
             intent.putExtra("BbsInfo", data)
             startActivity(intent)
@@ -67,7 +92,7 @@ class BbsDetailActivity : AppCompatActivity() {
 
         // -----------------------------------댓글-----------------------------------
         // 댓글목록 가져오기
-        val bbsReplyList = BbsReplyDao.getInstance().getReplyList(data?.seq!!)
+        val bbsReplyList = BbsReplyDao.getInstance().getReplyList(BbsDao.bbsSeq!!)
         // 작성된 댓글이 없을때 TextView문구 노출
         if(bbsReplyList!!.isEmpty()){
             b.nonReply.visibility = View.VISIBLE
@@ -98,12 +123,7 @@ class BbsDetailActivity : AppCompatActivity() {
             )
             Toast.makeText(this,"작성이 완료되었습니다.", Toast.LENGTH_LONG).show()
 
-            //화면 새로고침
-            val intent = (this as Activity).intent
-            this.finish() //현재 액티비티 종료 실시
-            this.overridePendingTransition(0, 0) //효과 없애기
-            this.startActivity(intent) //현재 액티비티 재실행 실시
-            this.overridePendingTransition(0, 0) //효과 없애기
+            reLoadView()    // 화면 새로고침
         }
 
         // 키보드 나올때 화면 위로 밀어올리기
@@ -132,6 +152,15 @@ class BbsDetailActivity : AppCompatActivity() {
 //        val pagerAdapter = ScreenSlidePagerAdapter(this)
 //        viewPager.adapter = pagerAdapter
 
+    }
+
+    fun reLoadView(){
+        //화면 새로고침
+        val intent = (this as Activity).intent
+        this.finish() //현재 액티비티 종료 실시
+        this.overridePendingTransition(0, 0) //효과 없애기
+        this.startActivity(intent) //현재 액티비티 재실행 실시
+        this.overridePendingTransition(0, 0) //효과 없애기
     }
 //    // 파이어베이스 저장공간 위치
 //    val storage = Firebase.storage("gs://healthapp-client.appspot.com")

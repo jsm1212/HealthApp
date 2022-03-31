@@ -10,7 +10,7 @@ import retrofit2.http.Query
 interface BbsReplyService{
 
     // 댓글 리스트 불러오기
-    @GET("/getReplyList_M")
+    @GET("/getReplyList")
     fun getReplyList(@Query("seq") seq:Int) : Call<ArrayList<BbsReplyDto>>
 
     @POST("/writeReply_M")

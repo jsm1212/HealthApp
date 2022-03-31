@@ -5,6 +5,7 @@ import android.os.Parcelable
 
 class BbsDto(val seq:Int?, val id:String?, val nickname:String?, val title:String?, val content:String?, val wdate:String?,
              val ref:Int?, val step:Int?, val depth:Int?, val del:Int?, val readcount:Int?, val bbsLike:Int?, val bbsImage:String?) : Parcelable {
+
     constructor(p: Parcel) : this(
         p.readInt(), p.readString(), p.readString(), p.readString(), p.readString(), p.readString(),
         p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readInt(), p.readString()
