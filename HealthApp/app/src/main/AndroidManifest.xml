@@ -38,9 +38,6 @@
                 android:name=".fragment.MypageFragment"
                 android:exported="true"/>
         <activity
-                android:name=".admin.AdminTrainerActivity"
-                android:exported="true"/>
-        <activity
                 android:name=".admin.AdminBbsActivity"
                 android:exported="true"/>
         <activity
@@ -61,6 +58,7 @@
                 android:exported="true"/>
         <activity
                 android:name=".bbs.WorkActivity"
+                android:configChanges="keyboardHidden|orientation|screenSize"
                 android:exported="true"/>
         <activity
                 android:name=".login.FindActivity"

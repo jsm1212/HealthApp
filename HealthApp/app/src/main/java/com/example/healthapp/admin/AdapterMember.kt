@@ -36,9 +36,9 @@ class AdapterMember(private val context: Context, private val dataList: ArrayLis
             amtel.text = dto.tel
             amregi.text = dto.regidate
 
-//            if(dto.del == 1){
-//                itemView.setBackgroundColor(R.color.red)
-//            }
+            if(dto.del == 1){
+                itemView.setBackgroundColor(R.color.warn)
+            }
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
