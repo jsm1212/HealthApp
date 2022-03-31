@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDao
 import com.example.healthapp.bbs.BbsReplyDto
-import com.example.healthapp.bbs.WorkBbsDetailActivity
+import com.example.healthapp.bbs.BbsDetailActivity
 
 // putExtra수정수정수정 BbsDto 넘기기
 class AdapterReply(private val context: Context, private val dataList: ArrayList<BbsReplyDto>)
@@ -24,14 +24,14 @@ class AdapterReply(private val context: Context, private val dataList: ArrayList
         fun bind(dto: BbsReplyDto, context: Context){
             rpreply.text = dto.content
             rptitle.text = dto.title
-            rpdate.text = dto.wdtae
+            rpdate.text = dto.wdate
             rplike.text = dto.replyLike.toString()
 
             val moveData = BbsDao.bbsData
 
             // 게시글 디테일로 이동
             itemView.setOnClickListener {
-                Intent(context, WorkBbsDetailActivity::class.java).apply {
+                Intent(context, BbsDetailActivity::class.java).apply {
                     putExtra("WorkBbsData", moveData)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }

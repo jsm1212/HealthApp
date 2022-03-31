@@ -38,6 +38,7 @@ class CalendarFragment(val activity:Context) : Fragment() {
 
         //유저 아이디
         val currentUserId = LoginMemberDao.user?.id
+        System.out.println("@@@@@@유저"+currentUserId)
 
         content.setText("")
 

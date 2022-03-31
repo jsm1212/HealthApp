@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
-import com.example.healthapp.bbs.WorkBbsDetailActivity
+import com.example.healthapp.bbs.BbsDetailActivity
 
 
 class AdapterWriter(private val context: Context, private val dataList: ArrayList<BbsDto>)
@@ -26,7 +26,7 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
 
             // 게시글 디테일로 이동
             itemView.setOnClickListener {
-                Intent(context, WorkBbsDetailActivity::class.java).apply {
+                Intent(context, BbsDetailActivity::class.java).apply {
                     putExtra("WorkBbsData", dto)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
