@@ -9,9 +9,10 @@
 
     <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="900dp"
+            android:layout_height="820dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:id="@+id/frView">
+            app:layout_constraintStart_toStartOf="parent" android:id="@+id/frView"
+            app:layout_constraintEnd_toEndOf="parent">
     </FrameLayout>
 
     <fragment

@@ -239,28 +239,41 @@
                 app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.807"/>
         <TextView
                 android:id="@+id/regiIdCheckText"
+                android:textSize="10dp"
                 android:gravity="left"
                 android:layout_width="216dp"
-                android:layout_height="27dp"
+                android:layout_height="16dp"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.115"/>
         <TextView
-                android:id="@+id/regiNicknameCheckText"
-                android:gravity="left"
-                android:layout_width="216dp"
-                android:layout_height="27dp"
+                android:id="@+id/exPwdText"
+                android:text="문자, 숫자, 특수문자를 포함하여 8자 이상만 가능합니다."
+                android:textSize="10dp"
+                android:layout_width="240dp"
+                android:layout_height="16dp"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.524"/>
+                app:layout_constraintVertical_bias="0.224" app:layout_constraintHorizontal_bias="0.544"/>
+        <TextView
+                android:id="@+id/regiNicknameCheckText"
+                android:text="특수문자를 제외한 2~8자리만 가능합니다."
+                android:textSize="10dp"
+                android:gravity="left"
+                android:layout_width="215dp"
+                android:layout_height="16dp"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.516" app:layout_constraintHorizontal_bias="0.501"/>
         <TextView
                 android:id="@+id/regiEmailCheckText"
+                android:textSize="10dp"
                 android:gravity="left"
                 android:layout_width="216dp"
-                android:layout_height="27dp"
+                android:layout_height="16dp"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.857"/>
+                app:layout_constraintVertical_bias="0.844"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <TextView
             android:id="@+id/regiText"
