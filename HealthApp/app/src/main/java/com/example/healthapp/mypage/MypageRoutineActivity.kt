@@ -6,12 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
+import com.example.healthapp.work.WorkVo
 
-// 운동 dto 추가되면 수정
+// 운동루틴목록 토의 후 작성
 class MypageRoutineActivity : AppCompatActivity() {
-    var test = arrayListOf<BbsDto>(
-        BbsDto(0, "zzz", "z닉", "제목이다이다이다이다이다", "이것ㅇㄴ 내용이다다다다",
-            "2020.03.01",0, 0, 0, 0, 10, 20, "이미지경로")
+    var test = arrayListOf<WorkVo>(
+        WorkVo("zzz", "운동운동", "사진", 0)
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {

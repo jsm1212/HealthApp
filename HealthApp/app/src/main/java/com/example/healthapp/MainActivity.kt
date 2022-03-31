@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
+import com.example.healthapp.admin.AdminActivity
 import com.example.healthapp.login.LoginActivity
 import com.kakao.sdk.common.util.Utility
 
@@ -19,12 +20,6 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
-        val keyHash = Utility.getKeyHash(this)
-        Log.d("@@@@@@Hash", keyHash)
-
-
-        val keyHash = Utility.getKeyHash(this)
-        Log.d("@@@@@@Hash", keyHash)
 
 
     }

@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
 
-// 트레이너 dto 추가되면 수정
 class AdapterTrainer(private val context: Context, private val dataList: ArrayList<BbsDto>)
     : RecyclerView.Adapter<AdapterTrainer.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
@@ -20,7 +19,6 @@ class AdapterTrainer(private val context: Context, private val dataList: ArrayLi
         private val attel = itemView.findViewById<TextView>(R.id.atTel)
         private val atregi = itemView.findViewById<TextView>(R.id.atRegiDate)
         private val atmember = itemView.findViewById<TextView>(R.id.atMember)
-        private val atbad = itemView.findViewById<TextView>(R.id.atBad)
 
         fun bind(dto: BbsDto, context: Context){
 //            ltitle.text = dto.title
@@ -33,11 +31,11 @@ class AdapterTrainer(private val context: Context, private val dataList: ArrayLi
 //            ldate.text = dto.wdate
         }
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterTrainer.ItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.admin_trainer_layout, parent, false)
-        return AdapterTrainer.ItemViewHolder(view)
+        return ItemViewHolder(view)
     }
-    override fun onBindViewHolder(holder: AdapterTrainer.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
     }
     override fun getItemCount(): Int {
