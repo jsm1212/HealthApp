@@ -28,6 +28,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val updateTel = findViewById<EditText>(R.id.updateTel)
 
         // 정보변경 전 View
+
         updateId.text = LoginMemberDao.user?.id
         updateName.text = LoginMemberDao.user?.name
         updateNick.setText(LoginMemberDao.user?.nickname)
