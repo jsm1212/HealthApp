@@ -162,7 +162,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        if(resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
+        if(resultCode == RESULT_OK && requestCode == RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
 
             result?.let{

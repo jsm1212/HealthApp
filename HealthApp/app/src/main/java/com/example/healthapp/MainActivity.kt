@@ -19,6 +19,9 @@ class MainActivity : AppCompatActivity() {
             val i = Intent(this, LoginActivity::class.java)
             startActivity(i)
         }
+        val keyHash = Utility.getKeyHash(this)
+        Log.d("@@@@@@Hash", keyHash)
+
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("@@@@@@Hash", keyHash)
