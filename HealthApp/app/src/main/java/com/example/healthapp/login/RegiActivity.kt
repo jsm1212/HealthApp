@@ -65,7 +65,7 @@ class RegiActivity : AppCompatActivity() {
 
             if(id != "") {
 
-                val msg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(id, "", "", "", "", 0, "", "", 0, "", ""))
+                val msg = LoginMemberDao.getInstance().getId_M(LoginMemberDto(id, "", "", "", "", 0, "", "", 0, "", "", 0))
 
                 if (msg == "n") {
                     idCheck.text = "이미 사용중인 아이디입니다."
@@ -90,7 +90,7 @@ class RegiActivity : AppCompatActivity() {
 
             if(nickname != "" && nickname.matches(nicknameRegex)) {
                 val msg = LoginMemberDao.getInstance()
-                    .checkNickname_M(LoginMemberDto("", "", "", nickname, "", 0, "", "", 0, "", ""))
+                    .checkNickname_M(LoginMemberDto("", "", "", nickname, "", 0, "", "", 0, "", "", 0))
 
                 if (msg == "n") {
                     nicknameCheck.text = "이미 사용중인 닉네임입니다."
@@ -116,7 +116,7 @@ class RegiActivity : AppCompatActivity() {
             if(email != "" && email.matches(emailRegex)) {
 
                 val msg = LoginMemberDao.getInstance()
-                    .checkEmail_M(LoginMemberDto("", "", "", "", "", 0, email, "", 0, "", ""))
+                    .checkEmail_M(LoginMemberDto("", "", "", "", "", 0, email, "", 0, "", "", 0))
 
                 if (msg == "n") {
                     emailCheck.text = "이미 사용중인 이메일입니다."
@@ -146,11 +146,11 @@ class RegiActivity : AppCompatActivity() {
             val tel = editTel.text.toString().trim()
 
             val idCheckResp = LoginMemberDao.getInstance()
-                .getId_M(LoginMemberDto(id, "", "", "", "", 0, "", "", 0, "", ""))
+                .getId_M(LoginMemberDto(id, "", "", "", "", 0, "", "", 0, "", "", 0))
             val nickNameCheckResp = LoginMemberDao.getInstance()
-                .checkNickname_M(LoginMemberDto("", "", "", nickname, "", 0, "", "", 0, "", ""))
+                .checkNickname_M(LoginMemberDto("", "", "", nickname, "", 0, "", "", 0, "", "", 0))
             val emailCheckResp = LoginMemberDao.getInstance()
-                .checkEmail_M(LoginMemberDto("", "", "", "", "", 0, email, "", 0, "", ""))
+                .checkEmail_M(LoginMemberDto("", "", "", "", "", 0, email, "", 0, "", "", 0))
 
             if(gender == ""){
                 Toast.makeText(this, "성별을 선택해주세요.", Toast.LENGTH_LONG).show()
@@ -184,7 +184,7 @@ class RegiActivity : AppCompatActivity() {
                         if (pwd == pwdCheck) {
 
                             val msg = LoginMemberDao.getInstance()
-                                .register_M(LoginMemberDto(id, pwd, name, nickname, gender, age, email, tel, 3, "", ""))
+                                .register_M(LoginMemberDto(id, pwd, name, nickname, gender, age, email, tel, 3, "", "", 0))
 
                             if (msg == "y") {
                                 Toast.makeText(this, "가입이 완료되었습니다. 로그인해주세요", Toast.LENGTH_LONG).show()

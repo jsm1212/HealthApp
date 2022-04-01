@@ -27,7 +27,7 @@ class FindPwdFragment : Fragment() {
             val name = findName.text.toString().trim()
             val tel = findTel.text.toString().trim()
 
-            val dto = LoginMemberDao.getInstance().findPwd_M(LoginMemberDto(id,"",name,"","",0,"",tel,0,"",""))
+            val dto = LoginMemberDao.getInstance().findPwd_M(LoginMemberDto(id,"",name,"","",0,"",tel,0,"","", 0))
 
             if(dto != null){
 

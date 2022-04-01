@@ -9,12 +9,12 @@ import retrofit2.http.POST
 
 interface AdminService {
     // 회원 목록
-    @POST("/getAdminMem_M")
-    fun getAdminMem_M(): Call<List<LoginMemberDto>>
+    @POST("/getMem_M")
+    fun getMem_M(): Call<List<LoginMemberDto>>
 
     // 회원 삭제
     @POST("/deleteMem_M")
-    fun deleteMem_M(@Body nick:String): Call<String>
+    fun deleteMem_M(@Body id:String): Call<String>
 }
 class AdminDao{
     companion object {
@@ -28,22 +28,22 @@ class AdminDao{
         }
     }
     // 회원 목록
-    fun getAdminMem_M() : ArrayList<LoginMemberDto>?{
+    fun getMem_M() : ArrayList<LoginMemberDto>?{
         val retrofit = RetrofitClient.getInstance()
 
-        val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.getBbsList()
+        val service = retrofit?.create(AdminService::class.java)
+        val call = service?.getMem_M()
         val response = call?.execute()
 
         return response?.body() as ArrayList<LoginMemberDto>
     }
 
     // 회원 삭제
-    fun deleteMem_M(nick: String): String?{
+    fun deleteMem_M(id:String): String{
         val retrofit = RetrofitClient.getInstance()
 
-        val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.getBbsList()
+        val service = retrofit?.create(AdminService::class.java)
+        val call = service?.deleteMem_M(id)
         val response = call?.execute()
 
         return response?.body() as String

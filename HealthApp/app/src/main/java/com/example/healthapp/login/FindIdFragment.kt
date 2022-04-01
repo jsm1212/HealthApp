@@ -26,7 +26,7 @@ class FindIdFragment : Fragment() {
             val name = findName.text.toString().trim()
             val tel = findTel.text.toString().trim()
 
-            val dto = LoginMemberDao.getInstance().findId_M(LoginMemberDto("","",name,"","",0,"",tel,0,"",""))
+            val dto = LoginMemberDao.getInstance().findId_M(LoginMemberDto("","",name,"","",0,"",tel,0,"","", 0))
 
             if(dto != null){
                     Toast.makeText(container?.context, "문자로 아이디가 전송되었습니다.", Toast.LENGTH_LONG).show()

@@ -21,9 +21,9 @@ class MypageWriteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_mypage_write)
 
         // 내 게시글 불러오기
-        val nick = LoginMemberDao.user?.nickname
-        val data = MypageDao.getInstance().getMyBbs_M(nick!!)
-        println("확인!!!!!!!!!! $nick !!!!! $data")
+        val id = LoginMemberDao.user?.id
+        val data = MypageDao.getInstance().getMyBbs_M(id!!)
+        println("확인!!!!!!!!!! $id !!!!! $data")
 
         var recycleV = findViewById<RecyclerView>(R.id.recyWrite)
         val adap = AdapterWriter(this, data!!)

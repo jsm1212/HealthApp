@@ -7,18 +7,22 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity" android:id="@+id/touchView">
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/home" android:id="@+id/imageView"
+            android:id="@+id/imageView"
+            android:layout_width="354dp"
+            android:layout_height="375dp"
+            app:srcCompat="@drawable/home"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintVertical_bias="0.413"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35"/>
     <TextView
             android:text="화면을 클릭해주세요."
             android:textSize="20dp"
             android:gravity="center"
             android:layout_width="400dp"
-            android:layout_height="85dp" android:id="@+id/mainTextView"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/imageView"/>
+            android:layout_height="85dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,9 +20,9 @@ class MypageReplyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_reply)
 
-        val nick = LoginMemberDao.user?.nickname
-        println("확인!!!!!!!!!! $nick")
-        val data = MypageDao.getInstance().getMyReply_M(nick!!)
+        val id = LoginMemberDao.user?.id
+        println("확인!!!!!!!!!! $id")
+        val data = MypageDao.getInstance().getMyReply_M(id!!)
 
         var recycleV = findViewById<RecyclerView>(R.id.recyReply)
         val adap = AdapterReply(this, data!!)

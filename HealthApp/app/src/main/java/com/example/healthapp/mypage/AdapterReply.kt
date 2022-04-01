@@ -17,19 +17,15 @@ class AdapterReply(private val context: Context, private val dataList: ArrayList
 : RecyclerView.Adapter<AdapterReply.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         private val rpreply = itemView.findViewById<TextView>(R.id.myrpReply)
-        private val rptitle = itemView.findViewById<TextView>(R.id.myrpTitle)
         private val rpdate = itemView.findViewById<TextView>(R.id.myrpDate)
         private val rplike = itemView.findViewById<TextView>(R.id.myrpLike)
 
         fun bind(dto: BbsReplyDto, context: Context){
             rpreply.text = dto.content
-            rptitle.text = dto.title
             rpdate.text = dto.wdate
             rplike.text = dto.replyLike.toString()
 
             val moveData = BbsDao.bbsData
-
-            // dto.replyNum = 해당 게시글의 seq번호
 
             // 게시글 디테일로 이동
             itemView.setOnClickListener {

@@ -1,16 +1,11 @@
 package com.example.healthapp.mypage
 
-import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
+import android.widget.*
 import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
@@ -61,7 +56,6 @@ class MypageInformUpdateActivity : AppCompatActivity() {
             telView.visibility = View.VISIBLE
         }
 
-        ////////// 수정 필요 -> 인증을 안해도 정보가 수정됨.
         // 정보수정 완료
         val okBtn = findViewById<TextView>(R.id.updateOkBtn)
         okBtn.setOnClickListener {
@@ -79,19 +73,13 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                     .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
                     }).show()
             }*/
-            AlertDialog.Builder(this@MypageInformUpdateActivity)
-                .setTitle("수정").setMessage("정보수정완료")
-                .setCancelable(false)
-                .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
-                    MypageDao.getInstance().updateMember_M(
-                        LoginMemberDto(
-                        "", "", "", updateNick.text.toString(),"", 0,
-                        updateEmail.text.toString(), updateTel.text.toString(),0, "", "")
-                    )
+            val data = LoginMemberDto(LoginMemberDao.user?.id, "", "", updateNick.text.toString(),"", 0,
+                updateEmail.text.toString(), updateTel.text.toString(),0, "", "", 0)
+            println("확인!!!!!!!!!! $data")
+            MypageDao.getInstance().updateMember_M(data)
 
-                    val itt = Intent(this, MypageFragment::class.java)
-                    startActivity(itt)
-                }).show()
+            Toast.makeText(this, "정보 수정 완료", Toast.LENGTH_LONG).show()
+            super.onBackPressed()
         }
     }
 }

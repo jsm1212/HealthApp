@@ -15,25 +15,19 @@
             app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:id="@+id/myrpReply"
-            android:layout_width="510dp" android:layout_height="wrap_content"
+            android:layout_width="300dp" android:layout_height="wrap_content"
             android:hint="댓글"
             app:layout_constraintStart_toEndOf="@+id/myrpCheck"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="10dp"/>
-    <TextView
-            android:id="@+id/myrpTitle"
-            android:layout_width="310dp" android:layout_height="wrap_content"
-            android:hint="제목" android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@+id/myrpReply"
-            app:layout_constraintTop_toBottomOf="@+id/myrpReply"
-            android:layout_marginTop="10dp"/>
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/myrpCheck"/>
     <TextView
             android:id="@+id/myrpDate"
             android:layout_width="100dp" android:layout_height="wrap_content"
             android:hint="작성날짜"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="@+id/myrpTitle"
-            app:layout_constraintStart_toEndOf="@+id/myrpTitle"/>
+            app:layout_constraintStart_toEndOf="@+id/myrpReply"
+            app:layout_constraintTop_toTopOf="@+id/myrpReply"/>
     <TextView
             android:id="@+id/myrpLike"
             android:layout_width="100dp" android:layout_height="wrap_content"
