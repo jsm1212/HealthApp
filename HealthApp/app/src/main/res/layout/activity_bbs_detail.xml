@@ -8,8 +8,8 @@
         tools:context=".bbs.BbsDetailActivity">
 
     <androidx.core.widget.NestedScrollView
-            android:layout_width="535sp"
-            android:layout_height="820dp" android:fillViewport="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:fillViewport="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent">
@@ -17,7 +17,7 @@
                       android:orientation="vertical">
             <TextView
                     android:text="게시글 제목"
-                    android:layout_width="414dp"
+                    android:layout_width="match_parent"
                     android:layout_marginBottom="8sp"
                     android:textSize="25sp"
                     android:gravity="center|left"
@@ -28,26 +28,25 @@
                     android:layout_height="wrap_content">
                 <TextView
                         android:text="닉네임여덟글자다(iddmlspdladmf)"
-                        android:layout_width="200sp"
-                        android:textSize="18sp"
                         android:gravity="center|left"
-                        android:layout_height="28sp" android:id="@+id/bbsDetailWriter" android:layout_weight="1"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/bbsDetailWriter"
+                        android:layout_weight="7"/>
                 <TextView
-                        android:text="2022-03-29-10:20"
-                        android:layout_width="80sp"
-                        android:textSize="16sp"
+                        android:text="2022-03-29"
+                        android:layout_width="wrap_content"
                         android:gravity="center|left"
                         android:layout_marginRight="5sp"
                         android:layout_marginLeft="5sp"
-                        android:layout_height="28sp" android:id="@+id/bbsDetailWdate" android:layout_weight="1"/>
+                        android:layout_height="match_parent" android:id="@+id/bbsDetailWdate"
+                        android:layout_weight="2"/>
                 <TextView
                         android:id="@+id/bbsDetailRcLike"
                         android:text="❤21 / 53"
-                        android:layout_width="20sp"
+                        android:layout_width="wrap_content"
                         android:layout_marginRight="5sp"
-                        android:textSize="16sp"
                         android:gravity="center|right"
-                        android:layout_height="28sp" android:layout_weight="1"/>
+                        android:layout_height="match_parent" android:layout_weight="1"/>
             </LinearLayout>
             <androidx.viewpager2.widget.ViewPager2
                     android:layout_width="match_parent"
@@ -66,24 +65,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <TextView
-                        android:layout_width="300dp"
+                        android:layout_width="wrap_content"
                         android:textSize="1sp"
-                        android:layout_height="wrap_content" android:id="@+id/textView2" android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView2"
+                        android:layout_weight="17"
                         android:visibility="invisible"/>
                 <TextView
                         android:text="수정"
                         android:layout_width="wrap_content"
                         android:textSize="18sp"
                         android:gravity="center"
-                        android:layout_height="wrap_content" android:id="@+id/bbsUpdateView" android:layout_weight="1"
-                        android:visibility="invisible"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bbsUpdateView"
+                        android:layout_weight="1"/>
                 <TextView
                         android:text="삭제"
                         android:layout_width="wrap_content"
                         android:textSize="18sp"
                         android:gravity="center"
-                        android:layout_height="wrap_content" android:id="@+id/bbsDeleteView" android:layout_weight="1"
-                        android:visibility="invisible"/>
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bbsDeleteView"
+                        android:layout_weight="1"/>
                 <TextView
                         android:text="목록으로"
                         android:layout_width="wrap_content"

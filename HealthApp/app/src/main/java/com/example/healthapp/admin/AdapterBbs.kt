@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
+import com.example.healthapp.bbs.BbsDao
 import com.example.healthapp.bbs.BbsDetailActivity
 import com.example.healthapp.bbs.BbsDto
 
@@ -28,6 +29,7 @@ class AdapterBbs(private val context: Context, private val dataList: ArrayList<B
 
             itemView.setOnClickListener {
                 Intent(context, BbsDetailActivity::class.java).apply {
+                    BbsDao.bbsSeq = dto.seq
                     putExtra("WorkBbsData", dto)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }

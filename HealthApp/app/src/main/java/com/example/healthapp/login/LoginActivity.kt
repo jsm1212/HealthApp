@@ -10,6 +10,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthapp.R
+import com.example.healthapp.admin.AdminActivity
 import com.example.healthapp.bbs.WorkActivity
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -50,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
         val autoLoginUserPwd = auto.getString("userPwd", null)
 
         if(autoLoginUserId != null && autoLoginUserPwd != null){
-            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(autoLoginUserId,autoLoginUserPwd,"","","",0,"","",3,"",""))
+            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(autoLoginUserId,autoLoginUserPwd,"","","",0,"","",3,"","", 0))
 
             if(dto != null){
                 LoginMemberDao.user=dto
@@ -70,7 +71,7 @@ class LoginActivity : AppCompatActivity() {
             val pwd = loginEditPwd.text.toString().trim()
             val autoLogin = findViewById<CheckBox>(R.id.autoLogin)
 
-            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id, pwd, "", "", "", 0, "", "", 3, "",""))
+            val dto = LoginMemberDao.getInstance().login_M(LoginMemberDto(id, pwd, "", "", "", 0, "", "", 0, "","", 0))
 
             // 자동로그인이 체크되어있으면 앱 파일에 로그인 데이터 저장(앱 꺼져도 유지)
             if(autoLogin.isChecked){
@@ -83,12 +84,21 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (dto != null) {
-                LoginMemberDao.user = dto
+                if(dto.auth == 3){
+                    LoginMemberDao.user = dto
 
-                Toast.makeText(this, "${dto.nickname}님 환영합니다", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "${dto.nickname}님 환영합니다", Toast.LENGTH_LONG).show()
 
-                val i = Intent(this, WorkActivity::class.java)
-                startActivity(i)
+                    val i = Intent(this, WorkActivity::class.java)
+                    startActivity(i)
+                } else if(dto.auth == 1){
+                    LoginMemberDao.user = dto
+
+                    Toast.makeText(this, "관리자 로그인", Toast.LENGTH_LONG).show()
+
+                    val a = Intent(this, AdminActivity::class.java)
+                    startActivity(a)
+                }
             } else {
                 Toast.makeText(this, "아이디나 비밀번호를 확인하세요", Toast.LENGTH_LONG).show()
             }
@@ -146,11 +156,11 @@ class LoginActivity : AppCompatActivity() {
                         val kakaoNum = user.id.toString()
                         val email = user.kakaoAccount!!.email
 
-                        val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(kakaoNum,"","","","",0,"","",0,"",""))
+                        val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(kakaoNum,"","","","",0,"","",0,"","", 0))
                         if(checkId!="n"){
-                            val kakaoRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"",""))
+                            val kakaoRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"","", 0))
                             if(kakaoRegi == "y"){
-                                val kakaoLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"",""))
+                                val kakaoLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"","", 0))
                                 LoginMemberDao.user = kakaoLogin
                                 Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()
                                 val i = Intent(this,WorkActivity::class.java)
@@ -159,7 +169,7 @@ class LoginActivity : AppCompatActivity() {
                                 Toast.makeText(this, "카카오 로그인 에러", Toast.LENGTH_SHORT).show()
                             }
                         }else{
-                            val kakaoLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"",""))
+                            val kakaoLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"","", 0))
                             if(kakaoLogin != null){
                                 LoginMemberDao.user = kakaoLogin
                                 Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()
@@ -222,11 +232,11 @@ class LoginActivity : AppCompatActivity() {
                     Log.i("idtoken", it.signInAccount?.id!!) // 토큰
                     Log.i("nickname", it.signInAccount?.givenName!!) //닉네임
 
-                    val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(googleUserIdtoken,"","","","",0,"","",0,"",""))
+                    val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(googleUserIdtoken,"","","","",0,"","",0,"","", 0))
                     if(checkId != "n"){
-                        val googleRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"",""))
+                        val googleRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"","", 0))
                         if(googleRegi == "y"){
-                            val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"",""))
+                            val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"","", 0))
                             LoginMemberDao.user = googleLogin
                             Toast.makeText(this,"${googleUserNickname}님 환영합니다.",Toast.LENGTH_LONG).show()
                             val i = Intent(this,WorkActivity::class.java)
@@ -235,7 +245,7 @@ class LoginActivity : AppCompatActivity() {
                             Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
                         }
                     }else{
-                        val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,"","","",0,"","",0,"",""))
+                        val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,"","","",0,"","",0,"","", 0))
                         if(googleLogin != null){
                             LoginMemberDao.user = googleLogin
                             Toast.makeText(this,"${googleUserNickname}님 환영합니다.",Toast.LENGTH_LONG).show()

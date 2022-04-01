@@ -38,9 +38,6 @@
                 android:name=".fragment.MypageFragment"
                 android:exported="true"/>
         <activity
-                android:name=".admin.AdminTrainerActivity"
-                android:exported="true"/>
-        <activity
                 android:name=".admin.AdminBbsActivity"
                 android:exported="true"/>
         <activity

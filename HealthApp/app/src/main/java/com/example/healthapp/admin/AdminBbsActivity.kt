@@ -19,10 +19,10 @@ class AdminBbsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_bbs)
 
-//        val data = BbsDao.getInstance().getBbsList()
+        val data = BbsDao.getInstance().getBbsList()
 
         var recycleV = findViewById<RecyclerView>(R.id.recyBbs)
-        val adap = AdapterBbs(this, test)
+        val adap = AdapterBbs(this, data!!)
         recycleV.adapter = adap
 
         val layout = LinearLayoutManager(this)
