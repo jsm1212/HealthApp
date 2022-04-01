@@ -1,4 +1,4 @@
-package com.example.healthapp
+﻿package com.example.healthapp
 
 import android.os.StrictMode
 import com.google.gson.GsonBuilder
@@ -22,8 +22,7 @@ class RetrofitClient {
 
                 instance = Retrofit
                     .Builder()
-                    .baseUrl("http://192.168.219.101:3000/") // 본인 IP주소로 입력하기!!
-                    // .baseUrl("http:///192.168.45.152:3000/") // 본인 IP주소로 입력하기!!
+                    .baseUrl("http://192.168.1.76:3000/") // 본인 IP주소로 입력하기!!
                     .addConverterFactory(ScalarsConverterFactory.create()) // 문자열 리턴받는경우
                     .addConverterFactory(GsonConverterFactory.create(gson)) // object, integer
                     .build()
