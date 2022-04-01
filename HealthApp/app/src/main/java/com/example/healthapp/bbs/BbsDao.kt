@@ -25,9 +25,13 @@ interface WorkBbsService {
     @POST("/updateBbs_M")
     fun updateBbs(@Body dto: BbsDto) : Call<String>
 
-    // 선택한 게시판 정보 불러오기
+    // 선택한 게시판 정보 불러오기_조회수증가
     @GET("/bbsDetail")
     fun bbsDetail(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
+
+    // 선택한 게시판 정보 불러오기_조회수없음
+    @GET("/bbsDetail_non")
+    fun bbsDetail_non(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
 
     // 선택한 게시판 좋아요
     @GET("/likeCount")
@@ -36,6 +40,10 @@ interface WorkBbsService {
     // 선택한 게시판 좋아요 취소
     @GET("/likeCountCancel")
     fun likeCountCancel(@Query("seq") seq: Int) : Call<Unit>
+
+    // 검색한 게시판 불러오기
+    @POST("/getBbsListSearch_M")
+    fun getBbsListSearch_M(@Body dto: BbsParamDto) : Call<List<BbsDto>>
 }
 
 class BbsDao {
@@ -95,12 +103,23 @@ class BbsDao {
         return response?.body() as String
     }
 
-    // 선택한 게시판 정보 불러오기
+    // 선택한 게시판 정보 불러오기_조회수증가
     fun bbsDetail(seq: Int, id: String) : BbsDto{
         val retrofit = RetrofitClient.getInstance()
 
         val service = retrofit?.create(WorkBbsService::class.java)
         val call = service?.bbsDetail(seq, id)
+        val response = call?.execute()
+
+        return response?.body() as BbsDto
+    }
+
+    // 선택한 게시판 정보 불러오기_조회수없음
+    fun bbsDetail_non(seq: Int, id: String) : BbsDto{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(WorkBbsService::class.java)
+        val call = service?.bbsDetail_non(seq, id)
         val response = call?.execute()
 
         return response?.body() as BbsDto
@@ -126,5 +145,16 @@ class BbsDao {
         val response = call?.execute()
 
         return response?.body() as Unit
+    }
+
+    // 검색한 게시판 불러오기
+    fun getBbsListSearch_M(dto: BbsParamDto) : ArrayList<BbsDto>{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(WorkBbsService::class.java)
+        val call = service?.getBbsListSearch_M(dto)
+        val response = call?.execute()
+
+        return response?.body() as ArrayList<BbsDto>
     }
 }

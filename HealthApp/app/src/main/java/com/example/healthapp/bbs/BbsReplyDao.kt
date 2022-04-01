@@ -13,8 +13,13 @@ interface BbsReplyService{
     @GET("/getReplyList")
     fun getReplyList(@Query("seq") seq:Int) : Call<ArrayList<BbsReplyDto>>
 
+    // 댓글 작성하기
     @POST("/writeReply_M")
     fun writeReply(@Body dto: BbsReplyDto) : Call<String>
+
+    // 댓글 삭제하기
+    @GET("/deleteReply")
+    fun deleteReply(@Query("seq") seq: Int) : Call<String>
 
 }
 
@@ -48,6 +53,17 @@ class BbsReplyDao {
 
         val service = retrofit?.create(BbsReplyService::class.java)
         val call = service?.writeReply(dto)
+        val response = call?.execute()
+
+        return response?.body() as String
+    }
+
+    // 댓글 삭제하기
+    fun deleteReply(seq: Int) : String{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(BbsReplyService::class.java)
+        val call = service?.deleteReply(seq)
         val response = call?.execute()
 
         return response?.body() as String

@@ -15,32 +15,6 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work)
 
-//        val btn1 = findViewById<Button>(R.id.goToBbs)
-//        val btn2 = findViewById<Button>(R.id.goToMypage)
-//        val btn3 = findViewById<Button>(R.id.goToAdmin)
-//        val btn4 = findViewById<Button>(R.id.goToWork)
-
-//        // 게시판으로 이동
-//        btn1.setOnClickListener {
-//            val intent = Intent(this, WorkBbsActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 마이페이지
-//        btn2.setOnClickListener {
-//            val intent = Intent(this, MypageActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 관리자페이지
-//        btn3.setOnClickListener {
-//            val intent = Intent(this, AdminActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 운동목록
-//        btn4.setOnClickListener {
-//            val intent = Intent(this, WorklistActivity::class.java)
-//            startActivity(intent)
-//        }
-
         val fm = supportFragmentManager
         val fragmentTransaction = fm.beginTransaction()
         fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))

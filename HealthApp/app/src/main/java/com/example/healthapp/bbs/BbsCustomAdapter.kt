@@ -34,9 +34,13 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
 
     // 데이터 바인딩
     fun bind(dto: BbsDto, context: Context){
+        // 작성일 split
+        val dateArr = dto.wdate?.split(":")
+
+        // 리사이클러뷰 데이터세팅
         WorkBbsTitle.text = dto.title
         WorkBbsWriter.text = dto.nickname
-        WorkBbsWdate.text = dto.wdate
+        WorkBbsWdate.text = "${dateArr!![0]}:${dateArr!![1]}"
 
         //itemView 클릭 시 이벤트
         itemView.setOnClickListener {

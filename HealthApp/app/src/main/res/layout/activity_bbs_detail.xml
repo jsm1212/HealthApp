@@ -78,7 +78,7 @@
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:id="@+id/bbsUpdateView"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" android:visibility="invisible"/>
                 <TextView
                         android:text="삭제"
                         android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
                         android:gravity="center"
                         android:layout_height="wrap_content"
                         android:id="@+id/bbsDeleteView"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" android:visibility="invisible"/>
                 <TextView
                         android:text="목록으로"
                         android:layout_width="wrap_content"

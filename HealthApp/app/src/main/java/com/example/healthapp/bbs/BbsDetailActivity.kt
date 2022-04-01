@@ -1,7 +1,9 @@
 package com.example.healthapp.bbs
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.AlertDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,6 +15,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.healthapp.R
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
+import com.example.healthapp.databinding.ActivityWorkBinding
+import com.example.healthapp.fragment.BbsFragment
+import com.example.healthapp.fragment.WorklistFragment
 import com.example.healthapp.login.LoginMemberDao
 
 // 슬라이드 될 페이지의 글로벌변수(전역변수)
@@ -38,14 +43,17 @@ class BbsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
         // 서버에서 가져온 데이터 세팅
-        val data = intent.getParcelableExtra<BbsDto>("WorkBbsData")
-        println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + data?.title)
+        val data = BbsDao.getInstance().bbsDetail_non(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!)
+//            intent.getParcelableExtra<BbsDto>("WorkBbsData")
 
         // -----------------------------------게시글-----------------------------------
+        // 작성일 split
+        val dateArr = data?.wdate?.split(":")
+
         // 가져온 데이터로 TextView세팅
         b.bbsDetailTitle.text = data?.title                                  // 게시글 제목
-        b.bbsDetailWriter.text = "${data?.nickname}(${data?.id})"            // 게시글 작성자
-        b.bbsDetailWdate.text = data?.wdate                                  // 게시글 작성일
+        b.bbsDetailWriter.text = "${data?.nickname}"            // 게시글 작성자
+        b.bbsDetailWdate.text = "${dateArr!![0]}:${dateArr!![1]}"            // 게시글 작성일
         b.bbsDetailRcLike.text = "❤${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
         b.bbsDetailContent.text = data?.content
         if(LoginMemberDao.user?.id == data?.id){
@@ -56,11 +64,11 @@ class BbsDetailActivity : AppCompatActivity() {
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
             BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
-            reLoadView()    // 화면 새로고침
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
-            super.onBackPressed()
+            val intent = Intent(this, WorkActivity::class.java)
+            startActivity(intent)
         }
         // 수정 클릭시 이벤트
         b.bbsUpdateView.setOnClickListener{

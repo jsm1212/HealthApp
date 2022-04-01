@@ -1,10 +1,12 @@
 package com.example.healthapp.bbs
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.login.LoginMemberDao
@@ -28,18 +30,16 @@ class BbsDetailCustomAdapter(private val context: Context, private val replyData
 class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
     private val replyWriter = view.findViewById<TextView>(R.id.bbsReplyWriter)
     private val replyContent = view.findViewById<TextView>(R.id.bbsReplyContent)
-    private val replyUpdate = view.findViewById<TextView>(R.id.bbsReplyUpdate)
     private val replyDelete = view.findViewById<TextView>(R.id.bbsReplyDelete)
     private val replyReply = view.findViewById<TextView>(R.id.bbsReplyReply)
 
     fun bindReply(replyDto:BbsReplyDto, context: Context){
 
         // TextView 데이터 세팅
-        replyWriter.text = "${replyDto.nickname}(${replyDto.id})"
+        replyWriter.text = "${replyDto.nickname}"
         replyContent.text = "${replyDto.content}"
 
         if(replyDto.id != LoginMemberDao.user?.id){
-            replyUpdate.visibility = View.INVISIBLE
             replyDelete.visibility = View.INVISIBLE
         }
 
@@ -47,6 +47,22 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
             val intent = (context as BbsDetailActivity).intent
             context.overridePendingTransition(0, 0) //효과 없애기
             context.b.bbsDetailWriteReply.setText("@" + replyDto.id+" ")
+        }
+
+        replyDelete.setOnClickListener {
+            BbsReplyDao.getInstance().deleteReply(replyDto.seq)
+
+            AlertDialog.Builder(context).setTitle("알림") // 제목
+                .setMessage("삭제가 완료되었습니다")   // 메세지
+                .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
+                .setPositiveButton("확인"){ _, _ ->
+                    //화면 새로고침
+                    val intent = (context as BbsDetailActivity).intent
+                    context.finish() //현재 액티비티 종료 실시
+                    context.overridePendingTransition(0, 0) //효과 없애기
+                    context.startActivity(intent) //현재 액티비티 재실행 실시
+                    context.overridePendingTransition(0, 0) //효과 없애기
+                }.show()
         }
     }
 }
