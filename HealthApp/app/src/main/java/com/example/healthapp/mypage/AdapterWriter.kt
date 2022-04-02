@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
@@ -19,6 +20,7 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
         private val wtitle = itemView.findViewById<TextView>(R.id.mywTitle)
         private val wdate = itemView.findViewById<TextView>(R.id.mywDate)
         private val wread = itemView.findViewById<TextView>(R.id.mywReadcount)
+        private val ckbox = itemView.findViewById<CheckBox>(R.id.mywCheck)
 
         fun bind(dto: BbsDto, context: Context){
             wtitle.text = dto.title

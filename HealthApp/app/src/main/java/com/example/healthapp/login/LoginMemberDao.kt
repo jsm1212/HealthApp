@@ -1,5 +1,6 @@
 package com.example.healthapp.login
 
+import android.util.Log
 import com.example.healthapp.RetrofitClient
 import retrofit2.Call
 import retrofit2.Response
@@ -79,6 +80,9 @@ class LoginMemberDao {
 
             response = call?.execute()
         }catch (e:Exception){
+            Log.i("@@@@@dddd",dto.id!!)
+            Log.i("@@@@@dddd",dto.pwd!!)
+            Log.e("@@@@@error",e.toString())
             response = null
         }
         if(response == null) return null

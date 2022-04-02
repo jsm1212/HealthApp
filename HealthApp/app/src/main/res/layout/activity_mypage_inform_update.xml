@@ -7,23 +7,13 @@
         android:layout_height="match_parent"
         tools:context=".mypage.MypageInformUpdateActivity">
     <TextView
-            android:id="@+id/updateId"
-            android:hint="아이디"
-            android:textSize="20sp" android:gravity="center"
-            android:layout_width="400dp" android:layout_height="50dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="100dp"/>
-    <TextView
             android:id="@+id/updateName"
             android:hint="이름"
             android:textSize="20sp" android:gravity="center"
             android:layout_width="400dp" android:layout_height="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateId"
-            android:layout_marginTop="30dp"/>
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="100dp"/>
     <EditText
             android:id="@+id/updateNick"
             android:layout_width="400dp" android:layout_height="60dp"
@@ -37,39 +27,39 @@
             android:layout_marginTop="30dp"/>
     <EditText
             android:id="@+id/updateEmail"
-            android:layout_width="350dp" android:layout_height="60dp"
+            android:layout_width="320dp" android:layout_height="60dp"
             android:hint="이메일 변경"
             android:textSize="20sp" android:gravity="center"
             android:background="@null"
             android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.357"
             app:layout_constraintTop_toBottomOf="@+id/updateNick"
             android:layout_marginTop="30dp"/>
     <Button
             android:id="@+id/updateEmailBtn"
             android:text="인증"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/updateEmail"
             app:layout_constraintStart_toEndOf="@+id/updateEmail"/>
     <EditText
             android:id="@+id/updateTel"
-            android:layout_width="350dp" android:layout_height="60dp"
+            android:layout_width="320dp" android:layout_height="60dp"
             android:hint="전화번호 변경"
             android:textSize="20sp" android:gravity="center"
             android:background="@null"
             android:inputType="phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintHorizontal_bias="0.357"
             app:layout_constraintTop_toBottomOf="@+id/emailAuthLayout"
             android:layout_marginTop="30dp"/>
     <Button
             android:id="@+id/updateTelBtn"
             android:text="인증"
-            android:layout_width="50dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="@+id/updateTel"
             app:layout_constraintStart_toEndOf="@+id/updateTel"
@@ -91,14 +81,19 @@
             app:layout_constraintStart_toStartOf="parent">
         <EditText
                 android:id="@+id/emailAuthNum"
-                android:layout_width="350dp" android:layout_height="match_parent"
-                android:gravity="center"  android:background="@null"
+                android:layout_width="250dp" android:layout_height="match_parent"
+                android:gravity="center" android:background="@null"
                 android:inputType="number"
                 android:hint="인증번호 입력" android:ems="10"/>
+        <TextView
+                android:id="@+id/emailTime"
+                android:text="03:00" android:textSize="15sp" android:gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/emailAuthOkBtn"
                 android:text="확인"
-                android:layout_width="50dp" android:layout_height="match_parent"/>
+                android:layout_width="80dp" android:layout_height="match_parent"/>
     </LinearLayout>
     <LinearLayout
             android:id="@+id/telAuthLayout"
@@ -110,12 +105,17 @@
         <EditText
                 android:id="@+id/telAuthNum"
                 android:hint="인증번호 입력"
-                android:layout_width="350dp" android:layout_height="match_parent"
+                android:layout_width="250dp" android:layout_height="match_parent"
                 android:gravity="center" android:background="@null"
                 android:inputType="number" android:ems="10"/>
+        <TextView
+                android:id="@+id/telTime"
+                android:text="03:00" android:textSize="15sp" android:gravity="center"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"/>
         <Button
                 android:id="@+id/telAuthOkBtn"
                 android:text="확인"
-                android:layout_width="50dp" android:layout_height="match_parent"/>
+                android:layout_width="80dp" android:layout_height="match_parent"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

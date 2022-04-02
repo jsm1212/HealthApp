@@ -7,12 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.ViewPager2
-import com.example.healthapp.R
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
+import com.example.healthapp.fragment.MainFragment
 import com.example.healthapp.login.LoginMemberDao
 
 // 슬라이드 될 페이지의 글로벌변수(전역변수)
@@ -49,7 +47,7 @@ class BbsDetailActivity : AppCompatActivity() {
         b.bbsDetailWdate.text = data?.wdate                                  // 게시글 작성일
         b.bbsDetailRcLike.text = "❤${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
         b.bbsDetailContent.text = data?.content
-        if(LoginMemberDao.user?.id == data?.id){
+        if(LoginMemberDao.user?.id == data?.id || LoginMemberDao.user?.auth == 1){
             b.bbsUpdateView.visibility = View.VISIBLE
             b.bbsDeleteView.visibility = View.VISIBLE
         }
@@ -83,7 +81,7 @@ class BbsDetailActivity : AppCompatActivity() {
                     BbsDao.getInstance().deleteBbs(data?.seq!!)
                     AlertDialog.Builder(this).setMessage("삭제가 완료되었습니다").setCancelable(false)
                         .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
-                            val i = Intent(this, WorkActivity::class.java)
+                            val i = Intent(this, MainFragment::class.java)
                             startActivity(i)
                         }.show()
                 }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음

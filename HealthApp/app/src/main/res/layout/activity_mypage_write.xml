@@ -33,4 +33,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"/>
+    <RadioButton
+            android:id="@+id/allCheck"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:buttonTint="#FF4081"
+            android:textSize="16dp"
+            android:text="모두 선택"
+            tools:layout_editor_absoluteY="778dp"
+            app:layout_constraintStart_toEndOf="@+id/mywAllBtn"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

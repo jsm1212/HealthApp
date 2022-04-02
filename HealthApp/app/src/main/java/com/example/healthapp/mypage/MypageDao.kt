@@ -1,6 +1,7 @@
 package com.example.healthapp.mypage
 
 import com.example.healthapp.*
+import com.example.healthapp.admin.AdminService
 import com.example.healthapp.bbs.*
 import com.example.healthapp.login.LoginMemberDto
 import retrofit2.Call
@@ -8,9 +9,17 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface MypageService {
+    // 회원정보 호출
+    @POST("/searchMember_M")
+    fun searchMember_M(@Body id:String): Call<LoginMemberDto>
+
     // 회원정보 수정
     @POST("/updateMember_M")
     fun updateMember_M(@Body dto:LoginMemberDto): Call<String>
+
+    // 회원 삭제
+    @POST("/deleteMem_M")
+    fun deleteMem_M(@Body id:String): Call<String>
 
     // 운동 루틴
 //    @POST("/getMyRoutine_M")
@@ -39,12 +48,34 @@ class MypageDao {
             return mypageDao!!
         }
     }
+    // 회원정보 호출
+    fun searchMember_M(id:String) : LoginMemberDto{
+        println("확인!!!!!!!!!! 회원정보 호출!!!!!!!!!!")
+
+        val retrofit = RetrofitClient.getInstance()
+        val service = retrofit?.create(MypageService::class.java)
+        val call = service?.searchMember_M(id)
+        val response = call?.execute()
+
+        return response?.body() as LoginMemberDto
+    }
+
     // 회원정보 수정
     fun updateMember_M(dto:LoginMemberDto): String{
         val retrofit = RetrofitClient.getInstance()
         val service = retrofit?.create(MypageService::class.java)
         val call = service?.updateMember_M(dto)
         var response = call?.execute()
+
+        return response?.body() as String
+    }
+
+    // 회원 삭제
+    fun deleteMem_M(id:String): String{
+        val retrofit = RetrofitClient.getInstance()
+        val service = retrofit?.create(MypageService::class.java)
+        val call = service?.deleteMem_M(id)
+        val response = call?.execute()
 
         return response?.body() as String
     }

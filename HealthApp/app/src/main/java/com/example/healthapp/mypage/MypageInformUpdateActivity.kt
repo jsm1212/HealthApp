@@ -9,6 +9,7 @@ import android.widget.*
 import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
+import com.example.healthapp.Timer
 import com.example.healthapp.fragment.MypageFragment
 
 class MypageInformUpdateActivity : AppCompatActivity() {
@@ -16,19 +17,19 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_inform_update)
 
-        val updateId = findViewById<TextView>(R.id.updateId)
         val updateName = findViewById<TextView>(R.id.updateName)
         val updateNick = findViewById<EditText>(R.id.updateNick)
         val updateEmail = findViewById<EditText>(R.id.updateEmail)
         val updateTel = findViewById<EditText>(R.id.updateTel)
 
-        // 정보변경 전 View
+        // 회원정보 View
+        val id = LoginMemberDao.user?.id
+        val data = MypageDao.getInstance().searchMember_M(id!!)
 
-        updateId.text = LoginMemberDao.user?.id
-        updateName.text = LoginMemberDao.user?.name
-        updateNick.setText(LoginMemberDao.user?.nickname)
-        updateEmail.setText(LoginMemberDao.user?.email)
-        updateTel.setText(LoginMemberDao.user?.tel)
+        updateName.text = data.name
+        updateNick.setText(data.nickname)
+        updateEmail.setText(data.email)
+        updateTel.setText(data.tel)
 
         // 인증번호 창 숨기기
         val emailView = findViewById<LinearLayout>(R.id.emailAuthLayout)
@@ -36,17 +37,14 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         emailView.visibility = View.GONE
         telView.visibility = View.GONE
 
-        // 인증유무 확인
-        val beforeEmail = LoginMemberDao.user?.email
-        val beforeTel = LoginMemberDao.user?.tel
-        val emailFlag = false
-        val telFlag = false
-
         // 이메일 인증
         val emailSend = findViewById<Button>(R.id.updateEmailBtn)
         emailSend.setOnClickListener {
             Log.d("btnclick", "인증메일 전송!!!")
             emailView.visibility = View.VISIBLE
+
+            val timer = findViewById<TextView>(R.id.emailTime)
+            Timer().countDown("000500", timer)
         }
 
         // 전화번호 인증
@@ -54,7 +52,16 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         telSend.setOnClickListener {
             Log.d("btnclick", "인증문자 전송!!!")
             telView.visibility = View.VISIBLE
+
+            val timer = findViewById<TextView>(R.id.telTime)
+            Timer().countDown("020000", timer)
         }
+
+        // 인증유무 확인
+        val beforeEmail = LoginMemberDao.user?.email
+        val beforeTel = LoginMemberDao.user?.tel
+        val emailFlag = false
+        val telFlag = false
 
         // 정보수정 완료
         val okBtn = findViewById<TextView>(R.id.updateOkBtn)
@@ -79,6 +86,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
             MypageDao.getInstance().updateMember_M(data)
 
             Toast.makeText(this, "정보 수정 완료", Toast.LENGTH_LONG).show()
+
             super.onBackPressed()
         }
     }

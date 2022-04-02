@@ -3,6 +3,7 @@ package com.example.healthapp.mypage
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.RadioButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
@@ -33,15 +34,18 @@ class MypageWriteActivity : AppCompatActivity() {
         recycleV.layoutManager = layout
 
         // 게시글 전체 선택
-        val all = findViewById<Button>(R.id.mywAllBtn)
-        all.setOnClickListener {
-            //
-        }
+        var allCheck = findViewById<RadioButton>(R.id.allCheck)
+        var check = false
 
-        // 선택목록 삭제
-        val delete = findViewById<Button>(R.id.mywDeleteBtn)
-        delete.setOnClickListener {
-            //
-        }
+//        fun btnck() {
+//            if(check == true) {
+//                AdapterWriter.setCheckAll(false)
+//                allCheck.isChecked = false
+//                check = false
+//            }
+//            else {
+//                check = true
+//            }
+//        }
     }
 }
