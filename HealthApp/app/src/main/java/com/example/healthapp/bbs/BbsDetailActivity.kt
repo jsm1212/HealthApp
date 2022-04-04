@@ -9,9 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.healthapp.R
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
@@ -21,17 +23,11 @@ import com.example.healthapp.fragment.WorklistFragment
 import com.example.healthapp.login.LoginMemberDao
 
 // 슬라이드 될 페이지의 글로벌변수(전역변수)
-private var pagesNumber: Int = 0
 var imgArr : List<String> = arrayListOf()
 
 class BbsDetailActivity : AppCompatActivity() {
 
     val b by lazy { ActivityBbsDetailBinding.inflate(layoutInflater) }
-
-//    private lateinit var viewPager: ViewPager2
-//
-//    var replyList : ArrayList<BbsReplyDto>? = null
-
     // 아직 구현하지 못한 기능
     /*
     1. 뷰페이저기능
@@ -60,6 +56,10 @@ class BbsDetailActivity : AppCompatActivity() {
             b.bbsUpdateView.visibility = View.VISIBLE
             b.bbsDeleteView.visibility = View.VISIBLE
         }
+        // 이미지 슬라이드
+        val pagerAdapter = ScreenSlidePagerAdapter(this)
+        b.viewPager.adapter = pagerAdapter
+
         // 좋아요 터치시 이벤트(좋아요누르기전)
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
@@ -137,25 +137,12 @@ class BbsDetailActivity : AppCompatActivity() {
 
 
 
-//
-//        // 가져온 게시글정보에서 img가 존재하면 꺼내와서 배열로 저장
-//        if(data?.bbsImage != null){
-//            val str = data?.bbsImage
-//            imgArr = str?.split(",")
-//            println(imgArr?.get(0))
-//            pagesNumber = imgArr.size
-//        }
-//        // 테스트
-//        b.textView.text = "가져온데이터 : ${data?.title}"
-//        // 테스트
-//        b.getImgBtn.setOnClickListener {
-//            getImages(imgArr?.get(0))
-//        }
-//
-//        viewPager = b.bbsDetailViewPager
-//
-//        val pagerAdapter = ScreenSlidePagerAdapter(this)
-//        viewPager.adapter = pagerAdapter
+
+        // 가져온 게시글정보에서 img가 존재하면 꺼내와서 배열로 저장
+        if(data?.bbsImage != null){
+            val str = data?.bbsImage
+            imgArr = str?.split(",")
+        }
 
     }
 
@@ -167,21 +154,17 @@ class BbsDetailActivity : AppCompatActivity() {
         this.startActivity(intent) //현재 액티비티 재실행 실시
         this.overridePendingTransition(0, 0) //효과 없애기
     }
-//    // 파이어베이스 저장공간 위치
-//    val storage = Firebase.storage("gs://healthapp-client.appspot.com")
-//    // DB에서 꺼내온 imgUri(String)을 이용해 이미지 불러오는 함수
-//    fun getImages(path: String){
-//        storage.getReference(path).downloadUrl.addOnSuccessListener { uri ->
-//            Glide.with(this).load(uri).into(b.imgView)
-//        }.addOnFailureListener{
-//            println("스토리지 다운로드 에러 => ${it.message}")
-//        }
-//    }
-//
-//    private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
-//        override fun getItemCount(): Int = pagesNumber
-//
-//        override fun createFragment(position: Int): Fragment = SildeImageFragment()
-//    }
+    private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+
+        override fun getItemCount(): Int = imgArr.size
+
+        override fun createFragment(position: Int): Fragment {
+
+            return when(position) {
+                position -> SlideImageFragment(imgArr[position])
+                else -> SlideImageFragment(imgArr[imgArr.size])
+            }
+        }
+    }
 
 }

@@ -71,7 +71,8 @@ class BbsWriteActivity : AppCompatActivity() {
 
         // 목록으로 버튼 클릭시 이벤트
         b.goToListBtn.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, BbsDetailActivity::class.java)
+            startActivity((intent))
         }
     }
 
