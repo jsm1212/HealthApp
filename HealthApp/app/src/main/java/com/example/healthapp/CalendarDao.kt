@@ -3,7 +3,9 @@ package com.example.healthapp
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.Body
+import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 
 interface CalendarService{
@@ -19,6 +21,10 @@ interface CalendarService{
 
     @POST("/deleteCalendar")
     fun deleteCalendar(@Body dto:CalendarDto): Call<String>
+
+    @GET("/psearchCalendar")
+    fun psearchCalendar(@Query("startDate") startDate: Int, @Query("endDate") endDate: Int,
+                        @Query("userId") userId: String): Call<List<CalendarDto>>
 }
 
 class CalendarDao {
@@ -57,7 +63,6 @@ class CalendarDao {
             val call = service?.searchCalendar(dto)
             response = call?.execute()
         }catch (e:Exception){
-            System.out.println("@@@@@@@@"+e.toString())
             response = null
         }
         if(response==null) return null
@@ -70,5 +75,27 @@ class CalendarDao {
         val call = service?.deleteCalendar(dto)
         val response = call?.execute()
         return response?.body() as String
+    }
+
+    fun psearchCalendar(startDate: Int, endDate: Int, userId: String) : ArrayList<CalendarDto>?{
+//        val retrofit = RetrofitClient.getInstance()
+//        val service = retrofit?.create(CalendarService::class.java)
+//        val call = service?.psearchCalendar(startDate, endDate, userId)
+//        val response = call?.execute()
+
+        var response: Response<List<CalendarDto>>? = null
+
+        try {
+            val retrofit = RetrofitClient.getInstance()
+            val service = retrofit?.create(CalendarService::class.java)
+            val call = service?.psearchCalendar(startDate, endDate, userId)
+            response = call?.execute()
+            println("try 부분 실행")
+        }catch (e:Exception){
+            response=null
+            println("catch부분 실행")
+        }
+
+        return response?.body() as ArrayList<CalendarDto>
     }
 }
