@@ -68,7 +68,8 @@ class BbsUpdateActivity : AppCompatActivity() {
         //bbsImage=images/aaa_1648614491834.jpeg,images/aaa_1648614491863.jpeg
         // 목록으로 버튼 클릭시 이벤트
         b.goToDetailBtn.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, BbsDetailActivity::class.java)
+            startActivity(intent)
         }
         // 수정하기 버튼 클릭시 이벤트트
         b.BbsUpdateBtn.setOnClickListener {
