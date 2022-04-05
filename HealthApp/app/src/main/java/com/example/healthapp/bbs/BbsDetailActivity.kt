@@ -21,13 +21,18 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
 import com.example.healthapp.login.LoginMemberDao
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.*
-
 
 // 슬라이드 될 페이지의 글로벌변수(전역변수)
 var imgArr : List<String> = arrayListOf()
+var uriArr = arrayListOf<Uri>()
+private val storage = Firebase.storage("gs://healthapp-client.appspot.com")
 
 class BbsDetailActivity : AppCompatActivity() {
 
@@ -46,6 +51,25 @@ class BbsDetailActivity : AppCompatActivity() {
         val data = BbsDao.getInstance().bbsDetail_non(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!)
 //            intent.getParcelableExtra<BbsDto>("WorkBbsData")
 
+        // 가져온 게시글정보에서 img가 존재하면 꺼내와서 배열로 저장
+        if(data?.bbsImage != null){
+            val str = data?.bbsImage
+            imgArr = str?.split(",")
+            // images/aaa_1649041103316.jpeg,images/aaa_1649040231773.jpeg
+        }
+
+        for(i in 0 until imgArr.size){
+            println("for문안에 들어오는가?")
+            Firebase.storage("gs://healthapp-client.appspot.com").getReference(imgArr[i]).downloadUrl.addOnSuccessListener { uri ->
+                uriArr.add(uri)
+                println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!for문")
+            }.addOnFailureListener{
+                println("스토리지 다운로드 에러 => ${it.message}")
+            }
+        }
+
+        println("이미지배열의 사이즈 : " + imgArr.size)
+
         // -----------------------------------게시글-----------------------------------
         // 작성일 split
         val dateArr = data?.wdate?.split(":")
@@ -60,9 +84,9 @@ class BbsDetailActivity : AppCompatActivity() {
             b.bbsUpdateView.visibility = View.VISIBLE
             b.bbsDeleteView.visibility = View.VISIBLE
         }
-        // 이미지 슬라이드
-        val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
-        b.viewPager.adapter = pagerAdapter
+//        // 이미지 슬라이드
+//        val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
+//        b.viewPager.adapter = pagerAdapter
 
 //        if(imgArr.size >= 3){
 //            b.viewPager.clipChildren = false
@@ -90,8 +114,11 @@ class BbsDetailActivity : AppCompatActivity() {
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
-            val intent = Intent(this, WorkActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(this, WorkActivity::class.java)
+//            startActivity(intent)
+            // 이미지 슬라이드
+            val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
+            b.viewPager.adapter = pagerAdapter
         }
         // 수정 클릭시 이벤트
         b.bbsUpdateView.setOnClickListener{
@@ -157,12 +184,6 @@ class BbsDetailActivity : AppCompatActivity() {
         // 키보드 나올때 화면 위로 밀어올리기
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
-        // 가져온 게시글정보에서 img가 존재하면 꺼내와서 배열로 저장
-        if(data?.bbsImage != null){
-            val str = data?.bbsImage
-            imgArr = str?.split(",")
-            // images/aaa_1649041103316.jpeg,images/aaa_1649041103341.jpeg
-        }
 
     }
 
@@ -176,13 +197,17 @@ class BbsDetailActivity : AppCompatActivity() {
     }
     private inner class ScreenSlidePagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
+        // 슬라이드될 이미지의 갯수
         override fun getItemCount(): Int = imgArr.size
 
         override fun createFragment(position: Int): Fragment {
+
             val imgNum = position-1
             return when(position) {
-                imgNum -> SlideImageFragment(imgArr[imgNum])
-                else -> SlideImageFragment(imgArr[position])
+                imgNum -> {
+                    SlideImageFragment(uriArr[imgNum])
+                }
+                else -> SlideImageFragment(uriArr[position])
             }
         }
     }

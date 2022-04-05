@@ -25,10 +25,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
-class SlideImageFragment(private val path: String) : Fragment() {
+class SlideImageFragment(private val uri: Uri) : Fragment() {
 
     // 파이어베이스 저장공간 위치
-    private val storage = Firebase.storage("gs://healthapp-client.appspot.com")
+//    private val storage = Firebase.storage("gs://healthapp-client.appspot.com")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
@@ -41,20 +41,12 @@ class SlideImageFragment(private val path: String) : Fragment() {
 //        st = FirebaseStorage.getInstance().getReference()
 //        var banner: StorageReference = st.child(path).get
 
-        getImages(path, imgView)
+        getImages(uri, imgView)
         return view
     }
 
     // DB에서 꺼내온 imgUri(String)을 이용해 이미지 불러오는 함수
-    private fun getImages(path: String, view:ImageView){
-        storage.getReference(path).downloadUrl.addOnSuccessListener { uri ->
-            if(activity == null){
-                return@addOnSuccessListener
-            }
-            val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-            Glide.with(this).load(uri).apply(requestOptions).into(view)
-        }.addOnFailureListener{
-            println("스토리지 다운로드 에러 => ${it.message}")
-        }
+    private fun getImages(uri: Uri, view:ImageView){
+        Glide.with(this).load(uri).into(view)
     }
 }
