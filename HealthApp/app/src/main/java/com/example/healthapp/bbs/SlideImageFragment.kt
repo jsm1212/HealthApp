@@ -53,6 +53,7 @@ class SlideImageFragment(private val path: String) : Fragment() {
             }
             val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
             Glide.with(this).load(uri).apply(requestOptions).into(view)
+            println(uri)
         }.addOnFailureListener{
             println("스토리지 다운로드 에러 => ${it.message}")
         }
