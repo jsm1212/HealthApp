@@ -43,8 +43,8 @@ class BbsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
         // 서버에서 가져온 데이터 세팅
-        val data = BbsDao.getInstance().bbsDetail_non(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!)
-//            intent.getParcelableExtra<BbsDto>("WorkBbsData")
+        val data = BbsDao.getInstance().bbsDetail_M(ReadCountBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+//
 
         // -----------------------------------게시글-----------------------------------
         // 작성일 split
@@ -186,13 +186,5 @@ class BbsDetailActivity : AppCompatActivity() {
             }
         }
     }
-
-//    fun coroutine(position: Int) : Job {
-//        return CoroutineScope(Dispatchers.Default).launch {
-//            when(position){
-//                position -> SlideImageFragment(imgArr[position])
-//            }
-//        }
-//    }
 }
 

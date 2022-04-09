@@ -47,7 +47,7 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
 
             // 게시글 디테일로 이동
             Intent(context, BbsDetailActivity::class.java).apply {
-                val detailDto = BbsDao.getInstance().bbsDetail(dto.seq!!, LoginMemberDao.user?.id!!)
+                val detailDto = BbsDao.getInstance().bbsDetail_M(ReadCountBbsDto(dto.seq!!, LoginMemberDao.user?.id!!))
 
                 BbsDao.bbsSeq = dto.seq
                 // 디테일로 가져갈 데이터

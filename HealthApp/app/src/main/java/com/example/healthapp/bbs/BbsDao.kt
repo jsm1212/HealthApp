@@ -25,13 +25,17 @@ interface WorkBbsService {
     @POST("/updateBbs_M")
     fun updateBbs(@Body dto: BbsDto) : Call<String>
 
-    // 선택한 게시판 정보 불러오기_조회수증가
-    @GET("/bbsDetail")
-    fun bbsDetail(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
+    // 선택한 게시판 정보 불러오기
+    @POST("/bbsDetail_M")
+    fun bbsDetail_M(@Body dto: ReadCountBbsDto) : Call<BbsDto>
 
-    // 선택한 게시판 정보 불러오기_조회수없음
-    @GET("/bbsDetail_non")
-    fun bbsDetail_non(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
+    // 선택한 게시판 정보 불러오기
+//    @GET("/bbsDetail")
+//    fun bbsDetail(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
+//
+//    // 선택한 게시판 정보 불러오기_조회수없음
+//    @GET("/bbsDetail_non")
+//    fun bbsDetail_non(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
 
     // 선택한 게시판 좋아요
     @GET("/likeCount")
@@ -104,26 +108,37 @@ class BbsDao {
     }
 
     // 선택한 게시판 정보 불러오기_조회수증가
-    fun bbsDetail(seq: Int, id: String) : BbsDto{
+
+    fun bbsDetail_M(dto: ReadCountBbsDto) : BbsDto{
         val retrofit = RetrofitClient.getInstance()
 
         val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.bbsDetail(seq, id)
+        val call = service?.bbsDetail_M(dto)
         val response = call?.execute()
 
         return response?.body() as BbsDto
     }
 
-    // 선택한 게시판 정보 불러오기_조회수없음
-    fun bbsDetail_non(seq: Int, id: String) : BbsDto{
-        val retrofit = RetrofitClient.getInstance()
-
-        val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.bbsDetail_non(seq, id)
-        val response = call?.execute()
-
-        return response?.body() as BbsDto
-    }
+//    fun bbsDetail(seq: Int, id: String) : BbsDto{
+//        val retrofit = RetrofitClient.getInstance()
+//
+//        val service = retrofit?.create(WorkBbsService::class.java)
+//        val call = service?.bbsDetail(seq, id)
+//        val response = call?.execute()
+//
+//        return response?.body() as BbsDto
+//    }
+//
+//    // 선택한 게시판 정보 불러오기_조회수없음
+//    fun bbsDetail_non(seq: Int, id: String) : BbsDto{
+//        val retrofit = RetrofitClient.getInstance()
+//
+//        val service = retrofit?.create(WorkBbsService::class.java)
+//        val call = service?.bbsDetail_non(seq, id)
+//        val response = call?.execute()
+//
+//        return response?.body() as BbsDto
+//    }
 
     // 선택한 게시판 좋아요
     fun likeCount(seq: Int) : Unit {
