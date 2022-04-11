@@ -13,7 +13,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.healthapp.login.LoginActivity
 import com.example.healthapp.login.LoginMemberDao
@@ -37,7 +36,7 @@ class MypageFragment(val activity:Context) : Fragment() {
 
         // 닉네임 호출
         val id = LoginMemberDao.user?.id
-        val data = MypageDao.getInstance().searchMember_M(id!!)
+        val data = MypageDao.getInstance().getInformation(id!!)
         nickName.text = data.nickname
 
         // 정보수정으로 이동
@@ -124,7 +123,7 @@ class MypageFragment(val activity:Context) : Fragment() {
                 .setTitle("경고").setMessage("모든 회원정보가 사라집니다.\n그래도 탈퇴하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("네", DialogInterface.OnClickListener { dialog, i ->
-                    val msg = MypageDao.getInstance().deleteMem_M(id!!)
+                    val msg = MypageDao.getInstance().deleteMember(id!!)
                     println("확인!!!!!!!!!! $msg")
 
                     if (msg == "yes") {

@@ -10,9 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDao
-import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.bbs.BbsDetailActivity
-
+import com.example.healthapp.bbs.BbsDto
 
 class AdapterWriter(private val context: Context, private val dataList: ArrayList<BbsDto>)
 :RecyclerView.Adapter<AdapterWriter.ItemViewHolder>() {
@@ -20,7 +19,8 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
         private val wtitle = itemView.findViewById<TextView>(R.id.mywTitle)
         private val wdate = itemView.findViewById<TextView>(R.id.mywDate)
         private val wread = itemView.findViewById<TextView>(R.id.mywReadcount)
-        private val ckbox = itemView.findViewById<CheckBox>(R.id.mywCheck)
+        val allCheck = itemView.findViewById<CheckBox>(R.id.mywAllBtn)
+        val check = itemView.findViewById<CheckBox>(R.id.mywCheck)
 
         fun bind(dto: BbsDto, context: Context){
             wtitle.text = dto.title
@@ -43,6 +43,22 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
+
+        // 전체 선택
+//        holder.allCheck.setOnClickListener {
+//            View.OnClickListener(){
+//                if(holder.allCheck.isChecked){
+//                    holder.check.isSelected = true
+//                }else {
+//                    holder.check.isSelected = false
+//                }
+//            }
+//        }
+//
+//        val b = holder.allCheck.isChecked
+//        holder.allCheck.setOnClickListener(View.OnClickListener {
+//            notifyDataSetChanged()
+//        })
     }
     override fun getItemCount(): Int {
         return dataList.size

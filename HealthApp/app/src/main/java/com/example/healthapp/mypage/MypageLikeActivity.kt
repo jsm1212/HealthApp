@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
 
-// 회원테이블에 좋아요 누른 글 목록 생성
 class MypageLikeActivity : AppCompatActivity() {
     var test = arrayListOf<BbsDto>(
         BbsDto(0, "ccc", "c닉", "제목이다이다이다이다이다", "내용이다다다다",

@@ -24,7 +24,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
 
         // 회원정보 View
         val id = LoginMemberDao.user?.id
-        val data = MypageDao.getInstance().searchMember_M(id!!)
+        val data = MypageDao.getInstance().getInformation(id!!)
 
         updateName.text = data.name
         updateNick.setText(data.nickname)
@@ -83,7 +83,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
             val data = LoginMemberDto(LoginMemberDao.user?.id, "", "", updateNick.text.toString(),"", 0,
                 updateEmail.text.toString(), updateTel.text.toString(),0, "", "", 0)
             println("확인!!!!!!!!!! $data")
-            MypageDao.getInstance().updateMember_M(data)
+            MypageDao.getInstance().updateMember(data)
 
             Toast.makeText(this, "정보 수정 완료", Toast.LENGTH_LONG).show()
 

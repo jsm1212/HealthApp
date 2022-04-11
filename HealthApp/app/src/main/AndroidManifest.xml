@@ -38,12 +38,6 @@
                 android:name=".fragment.MypageFragment"
                 android:exported="true"/>
         <activity
-                android:name=".admin.AdminBbsActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminMemberActivity"
-                android:exported="true"/>
-        <activity
                 android:name=".fragment.AdminActivity"
                 android:exported="true"/>
         <activity
@@ -112,5 +106,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

@@ -12,7 +12,6 @@ import com.example.healthapp.bbs.BbsDao
 import com.example.healthapp.bbs.BbsReplyDto
 import com.example.healthapp.bbs.BbsDetailActivity
 
-// putExtra수정수정수정 BbsDto 넘기기
 class AdapterReply(private val context: Context, private val dataList: ArrayList<BbsReplyDto>)
 : RecyclerView.Adapter<AdapterReply.ItemViewHolder>() {
     class ItemViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){

@@ -8,7 +8,6 @@ import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.work.WorkVo
 
-// 운동루틴목록 토의 후 작성
 class MypageRoutineActivity : AppCompatActivity() {
     var test = arrayListOf<WorkVo>(
         WorkVo("zzz", "운동운동", "사진", 0)

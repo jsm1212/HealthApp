@@ -1,14 +1,15 @@
 package com.example.healthapp.mypage
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RadioButton
+import android.view.View
+import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.login.LoginMemberDao
+import kotlinx.android.synthetic.main.mypage_write_layout.*
 
 class MypageWriteActivity : AppCompatActivity() {
     var test = arrayListOf<BbsDto>(
@@ -23,7 +24,7 @@ class MypageWriteActivity : AppCompatActivity() {
 
         // 내 게시글 불러오기
         val id = LoginMemberDao.user?.id
-        val data = MypageDao.getInstance().getMyBbs_M(id!!)
+        val data = MypageDao.getInstance().getMyBbs(id!!)
         println("확인!!!!!!!!!! $id !!!!! $data")
 
         var recycleV = findViewById<RecyclerView>(R.id.recyWrite)
@@ -33,19 +34,20 @@ class MypageWriteActivity : AppCompatActivity() {
         val layout = LinearLayoutManager(this)
         recycleV.layoutManager = layout
 
-        // 게시글 전체 선택
-        var allCheck = findViewById<RadioButton>(R.id.allCheck)
-        var check = false
+        // 전체 선택
+        val allCheck = findViewById<CheckBox>(R.id.mywAllBtn)
 
-//        fun btnck() {
-//            if(check == true) {
-//                AdapterWriter.setCheckAll(false)
-//                allCheck.isChecked = false
-//                check = false
-//            }
-//            else {
-//                check = true
+//        allCheck.setOnClickListener{
+//            if(allCheck.isChecked){
+//                for(i in data){
+//                }
+//            }else{
+//                for(i in 0 until data.size){
+//                    mywCheck.isChecked = false
+//                }
 //            }
 //        }
+
+        // 선택한 목록 삭제
     }
 }
