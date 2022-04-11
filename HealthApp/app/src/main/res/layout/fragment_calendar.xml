@@ -104,6 +104,19 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0.93"
             app:layout_constraintVertical_bias="0.809"/>
+    <Button
+            android:text="기간 검색"
+            android:layout_width="102dp"
+            android:layout_height="49dp"
+            android:id="@+id/psearchBtn"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.811"
+            app:layout_constraintVertical_bias="0.039"
+            app:iconTint="#FBFBFB"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -31,6 +31,10 @@ class CalendarDto(val calendarseq:Int, val title:String?,  val content:String? ,
         return 0
     }
 
+    override fun toString(): String {
+        return "CalendarDto(calendarseq=$calendarseq, title=$title, content=$content, wdate=$wdate, del=$del, id=$id, calendardate=$calendardate)"
+    }
+
     companion object CREATOR : Parcelable.Creator<CalendarDto> {
         override fun createFromParcel(parcel: Parcel): CalendarDto {
             return CalendarDto(parcel)
@@ -41,7 +45,5 @@ class CalendarDto(val calendarseq:Int, val title:String?,  val content:String? ,
         }
     }
 
-    override fun toString(): String {
-        return super.toString()
-    }
+
 }

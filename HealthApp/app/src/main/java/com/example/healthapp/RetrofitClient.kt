@@ -1,4 +1,4 @@
-package com.example.healthapp
+﻿package com.example.healthapp
 
 import android.os.StrictMode
 import com.google.gson.GsonBuilder
