@@ -42,13 +42,7 @@
                 android:name=".fragment.MypageFragment"
                 android:exported="true"/>
         <activity
-                android:name=".admin.AdminBbsActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminMemberActivity"
-                android:exported="true"/>
-        <activity
-                android:name=".admin.AdminActivity"
+                android:name=".fragment.AdminActivity"
                 android:exported="true"/>
         <activity
                 android:name=".bbs.BbsWriteActivity"
@@ -61,7 +55,7 @@
                 android:name=".fragment.BbsFragment"
                 android:exported="true"/>
         <activity
-                android:name=".bbs.WorkActivity"
+                android:name=".fragment.MainFragment"
                 android:configChanges="keyboardHidden|orientation|screenSize"
                 android:exported="true"/>
         <activity
@@ -116,5 +110,4 @@
             </intent-filter>
         </activity>
     </application>
-
 </manifest>

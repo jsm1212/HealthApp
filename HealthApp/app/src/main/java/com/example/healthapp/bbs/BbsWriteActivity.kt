@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.healthapp.databinding.ActivityBbsWriteBinding
+import com.example.healthapp.fragment.MainFragment
 import com.example.healthapp.login.LoginMemberDao
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
@@ -65,7 +66,7 @@ class BbsWriteActivity : AppCompatActivity() {
             Toast.makeText(this,"작성이 완료되었습니다.", Toast.LENGTH_LONG).show()
 
             // 게시글 목록으로 이동
-            val i = Intent(this, WorkActivity::class.java)
+            val i = Intent(this, MainFragment::class.java)
             startActivity(i)
         }
 

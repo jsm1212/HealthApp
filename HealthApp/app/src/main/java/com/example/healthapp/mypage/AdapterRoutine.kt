@@ -17,7 +17,8 @@ class AdapterRoutine(private val context: Context, private val dataList: ArrayLi
         private val rtCount = itemView.findViewById<TextView>(R.id.myrtCount)
 
         fun bind(dto: WorkVo, context: Context){
-            // 운동루틴목록 토의 후 작성
+            rtList.text = dto.name
+            rtCount.text = dto.explanation
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

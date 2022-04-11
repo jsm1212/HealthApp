@@ -4,9 +4,9 @@ import android.os.CountDownTimer
 import android.widget.TextView
 class Timer(){
     fun countDown(time:String, view:TextView){
-        // Timer().countDown("000000", textView) 이렇게 사용
-        //                  시간 6글자, 타이머 보여줄 textView변수명
-        //        000030 -> 30초 / 003000 -> 30분
+        // val textView = find~~~~       ↓ 변수명 입력
+        // Timer().countDown("000000", textView)
+        //                    000030 -> 30초 / 003000 -> 30분
         println("확인!!!!!!!!!! 타이머 입장!!!!!")
         var timeView = view
 
@@ -45,10 +45,15 @@ class Timer(){
                 if (second.length == 1) {
                     second = "0$second"
                 }
-                timeView.setText("$hour:$min:$second")
+
+                if(hour == "00"){
+                    timeView.setText("$min:$second")
+                } else{
+                    timeView.setText("$hour:$min:$second")
+                }
             }
             override fun onFinish() {
-                timeView.setText("시간종료!")
+                timeView.setText("--:--")
             }
         }.start()
     }

@@ -5,15 +5,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".admin.AdminBbsActivity">
+        tools:context=".fragment.AdminActivity">
     <TextView
-            android:id="@+id/textab"
-            android:text="게시판 관리"
+            android:id="@+id/textmember"
+            android:text="회원 관리"
             android:gravity="center" android:textSize="30sp"
             android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyBbs"
+            android:id="@+id/recyMember"
             android:layout_width="match_parent"
             android:layout_height="800dp"
-            app:layout_constraintTop_toBottomOf="@+id/textab"/>
+            app:layout_constraintTop_toBottomOf="@+id/textmember"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

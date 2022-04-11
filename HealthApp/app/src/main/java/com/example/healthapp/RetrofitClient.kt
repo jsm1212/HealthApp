@@ -2,9 +2,11 @@
 
 import android.os.StrictMode
 import com.google.gson.GsonBuilder
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.concurrent.TimeUnit
 
 class RetrofitClient {
     companion object{
@@ -19,6 +21,13 @@ class RetrofitClient {
                 val gson = GsonBuilder()
                     .setLenient()
                     .create()
+
+//                val okHttpClient = OkHttpClient.Builder()
+//                    .connectTimeout(100, TimeUnit.SECONDS)
+//                    .readTimeout(100, TimeUnit.SECONDS)
+//                    .writeTimeout(100, TimeUnit.SECONDS)
+//                    .build()
+                //
 
                 instance = Retrofit
                     .Builder()

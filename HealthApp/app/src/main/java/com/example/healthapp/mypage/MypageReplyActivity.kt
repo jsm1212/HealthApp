@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.bbs.BbsReplyDto
 import com.example.healthapp.login.LoginMemberDao
 
@@ -22,7 +21,7 @@ class MypageReplyActivity : AppCompatActivity() {
 
         val id = LoginMemberDao.user?.id
         println("확인!!!!!!!!!! $id")
-        val data = MypageDao.getInstance().getMyReply_M(id!!)
+        val data = MypageDao.getInstance().getMyReply(id!!)
 
         var recycleV = findViewById<RecyclerView>(R.id.recyReply)
         val adap = AdapterReply(this, data!!)
