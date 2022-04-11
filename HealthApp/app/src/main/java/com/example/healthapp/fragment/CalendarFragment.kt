@@ -58,7 +58,7 @@ class CalendarFragment(val activity:Context) : Fragment() {
             // 날짜를 보여주는 텍스트에 해당 날짜를 넣는다.
 
             content.setText("") // EditText에 공백값 넣기
-            val dto = CalendarDao.getInstance().searchCalendar(CalendarDto(0,"","","",0,currentUserId.toString(),dateDB))
+            val dto = CalendarDao.getInstance().searchCalendar_M(CalendarDto(0,"","","",0,currentUserId.toString(),dateDB))
                 if(dto != null){
                     contentView.text=""
                     contentView.text="${dto.content}"
@@ -80,7 +80,7 @@ class CalendarFragment(val activity:Context) : Fragment() {
         }
 
         delBtn.setOnClickListener {
-            val msg = CalendarDao.getInstance().deleteCalendar(CalendarDto(0,"","","",0,currentUserId,dateDB))
+            val msg = CalendarDao.getInstance().deleteCalendar_M(CalendarDto(0,"","","",0,currentUserId,dateDB))
             if( msg != null) {
                 if(msg == "OK") {
                     Toast.makeText(activity, "삭제되었습니다.", Toast.LENGTH_LONG).show()
@@ -124,7 +124,7 @@ class CalendarFragment(val activity:Context) : Fragment() {
             caltextView.visibility = View.VISIBLE
             saveBtn.visibility = View.VISIBLE
                 if(c != "" && c != null){
-                    val msg = CalendarDao.getInstance().updateCalendar(CalendarDto(0,"",c,"",0,currentUserId,dateDB))
+                    val msg = CalendarDao.getInstance().updateCalendar_M(CalendarDto(0,"",c,"",0,currentUserId,dateDB))
                     if( msg != null && msg == "OK") {
                             Toast.makeText(activity, "수정되었습니다.", Toast.LENGTH_LONG).show()
                             contentView.text="${c}"

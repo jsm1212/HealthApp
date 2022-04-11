@@ -66,7 +66,7 @@
             android:text="메뉴"
             android:layout_width="157dp"
             android:layout_height="72dp"
-            android:id="@+id/button3"
+            android:id="@+id/calmenuBtn"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
