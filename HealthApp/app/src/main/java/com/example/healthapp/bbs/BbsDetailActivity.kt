@@ -60,7 +60,7 @@ class BbsDetailActivity : AppCompatActivity() {
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
-            super.onBackPressed()
+
         }
         // 수정 클릭시 이벤트
         b.bbsUpdateView.setOnClickListener{

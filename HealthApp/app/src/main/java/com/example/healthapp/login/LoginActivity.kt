@@ -232,29 +232,7 @@ class LoginActivity : AppCompatActivity() {
                     Log.i("idtoken", it.signInAccount?.id!!) // 토큰
                     Log.i("nickname", it.signInAccount?.givenName!!) //닉네임
 
-                    val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(googleUserIdtoken,"","","","",0,"","",0,"","", 0))
-                    if(checkId != "n"){
-                        val googleRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"","", 0))
-                        if(googleRegi == "y"){
-                            val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserNickname," ",0,googleUserEmail," ",5,"","", 0))
-                            LoginMemberDao.user = googleLogin
-                            Toast.makeText(this,"${googleUserNickname}님 환영합니다.",Toast.LENGTH_LONG).show()
-                            val i = Intent(this,WorkActivity::class.java)
-                            startActivity(i)
-                        }else{
-                            Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
-                        }
-                    }else{
-                        val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,"","","",0,"","",0,"","", 0))
-                        if(googleLogin != null){
-                            LoginMemberDao.user = googleLogin
-                            Toast.makeText(this,"${googleUserNickname}님 환영합니다.",Toast.LENGTH_LONG).show()
-                            val i = Intent(this,WorkActivity::class.java)
-                            startActivity(i)
-                        }else{
-                            Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
-                        }
-                    }
+
                 }else{
                     Log.e("Value", "error")
                 }
@@ -272,9 +250,36 @@ class LoginActivity : AppCompatActivity() {
 
         FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener {
             if(it.isSuccessful) {
-                it.result?.user?.displayName
+                val googleUserName = it.result.user?.displayName
+                val googleUserEmail = it.result.user?.email
+                val googleUserIdtoken = it.result.user?.uid
                 Log.i("@@@@@파이어베이스사용자이름",it.result?.user?.displayName!!)
                 Log.i("@@@@@파이어베이스사용자이메일",it.result?.user?.email!!)
+                Log.i("@@@@@uid",it.result?.user?.uid!!)
+
+                val checkId = LoginMemberDao.getInstance().getId_M(LoginMemberDto(googleUserIdtoken,"","","","",0,"","",0,"","", 0))
+                if(checkId != "n"){
+                    val googleRegi = LoginMemberDao.getInstance().register_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserName," ",0,googleUserEmail," ",5,"","", 0))
+                    if(googleRegi == "y"){
+                        val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserName," ",0,googleUserEmail," ",5,"","", 0))
+                        LoginMemberDao.user = googleLogin
+                        Toast.makeText(this,"${googleUserName}님 환영합니다.",Toast.LENGTH_LONG).show()
+                        val i = Intent(this,WorkActivity::class.java)
+                        startActivity(i)
+                    }else{
+                        Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
+                    }
+                }else{
+                    val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,"","","",0,"","",0,"","", 0))
+                    if(googleLogin != null){
+                        LoginMemberDao.user = googleLogin
+                        Toast.makeText(this,"${googleUserName}님 환영합니다.",Toast.LENGTH_LONG).show()
+                        val i = Intent(this,WorkActivity::class.java)
+                        startActivity(i)
+                    }else{
+                        Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
+                    }
+                }
 
             }else {
 
@@ -286,4 +291,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
 }
+
+
