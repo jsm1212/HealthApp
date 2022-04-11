@@ -25,7 +25,7 @@ class psearch : AppCompatActivity() {
         val sDatePicker = findViewById<DatePicker>(R.id.SdatePicker)
         val eDatePicker = findViewById<DatePicker>(R.id.EdatePicker)
         val dateSearchBtn = findViewById<Button>(R.id.datesearchBtn)
-
+        val calmenuBtn = findViewById<Button>(R.id.calmenuBtn)
         val nowDate = LocalDate.now().toString()
         var nowDateStr:String = nowDate.replace("-", "")
 
@@ -40,9 +40,12 @@ class psearch : AppCompatActivity() {
         eDatePicker.setOnDateChangedListener{ _, year, month, date ->
             endDate = choiceDate(year, (month+1), date)
         }
+        calmenuBtn.setOnClickListener {
+            super.onBackPressed()
+        }
 
         dateSearchBtn.setOnClickListener {
-            val calList = CalendarDao.getInstance().psearchCalendar(
+            val calList = CalendarDao.getInstance().psearchCalendar_M(
                 startDate.toInt(), endDate.toInt(), LoginMemberDao.user?.id!!)
             if(calList!!.isEmpty()){
                 Toast.makeText(this,"입력하신 내역이 존재하지 않습니다.",Toast.LENGTH_LONG).show()
@@ -59,6 +62,7 @@ class psearch : AppCompatActivity() {
             }
         }
     }
+
     private fun choiceDate(year:Int, month:Int, day:Int) : String{
         var Month = month.toString()
         var Day = day.toString()
@@ -71,4 +75,5 @@ class psearch : AppCompatActivity() {
 
         return year.toString() + Month + Day
     }
+
 }
