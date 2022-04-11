@@ -11,40 +11,29 @@ import com.example.healthapp.fragment.MypageFragment
 import com.example.healthapp.fragment.WorklistFragment
 
 class WorkActivity : AppCompatActivity(), View.OnClickListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_work)
 
-//        val btn1 = findViewById<Button>(R.id.goToBbs)
-//        val btn2 = findViewById<Button>(R.id.goToMypage)
-//        val btn3 = findViewById<Button>(R.id.goToAdmin)
-//        val btn4 = findViewById<Button>(R.id.goToWork)
-
-//        // 게시판으로 이동
-//        btn1.setOnClickListener {
-//            val intent = Intent(this, WorkBbsActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 마이페이지
-//        btn2.setOnClickListener {
-//            val intent = Intent(this, MypageActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 관리자페이지
-//        btn3.setOnClickListener {
-//            val intent = Intent(this, AdminActivity::class.java)
-//            startActivity(intent)
-//        }
-//        // 운동목록
-//        btn4.setOnClickListener {
-//            val intent = Intent(this, WorklistActivity::class.java)
-//            startActivity(intent)
-//        }
-
         val fm = supportFragmentManager
+
         val fragmentTransaction = fm.beginTransaction()
         fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
         fragmentTransaction.commit()
+
+//        if(index == null || index == 1){
+//            fragmentTransaction.add(R.id.frView, WorklistFragment(WorkActivity(1), applicationContext))
+//        }else if(index != null && index == 2){
+//            fragmentTransaction.add(R.id.frView, BbsFragment(WorkActivity(2)))
+//        }else if(index != null && index == 3){
+//            fragmentTransaction.add(R.id.frView, CalendarFragment(WorkActivity(3)))
+//        }else if(index != null && index == 4){
+//            fragmentTransaction.add(R.id.frView, MypageFragment(WorkActivity(4)))
+//        }else{
+//            fragmentTransaction.add(R.id.frView, WorklistFragment(WorkActivity(1), applicationContext))
+//        }
+//        fragmentTransaction.commit()
     }
 
     override fun onClick(view: View?) {

@@ -34,16 +34,20 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
 
     // 데이터 바인딩
     fun bind(dto: BbsDto, context: Context){
+        // 작성일 split
+        val dateArr = dto.wdate?.split(":")
+
+        // 리사이클러뷰 데이터세팅
         WorkBbsTitle.text = dto.title
         WorkBbsWriter.text = dto.nickname
-        WorkBbsWdate.text = dto.wdate
+        WorkBbsWdate.text = "${dateArr!![0]}:${dateArr!![1]}"
 
         //itemView 클릭 시 이벤트
         itemView.setOnClickListener {
 
             // 게시글 디테일로 이동
             Intent(context, BbsDetailActivity::class.java).apply {
-                val detailDto = BbsDao.getInstance().bbsDetail(dto.seq!!, LoginMemberDao.user?.id!!)
+                val detailDto = BbsDao.getInstance().bbsDetail_M(ReadCountBbsDto(dto.seq!!, LoginMemberDao.user?.id!!))
 
                 BbsDao.bbsSeq = dto.seq
                 // 디테일로 가져갈 데이터

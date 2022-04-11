@@ -1,21 +1,30 @@
 package com.example.healthapp.bbs
 
+import android.Manifest
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
-import com.example.healthapp.R
+import com.bumptech.glide.Glide
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
 import com.example.healthapp.login.LoginMemberDao
+import kotlinx.coroutines.*
+
 
 // 슬라이드 될 페이지의 글로벌변수(전역변수)
 var imgArr : List<String> = arrayListOf()
@@ -34,14 +43,17 @@ class BbsDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
         // 서버에서 가져온 데이터 세팅
-        val data = intent.getParcelableExtra<BbsDto>("WorkBbsData")
-        println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + data?.title)
+        val data = BbsDao.getInstance().bbsDetail_M(ReadCountBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+//
 
         // -----------------------------------게시글-----------------------------------
+        // 작성일 split
+        val dateArr = data?.wdate?.split(":")
+
         // 가져온 데이터로 TextView세팅
         b.bbsDetailTitle.text = data?.title                                  // 게시글 제목
-        b.bbsDetailWriter.text = "${data?.nickname}(${data?.id})"            // 게시글 작성자
-        b.bbsDetailWdate.text = data?.wdate                                  // 게시글 작성일
+        b.bbsDetailWriter.text = "${data?.nickname}"            // 게시글 작성자
+        b.bbsDetailWdate.text = "${dateArr!![0]}:${dateArr!![1]}"            // 게시글 작성일
         b.bbsDetailRcLike.text = "❤${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
         b.bbsDetailContent.text = data?.content
         if(LoginMemberDao.user?.id == data?.id){
@@ -49,14 +61,32 @@ class BbsDetailActivity : AppCompatActivity() {
             b.bbsDeleteView.visibility = View.VISIBLE
         }
         // 이미지 슬라이드
-        val pagerAdapter = ScreenSlidePagerAdapter(this)
+        val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
         b.viewPager.adapter = pagerAdapter
+
+//        if(imgArr.size >= 3){
+//            b.viewPager.clipChildren = false
+//            b.viewPager.clipToPadding = false
+//            b.viewPager.offscreenPageLimit = 3
+//            b.viewPager.getChildAt(0).overScrollMode=RecyclerView.OVER_SCROLL_NEVER
+//
+//            val page = CompositePageTransformer()
+//            page.addTransformer(MarginPageTransformer(40))
+//            page.addTransformer(ViewPager2.PageTransformer { page, position ->
+//                val r = 1 - Math.abs(position)
+//                page.scaleY = 0.85f + r * 0.15f
+//            })
+//            b.viewPager.setPageTransformer(page)
+//
+//        }
+
+
+
 
         // 좋아요 터치시 이벤트(좋아요누르기전)
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
             BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
-            reLoadView()    // 화면 새로고침
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
@@ -127,14 +157,11 @@ class BbsDetailActivity : AppCompatActivity() {
         // 키보드 나올때 화면 위로 밀어올리기
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
 
-
-
-
-
         // 가져온 게시글정보에서 img가 존재하면 꺼내와서 배열로 저장
         if(data?.bbsImage != null){
             val str = data?.bbsImage
             imgArr = str?.split(",")
+            // images/aaa_1649041103316.jpeg,images/aaa_1649041103341.jpeg
         }
 
     }
@@ -152,12 +179,12 @@ class BbsDetailActivity : AppCompatActivity() {
         override fun getItemCount(): Int = imgArr.size
 
         override fun createFragment(position: Int): Fragment {
-
+            val imgNum = position-1
             return when(position) {
-                position -> SlideImageFragment(imgArr[position])
-                else -> SlideImageFragment(imgArr[imgArr.size])
+                imgNum -> SlideImageFragment(imgArr[imgNum])
+                else -> SlideImageFragment(imgArr[position])
             }
         }
     }
-
 }
+
