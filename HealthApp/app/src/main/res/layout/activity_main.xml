@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.35"/>
     <TextView
-            android:text="화면을 클릭해주세요."
+            android:text="화면을 터치해주세요."
             android:textSize="20dp"
             android:gravity="center"
             android:layout_width="400dp"

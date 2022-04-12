@@ -107,7 +107,7 @@ class BbsDao {
         return response?.body() as String
     }
 
-    // 선택한 게시판 정보 불러오기_조회수증가
+    // 선택한 게시판 정보 불러오기
 
     fun bbsDetail_M(dto: ReadCountBbsDto) : BbsDto{
         val retrofit = RetrofitClient.getInstance()

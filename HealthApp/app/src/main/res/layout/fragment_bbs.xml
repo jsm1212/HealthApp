@@ -20,7 +20,7 @@
     <EditText
             android:layout_width="216sp"
             android:layout_height="45sp"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textNoSuggestions"
             android:textSize="15sp"
             android:ems="10"
             android:id="@+id/WorkBbsSearchbar"

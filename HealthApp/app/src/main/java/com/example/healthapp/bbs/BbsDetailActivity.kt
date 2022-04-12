@@ -91,6 +91,7 @@ class BbsDetailActivity : AppCompatActivity() {
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
+            WorkActivity.selectedFragment = 1
             val intent = Intent(this, WorkActivity::class.java)
             startActivity(intent)
         }

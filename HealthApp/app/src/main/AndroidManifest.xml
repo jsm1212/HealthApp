@@ -40,10 +40,10 @@
                 android:exported="true"/>
         <activity
                 android:name=".fragment.MypageFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".fragment.AdminActivity"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".bbs.BbsWriteActivity"
                 android:exported="true"/>
@@ -53,7 +53,7 @@
                 android:windowSoftInputMode="adjustResize|adjustPan"/>
         <activity
                 android:name=".fragment.BbsFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".fragment.MainFragment"
                 android:configChanges="keyboardHidden|orientation|screenSize"
@@ -63,16 +63,19 @@
                 android:exported="true"/>
         <activity
                 android:name=".login.FindPwdFragment"
+                android:exported="true" tools:ignore="Instantiatable"/>
+        <activity
+                android:name=".bbs.WorkActivity"
                 android:exported="true"/>
         <activity
                 android:name=".fragment.WorklistFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".login.FindIdFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".login.FindFragmentMenu"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".login.RegiActivity"
                 android:exported="true"
@@ -85,7 +88,7 @@
                 android:windowSoftInputMode="adjustResize|adjustPan"/>
         <activity
                 android:name=".fragment.CalendarFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".MainActivity"
                 android:exported="true">

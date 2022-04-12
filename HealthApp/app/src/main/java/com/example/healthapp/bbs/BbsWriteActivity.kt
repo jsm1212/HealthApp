@@ -72,7 +72,8 @@ class BbsWriteActivity : AppCompatActivity() {
 
         // 목록으로 버튼 클릭시 이벤트
         b.goToListBtn.setOnClickListener {
-            val intent = Intent(this, BbsDetailActivity::class.java)
+            WorkActivity.selectedFragment = 1
+            val intent = Intent(this, WorkActivity::class.java)
             startActivity((intent))
         }
     }

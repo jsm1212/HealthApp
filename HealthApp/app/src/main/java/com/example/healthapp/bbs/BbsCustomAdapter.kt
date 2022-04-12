@@ -36,9 +36,15 @@ class ItemViewHolder(itemView:View) : RecyclerView.ViewHolder(itemView){
     fun bind(dto: BbsDto, context: Context){
         // 작성일 split
         val dateArr = dto.wdate?.split(":")
+        var titleStr = ""
+        if(dto.title!!.length >= 24){
+            titleStr = dto.title!!.substring(0 until 24) + "..."
+        }else{
+            titleStr = dto.title
+        }
 
         // 리사이클러뷰 데이터세팅
-        WorkBbsTitle.text = dto.title
+        WorkBbsTitle.text = titleStr
         WorkBbsWriter.text = dto.nickname
         WorkBbsWdate.text = "${dateArr!![0]}:${dateArr!![1]}"
 

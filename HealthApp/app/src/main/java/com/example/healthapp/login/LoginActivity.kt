@@ -264,6 +264,7 @@ class LoginActivity : AppCompatActivity() {
                         val googleLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(googleUserIdtoken,googleUserIdtoken,googleUserName,googleUserName," ",0,googleUserEmail," ",5,"","", 0))
                         LoginMemberDao.user = googleLogin
                         Toast.makeText(this,"${googleUserName}님 환영합니다.",Toast.LENGTH_LONG).show()
+                        WorkActivity.selectedFragment = 0
                         val i = Intent(this,WorkActivity::class.java)
                         startActivity(i)
                     }else{
@@ -274,6 +275,7 @@ class LoginActivity : AppCompatActivity() {
                     if(googleLogin != null){
                         LoginMemberDao.user = googleLogin
                         Toast.makeText(this,"${googleUserName}님 환영합니다.",Toast.LENGTH_LONG).show()
+                        WorkActivity.selectedFragment = 0
                         val i = Intent(this, WorkActivity::class.java)
                         startActivity(i)
                     }else{
