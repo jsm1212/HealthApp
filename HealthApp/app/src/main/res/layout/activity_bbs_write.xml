@@ -26,13 +26,13 @@
             android:hint="title..."
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"
+            android:layout_marginTop="144dp" app:layout_constraintHorizontal_bias="0.505"
             android:paddingRight="10sp"
             android:paddingLeft="10sp"
             android:background="@drawable/edittext_border"/>
     <EditText
             android:layout_width="430sp"
-            android:layout_height="470sp"
+            android:layout_height="420sp"
             android:inputType="textMultiLine"
             android:ems="10"
             android:gravity="top|left"
@@ -89,5 +89,11 @@
             app:layout_constraintEnd_toEndOf="@+id/imageUploadBtn"
             app:layout_constraintStart_toStartOf="@+id/imageUploadBtn"
             app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
+    <ImageView
+            android:layout_width="247dp"
+            android:layout_height="78dp" app:srcCompat="@drawable/sublogo" android:id="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/WorkBbsWriteTitle" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
