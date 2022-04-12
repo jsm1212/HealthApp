@@ -9,6 +9,7 @@ import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.healthapp.R
+import com.example.healthapp.bbs.WorkActivity
 import com.example.healthapp.fragment.MainFragment
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -273,7 +274,7 @@ class LoginActivity : AppCompatActivity() {
                     if(googleLogin != null){
                         LoginMemberDao.user = googleLogin
                         Toast.makeText(this,"${googleUserName}님 환영합니다.",Toast.LENGTH_LONG).show()
-                        val i = Intent(this,WorkActivity::class.java)
+                        val i = Intent(this, WorkActivity::class.java)
                         startActivity(i)
                     }else{
                         Toast.makeText(this,"구글 로그인 에러",Toast.LENGTH_LONG).show()
