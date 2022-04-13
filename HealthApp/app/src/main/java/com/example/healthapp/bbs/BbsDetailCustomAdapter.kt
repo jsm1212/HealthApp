@@ -31,7 +31,6 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
     private val replyWriter = view.findViewById<TextView>(R.id.bbsReplyWriter)
     private val replyContent = view.findViewById<TextView>(R.id.bbsReplyContent)
     private val replyDelete = view.findViewById<TextView>(R.id.bbsReplyDelete)
-    private val replyReply = view.findViewById<TextView>(R.id.bbsReplyReply)
 
     fun bindReply(replyDto:BbsReplyDto, context: Context){
 
@@ -41,12 +40,6 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
 
         if(replyDto.id != LoginMemberDao.user?.id){
             replyDelete.visibility = View.INVISIBLE
-        }
-
-        replyReply.setOnClickListener{
-            val intent = (context as BbsDetailActivity).intent
-            context.overridePendingTransition(0, 0) //효과 없애기
-            context.b.bbsDetailWriteReply.setText("@" + replyDto.id+" ")
         }
 
         replyDelete.setOnClickListener {

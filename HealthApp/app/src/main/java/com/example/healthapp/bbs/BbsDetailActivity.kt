@@ -65,29 +65,21 @@ class BbsDetailActivity : AppCompatActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
         b.viewPager.adapter = pagerAdapter
 
-//        if(imgArr.size >= 3){
-//            b.viewPager.clipChildren = false
-//            b.viewPager.clipToPadding = false
-//            b.viewPager.offscreenPageLimit = 3
-//            b.viewPager.getChildAt(0).overScrollMode=RecyclerView.OVER_SCROLL_NEVER
-//
-//            val page = CompositePageTransformer()
-//            page.addTransformer(MarginPageTransformer(40))
-//            page.addTransformer(ViewPager2.PageTransformer { page, position ->
-//                val r = 1 - Math.abs(position)
-//                page.scaleY = 0.85f + r * 0.15f
-//            })
-//            b.viewPager.setPageTransformer(page)
-//
-//        }
-
 
 
 
         // 좋아요 터치시 이벤트(좋아요누르기전)
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
-            BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
+            val likeStr = BbsDao.getInstance().likeCount_M(LikeBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+            if(likeStr == "count"){
+                Toast.makeText(this,"좋아요를 눌렀습니다!", Toast.LENGTH_SHORT).show()
+                reLoadView()
+            }else{
+                BbsDao.getInstance().likeCountCancel_M(LikeBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+                Toast.makeText(this,"좋아요 취소", Toast.LENGTH_SHORT).show()
+                reLoadView()
+            }
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
