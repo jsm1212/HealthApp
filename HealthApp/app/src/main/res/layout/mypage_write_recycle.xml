@@ -8,20 +8,13 @@
         android:layout_margin="5dp"
         android:padding="10dp"
         android:id="@+id/testest">
-    <CheckBox
-            android:id="@+id/mywCheck"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:id="@+id/mywTitle"
-            android:layout_width="370dp" android:layout_height="wrap_content"
+            android:layout_width="400dp" android:layout_height="wrap_content"
             android:hint="제목" android:textSize="20sp"
             android:gravity="center"
-            app:layout_constraintStart_toEndOf="@+id/mywCheck"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:id="@+id/mywDate"
             android:layout_width="100dp" android:layout_height="wrap_content"
@@ -32,7 +25,7 @@
             app:layout_constraintStart_toEndOf="@+id/mywTitle"/>
     <TextView
             android:id="@+id/mywReadcount"
-            android:layout_width="50dp" android:layout_height="wrap_content"
+            android:layout_width="80dp" android:layout_height="wrap_content"
             android:hint="조회수" android:textSize="15sp"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"

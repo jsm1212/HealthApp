@@ -19,7 +19,7 @@ class psearch : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_psearch)
+        setContentView(R.layout.calendar_psearch)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val sDatePicker = findViewById<DatePicker>(R.id.SdatePicker)

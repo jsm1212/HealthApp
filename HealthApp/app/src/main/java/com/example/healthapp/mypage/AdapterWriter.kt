@@ -19,8 +19,6 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
         private val wtitle = itemView.findViewById<TextView>(R.id.mywTitle)
         private val wdate = itemView.findViewById<TextView>(R.id.mywDate)
         private val wread = itemView.findViewById<TextView>(R.id.mywReadcount)
-        val allCheck = itemView.findViewById<CheckBox>(R.id.mywAllBtn)
-        val check = itemView.findViewById<CheckBox>(R.id.mywCheck)
 
         fun bind(dto: BbsDto, context: Context){
             wtitle.text = dto.title
@@ -38,27 +36,11 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.mypage_write_layout, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.mypage_write_recycle, parent, false)
         return ItemViewHolder(view)
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(dataList[position], context)
-
-        // 전체 선택
-//        holder.allCheck.setOnClickListener {
-//            View.OnClickListener(){
-//                if(holder.allCheck.isChecked){
-//                    holder.check.isSelected = true
-//                }else {
-//                    holder.check.isSelected = false
-//                }
-//            }
-//        }
-//
-//        val b = holder.allCheck.isChecked
-//        holder.allCheck.setOnClickListener(View.OnClickListener {
-//            notifyDataSetChanged()
-//        })
     }
     override fun getItemCount(): Int {
         return dataList.size

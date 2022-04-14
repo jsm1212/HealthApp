@@ -23,7 +23,7 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_work)
+        setContentView(R.layout.fragment_main)
 
         val fm = supportFragmentManager
 

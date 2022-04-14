@@ -35,7 +35,7 @@ class AdapterLike(private val context: Context, private val dataList: ArrayList<
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.mypage_like_layout, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.mypage_like_recycle, parent, false)
         return ItemViewHolder(view)
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {

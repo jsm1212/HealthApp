@@ -5,15 +5,15 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".mypage.MypageLikeActivity">
+        tools:context=".mypage.MypageReplyActivity">
     <TextView
-            android:id="@+id/texl"
-            android:text="좋아요 게시글"
+            android:id="@+id/textrp"
+            android:text="내 댓글"
             android:gravity="center" android:textSize="20sp"
             android:layout_width="match_parent" android:layout_height="50dp"/>
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyLike"
+            android:id="@+id/recyReply"
             android:layout_width="match_parent"
-            android:layout_height="700dp"
-            app:layout_constraintTop_toBottomOf="@+id/texl"/>
+            android:layout_height="800dp"
+            app:layout_constraintTop_toBottomOf="@+id/textrp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

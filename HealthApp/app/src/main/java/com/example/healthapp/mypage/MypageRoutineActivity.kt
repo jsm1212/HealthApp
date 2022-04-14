@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.work.WorkVo
 
 class MypageRoutineActivity : AppCompatActivity() {
@@ -15,7 +14,7 @@ class MypageRoutineActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mypage_routine)
+        setContentView(R.layout.mypage_routine)
 
         var recycleV = findViewById<RecyclerView>(R.id.recyRoutine)
 

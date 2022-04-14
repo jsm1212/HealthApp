@@ -8,8 +8,8 @@
         tools:context=".MainActivity" android:id="@+id/touchView">
     <ImageView
             android:id="@+id/imageView"
-            android:layout_width="354dp"
-            android:layout_height="375dp"
+            android:layout_width="280dp"
+            android:layout_height="335dp"
             app:srcCompat="@drawable/home"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

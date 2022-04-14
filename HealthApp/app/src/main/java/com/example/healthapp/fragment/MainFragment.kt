@@ -5,13 +5,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import com.example.healthapp.R
 import com.example.healthapp.login.LoginMemberDao
 
 class MainFragment : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_work)
+        setContentView(R.layout.fragment_main)
+
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
 
         // 버튼 숨기기
         val mypageBtn = findViewById<Button>(R.id.MyPageBtn)
@@ -45,6 +51,7 @@ class MainFragment : AppCompatActivity(), View.OnClickListener {
 
         if(view?.id == R.id.BbsListBtn){
             fr = BbsFragment(this)
+            R.id.BbsListBtn
         }else if(view?.id == R.id.workListBtn){
             fr = WorklistFragment(this, applicationContext)
         }else if(view?.id == R.id.MyPageBtn){
@@ -52,9 +59,8 @@ class MainFragment : AppCompatActivity(), View.OnClickListener {
         }else if(view?.id == R.id.myCalendarBtn){
             fr = CalendarFragment(this)
         }else if(view?.id == R.id.AdminBtn){
-            fr = AdminActivity(this)
+            fr = AdminFragment(this)
         }
-
         ft.replace(R.id.frView, fr!!)
         ft.commit()
     }

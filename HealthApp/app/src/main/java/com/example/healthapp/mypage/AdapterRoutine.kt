@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
-import com.example.healthapp.bbs.BbsDto
 import com.example.healthapp.work.WorkVo
 
 class AdapterRoutine(private val context: Context, private val dataList: ArrayList<WorkVo>)
@@ -22,7 +21,7 @@ class AdapterRoutine(private val context: Context, private val dataList: ArrayLi
         }
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.mypage_routine_layout, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.mypage_routine_recycle, parent, false)
         return ItemViewHolder(view)
     }
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
