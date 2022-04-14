@@ -29,21 +29,13 @@ interface WorkBbsService {
     @POST("/bbsDetail_M")
     fun bbsDetail_M(@Body dto: ReadCountBbsDto) : Call<BbsDto>
 
-    // 선택한 게시판 정보 불러오기
-//    @GET("/bbsDetail")
-//    fun bbsDetail(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
-//
-//    // 선택한 게시판 정보 불러오기_조회수없음
-//    @GET("/bbsDetail_non")
-//    fun bbsDetail_non(@Query("seq") seq: Int, @Query("id") id: String) : Call<BbsDto>
-
     // 선택한 게시판 좋아요
-    @GET("/likeCount")
-    fun likeCount(@Query("seq") seq: Int) : Call<Unit>
+    @POST("/likeCount_M")
+    fun likeCount_M(@Body dto: LikeBbsDto) : Call<String>
 
     // 선택한 게시판 좋아요 취소
-    @GET("/likeCountCancel")
-    fun likeCountCancel(@Query("seq") seq: Int) : Call<Unit>
+    @POST("/likeCountCancel_M")
+    fun likeCountCancel_M(@Body dto: LikeBbsDto) : Call<String>
 
     // 검색한 게시판 불러오기
     @POST("/getBbsListSearch_M")
@@ -107,7 +99,7 @@ class BbsDao {
         return response?.body() as String
     }
 
-    // 선택한 게시판 정보 불러오기_조회수증가
+    // 선택한 게시판 정보 불러오기
 
     fun bbsDetail_M(dto: ReadCountBbsDto) : BbsDto{
         val retrofit = RetrofitClient.getInstance()
@@ -119,47 +111,26 @@ class BbsDao {
         return response?.body() as BbsDto
     }
 
-//    fun bbsDetail(seq: Int, id: String) : BbsDto{
-//        val retrofit = RetrofitClient.getInstance()
-//
-//        val service = retrofit?.create(WorkBbsService::class.java)
-//        val call = service?.bbsDetail(seq, id)
-//        val response = call?.execute()
-//
-//        return response?.body() as BbsDto
-//    }
-//
-//    // 선택한 게시판 정보 불러오기_조회수없음
-//    fun bbsDetail_non(seq: Int, id: String) : BbsDto{
-//        val retrofit = RetrofitClient.getInstance()
-//
-//        val service = retrofit?.create(WorkBbsService::class.java)
-//        val call = service?.bbsDetail_non(seq, id)
-//        val response = call?.execute()
-//
-//        return response?.body() as BbsDto
-//    }
-
     // 선택한 게시판 좋아요
-    fun likeCount(seq: Int) : Unit {
+    fun likeCount_M(dto: LikeBbsDto) : String {
         val retrofit = RetrofitClient.getInstance()
 
         val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.likeCount(seq)
+        val call = service?.likeCount_M(dto)
         val response = call?.execute()
 
-        return response?.body() as Unit
+        return response?.body() as String
     }
 
     // 선택한 게시판 좋아요 취소
-    fun likeCountCancel(seq: Int) : Unit {
+    fun likeCountCancel_M(dto: LikeBbsDto) : String {
         val retrofit = RetrofitClient.getInstance()
 
         val service = retrofit?.create(WorkBbsService::class.java)
-        val call = service?.likeCountCancel(seq)
+        val call = service?.likeCountCancel_M(dto)
         val response = call?.execute()
 
-        return response?.body() as Unit
+        return response?.body() as String
     }
 
     // 검색한 게시판 불러오기

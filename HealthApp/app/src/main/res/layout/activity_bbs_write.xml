@@ -17,41 +17,49 @@
             android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteTitle"/>
     <EditText
             android:id="@+id/WorkBbsWriteTitle"
-            android:layout_width="495sp"
+            android:layout_width="430sp"
             android:layout_height="50sp"
-            android:inputType="textPersonName"
+            android:inputType="textNoSuggestions"
             android:ems="10"
             android:textSize="23sp"
             android:gravity="center|left"
             android:hint="title..."
-            android:background="@android:color/transparent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"/>
+            android:layout_marginTop="144dp" app:layout_constraintHorizontal_bias="0.505"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/edittext_border"/>
     <EditText
-            android:layout_width="495sp"
-            android:layout_height="500sp"
-            android:inputType="textPersonName"
+            android:layout_width="430sp"
+            android:layout_height="420sp"
+            android:inputType="textMultiLine"
             android:ems="10"
             android:gravity="top|left"
             android:textSize="20sp"
-            android:background="@null"
             android:hint="content..."
             android:id="@+id/WorkBbsWriteContent"
+            android:scrollHorizontally="false"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="@+id/WorkBbsWriteTitle"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintTop_toBottomOf="@+id/WorkSelectedImg"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/edittext_border"/>
     <TextView
             android:text="No file selected"
-            android:layout_width="397sp"
+            android:layout_width="331sp"
             android:layout_height="30sp"
             android:id="@+id/WorkSelectedImg"
             android:textSize="15sp"
             android:gravity="center|left"
             app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="@+id/imageUploadBtn"
-            app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
+            app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/edittext_border"/>
     <Button
             android:text="사진선택"
             android:layout_width="95sp"
@@ -81,5 +89,11 @@
             app:layout_constraintEnd_toEndOf="@+id/imageUploadBtn"
             app:layout_constraintStart_toStartOf="@+id/imageUploadBtn"
             app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
+    <ImageView
+            android:layout_width="247dp"
+            android:layout_height="78dp" app:srcCompat="@drawable/sublogo" android:id="@+id/imageView3"
+            app:layout_constraintBottom_toTopOf="@+id/WorkBbsWriteTitle" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

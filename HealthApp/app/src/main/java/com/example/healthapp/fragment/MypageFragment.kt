@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.healthapp.OnMyKeyDown
 import com.example.healthapp.R
 import com.example.healthapp.login.LoginActivity
 import com.example.healthapp.login.LoginMemberDao
@@ -24,6 +25,11 @@ import com.kakao.sdk.user.UserApiClient
 class MypageFragment(val activity:Context) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
+
+        // 뒤로가기 버튼 2번 클릭시 어플 종료
+        view.isFocusableInTouchMode=true
+        view.requestFocus()
+        view.setOnKeyListener(OnMyKeyDown(activity as Activity))
 
         val nickName = view.findViewById<TextView>(R.id.MypageNickname)
         val updateBtn = view.findViewById<Button>(R.id.MypageUpdateBtn)
@@ -49,7 +55,7 @@ class MypageFragment(val activity:Context) : Fragment() {
         logoutBtn.setOnClickListener {
             Log.d("btnclick", "로그아웃!!!")
 
-            AlertDialog.Builder(activity)
+            AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
@@ -90,7 +96,7 @@ class MypageFragment(val activity:Context) : Fragment() {
                             startActivity(itt)
                         }
                     }
-                }).show()
+                }).setNegativeButton("취소"){_, _ -> }.show()
         }
 
         // 루틴목록으로 이동
@@ -119,7 +125,7 @@ class MypageFragment(val activity:Context) : Fragment() {
 
         // 회원탈퇴
         memDelete.setOnClickListener {
-            AlertDialog.Builder(activity)
+            AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("경고").setMessage("모든 회원정보가 사라집니다.\n그래도 탈퇴하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("네", DialogInterface.OnClickListener { dialog, i ->
@@ -133,7 +139,7 @@ class MypageFragment(val activity:Context) : Fragment() {
                     } else {
                         Toast.makeText(activity, "다시 시도해 주십시오.", Toast.LENGTH_LONG).show()
                     }
-                }).show()
+                }).setNegativeButton("취소"){_, _ -> }.show()
         }
         return view
     }

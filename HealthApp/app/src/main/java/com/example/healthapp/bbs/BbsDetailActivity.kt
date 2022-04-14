@@ -21,16 +21,19 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.example.healthapp.R
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
 import com.example.healthapp.fragment.MainFragment
 import com.example.healthapp.login.LoginMemberDao
 import kotlinx.coroutines.*
 
 
-// 슬라이드 될 페이지의 글로벌변수(전역변수)
-var imgArr : List<String> = arrayListOf()
+
 
 class BbsDetailActivity : AppCompatActivity() {
+
+    // 슬라이드 될 페이지의 글로벌변수(전역변수)
+    var imgArr : List<String> = arrayListOf()
 
     val b by lazy { ActivityBbsDetailBinding.inflate(layoutInflater) }
     // 아직 구현하지 못한 기능
@@ -65,32 +68,25 @@ class BbsDetailActivity : AppCompatActivity() {
         val pagerAdapter = ScreenSlidePagerAdapter(this@BbsDetailActivity)
         b.viewPager.adapter = pagerAdapter
 
-//        if(imgArr.size >= 3){
-//            b.viewPager.clipChildren = false
-//            b.viewPager.clipToPadding = false
-//            b.viewPager.offscreenPageLimit = 3
-//            b.viewPager.getChildAt(0).overScrollMode=RecyclerView.OVER_SCROLL_NEVER
-//
-//            val page = CompositePageTransformer()
-//            page.addTransformer(MarginPageTransformer(40))
-//            page.addTransformer(ViewPager2.PageTransformer { page, position ->
-//                val r = 1 - Math.abs(position)
-//                page.scaleY = 0.85f + r * 0.15f
-//            })
-//            b.viewPager.setPageTransformer(page)
-//
-//        }
-
 
 
 
         // 좋아요 터치시 이벤트(좋아요누르기전)
         b.bbsDetailRcLike.setOnClickListener {
             // 코드
-            BbsDao.getInstance().likeCount(BbsDao.bbsSeq!!)
+            val likeStr = BbsDao.getInstance().likeCount_M(LikeBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+            if(likeStr == "count"){
+                Toast.makeText(this,"좋아요를 눌렀습니다!", Toast.LENGTH_SHORT).show()
+                reLoadView()
+            }else{
+                BbsDao.getInstance().likeCountCancel_M(LikeBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
+                Toast.makeText(this,"좋아요 취소", Toast.LENGTH_SHORT).show()
+                reLoadView()
+            }
         }
         // 목록으로 클릭시 이벤트
         b.goToBbsList.setOnClickListener {
+            WorkActivity.selectedFragment = 1
             val intent = Intent(this, WorkActivity::class.java)
             startActivity(intent)
         }
@@ -106,11 +102,11 @@ class BbsDetailActivity : AppCompatActivity() {
         }
         // 삭제 클릭시 이벤트
         b.bbsDeleteView.setOnClickListener {
-            AlertDialog.Builder(this).setTitle("게시글 삭제")
+            AlertDialog.Builder(this, R.style.MyDialogTheme).setTitle("게시글 삭제")
                 .setMessage("주의!\n게시글을 삭제하시겠습니까?\n삭제한 게시글은 복구할 수 없습니다.").setCancelable(false)
                 .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
                     BbsDao.getInstance().deleteBbs(data?.seq!!)
-                    AlertDialog.Builder(this).setMessage("삭제가 완료되었습니다").setCancelable(false)
+                    AlertDialog.Builder(this, R.style.MyDialogTheme).setMessage("삭제가 완료되었습니다").setCancelable(false)
                         .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
                             val i = Intent(this, MainFragment::class.java)
                             startActivity(i)
@@ -162,9 +158,17 @@ class BbsDetailActivity : AppCompatActivity() {
         if(data?.bbsImage != null){
             val str = data?.bbsImage
             imgArr = str?.split(",")
-            // images/aaa_1649041103316.jpeg,images/aaa_1649041103341.jpeg
+        }else{
+            b.viewPager.visibility = View.GONE
         }
 
+    }
+
+    override fun onBackPressed() {
+        // 게시글목록으로 이동
+        WorkActivity.selectedFragment = 1
+        val intent = Intent(this, WorkActivity::class.java)
+        startActivity(intent)
     }
 
     fun reLoadView(){

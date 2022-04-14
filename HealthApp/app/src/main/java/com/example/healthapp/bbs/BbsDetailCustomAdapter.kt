@@ -31,7 +31,6 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
     private val replyWriter = view.findViewById<TextView>(R.id.bbsReplyWriter)
     private val replyContent = view.findViewById<TextView>(R.id.bbsReplyContent)
     private val replyDelete = view.findViewById<TextView>(R.id.bbsReplyDelete)
-    private val replyReply = view.findViewById<TextView>(R.id.bbsReplyReply)
 
     fun bindReply(replyDto:BbsReplyDto, context: Context){
 
@@ -43,16 +42,10 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
             replyDelete.visibility = View.INVISIBLE
         }
 
-        replyReply.setOnClickListener{
-            val intent = (context as BbsDetailActivity).intent
-            context.overridePendingTransition(0, 0) //효과 없애기
-            context.b.bbsDetailWriteReply.setText("@" + replyDto.id+" ")
-        }
-
         replyDelete.setOnClickListener {
             BbsReplyDao.getInstance().deleteReply(replyDto.seq)
 
-            AlertDialog.Builder(context).setTitle("알림") // 제목
+            AlertDialog.Builder(context, R.style.MyDialogTheme).setTitle("알림") // 제목
                 .setMessage("삭제가 완료되었습니다")   // 메세지
                 .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
                 .setPositiveButton("확인"){ _, _ ->
