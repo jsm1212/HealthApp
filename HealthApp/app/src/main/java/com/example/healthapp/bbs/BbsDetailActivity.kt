@@ -21,6 +21,7 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
+import com.example.healthapp.R
 import com.example.healthapp.databinding.ActivityBbsDetailBinding
 import com.example.healthapp.fragment.MainFragment
 import com.example.healthapp.login.LoginMemberDao
@@ -101,11 +102,11 @@ class BbsDetailActivity : AppCompatActivity() {
         }
         // 삭제 클릭시 이벤트
         b.bbsDeleteView.setOnClickListener {
-            AlertDialog.Builder(this).setTitle("게시글 삭제")
+            AlertDialog.Builder(this, R.style.MyDialogTheme).setTitle("게시글 삭제")
                 .setMessage("주의!\n게시글을 삭제하시겠습니까?\n삭제한 게시글은 복구할 수 없습니다.").setCancelable(false)
                 .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
                     BbsDao.getInstance().deleteBbs(data?.seq!!)
-                    AlertDialog.Builder(this).setMessage("삭제가 완료되었습니다").setCancelable(false)
+                    AlertDialog.Builder(this, R.style.MyDialogTheme).setMessage("삭제가 완료되었습니다").setCancelable(false)
                         .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
                             val i = Intent(this, MainFragment::class.java)
                             startActivity(i)

@@ -45,7 +45,7 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
         replyDelete.setOnClickListener {
             BbsReplyDao.getInstance().deleteReply(replyDto.seq)
 
-            AlertDialog.Builder(context).setTitle("알림") // 제목
+            AlertDialog.Builder(context, R.style.MyDialogTheme).setTitle("알림") // 제목
                 .setMessage("삭제가 완료되었습니다")   // 메세지
                 .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
                 .setPositiveButton("확인"){ _, _ ->

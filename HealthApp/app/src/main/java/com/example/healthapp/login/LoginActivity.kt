@@ -21,7 +21,6 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlin.system.exitProcess
 import kotlinx.android.synthetic.main.login_activity.*
 

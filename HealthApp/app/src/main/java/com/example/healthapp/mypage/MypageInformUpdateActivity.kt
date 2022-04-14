@@ -54,7 +54,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val emailauth = findViewById<Button>(R.id.emailAuthOkBtn)
         emailauth.setOnClickListener {
             if(authnum.text.toString().toInt() != num || authnum.text.toString() == null){
-                AlertDialog.Builder(this@MypageInformUpdateActivity)
+                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
                     .setTitle("확인").setMessage("인증번호를 다시 입력해주세요.")
                     .setCancelable(false)
                     .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
@@ -71,7 +71,7 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val okBtn = findViewById<TextView>(R.id.updateOkBtn)
         okBtn.setOnClickListener {
             if(beforeEmail != updateEmail.text.toString() && num < 0){
-                AlertDialog.Builder(this@MypageInformUpdateActivity)
+                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
                     .setTitle("확인").setMessage("이메일 인증을 진행해 주세요.")
                     .setCancelable(false)
                     .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->

@@ -55,7 +55,7 @@ class MypageFragment(val activity:Context) : Fragment() {
         logoutBtn.setOnClickListener {
             Log.d("btnclick", "로그아웃!!!")
 
-            AlertDialog.Builder(activity)
+            AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
@@ -96,7 +96,7 @@ class MypageFragment(val activity:Context) : Fragment() {
                             startActivity(itt)
                         }
                     }
-                }).show()
+                }).setNegativeButton("취소"){_, _ -> }.show()
         }
 
         // 루틴목록으로 이동
@@ -125,7 +125,7 @@ class MypageFragment(val activity:Context) : Fragment() {
 
         // 회원탈퇴
         memDelete.setOnClickListener {
-            AlertDialog.Builder(activity)
+            AlertDialog.Builder(activity, R.style.MyDialogTheme)
                 .setTitle("경고").setMessage("모든 회원정보가 사라집니다.\n그래도 탈퇴하시겠습니까?")
                 .setCancelable(false)
                 .setPositiveButton("네", DialogInterface.OnClickListener { dialog, i ->
@@ -134,10 +134,11 @@ class MypageFragment(val activity:Context) : Fragment() {
 
                     if (msg == "yes") {
                         Toast.makeText(activity, "회원탈퇴완료", Toast.LENGTH_LONG).show()
+
                     } else {
                         Toast.makeText(activity, "다시 시도해 주십시오.", Toast.LENGTH_LONG).show()
                     }
-                }).show()
+                }).setNegativeButton("취소"){_, _ -> }.show()
 
             val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
