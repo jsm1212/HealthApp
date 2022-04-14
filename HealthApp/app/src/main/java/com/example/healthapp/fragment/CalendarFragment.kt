@@ -1,6 +1,7 @@
 package com.example.healthapp.fragment
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import com.example.healthapp.CalendarDao
-import com.example.healthapp.CalendarDto
-import com.example.healthapp.R
+import com.example.healthapp.*
 import com.example.healthapp.login.LoginMemberDao
-import com.example.healthapp.psearch
 
 
 class CalendarFragment(val activity:Context) : Fragment() {
@@ -23,6 +21,11 @@ class CalendarFragment(val activity:Context) : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_calendar, container, false)
+        // 뒤로가기 버튼 2번 클릭시 어플 종료
+        view.isFocusableInTouchMode=true
+        view.requestFocus()
+        view.setOnKeyListener(OnMyKeyDown(activity as Activity))
+
         val content = view.findViewById<EditText>(R.id.contextEditText) //내용 Edit
         val date = view.findViewById<TextView>(R.id.diaryTextView) //날짜 TEXT
         val calendarView = view.findViewById<CalendarView>(R.id.calendarView) //달력

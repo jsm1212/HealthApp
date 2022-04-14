@@ -2,13 +2,18 @@ package com.example.healthapp.bbs
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.KeyEvent
 import android.view.View
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.example.healthapp.R
 import com.example.healthapp.fragment.BbsFragment
 import com.example.healthapp.fragment.CalendarFragment
 import com.example.healthapp.fragment.MypageFragment
 import com.example.healthapp.fragment.WorklistFragment
+import kotlin.system.exitProcess
 
 class WorkActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -39,6 +44,24 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
         }
         fragmentTransaction.commit()
     }
+
+    private var backPressedTime: Long = 0
+
+    override fun onBackPressed() {
+        println("뒤로가기버트!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+
+        if(System.currentTimeMillis() - backPressedTime >= 1500){
+            // 처음 클릭 메시지
+            backPressedTime = System.currentTimeMillis()
+            Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }else{
+            ActivityCompat.finishAffinity(this)
+            System.runFinalization()
+            exitProcess(0)
+        }
+    }
+
+
 
     override fun onClick(view: View?) {
         var fr:Fragment? = null

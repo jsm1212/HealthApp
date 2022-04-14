@@ -66,7 +66,8 @@ class BbsWriteActivity : AppCompatActivity() {
             Toast.makeText(this,"작성이 완료되었습니다.", Toast.LENGTH_LONG).show()
 
             // 게시글 목록으로 이동
-            val i = Intent(this, MainFragment::class.java)
+            WorkActivity.selectedFragment = 1
+            val i = Intent(this, WorkActivity::class.java)
             startActivity(i)
         }
 
@@ -88,7 +89,9 @@ class BbsWriteActivity : AppCompatActivity() {
                     deleteImg()
                 }
                 // 게시글 목록으로 이동
-                super.onBackPressed()
+                WorkActivity.selectedFragment = 1
+                val intent = Intent(this, WorkActivity::class.java)
+                startActivity((intent))
             }.setNegativeButton("취소"){_, _ -> } // 취소 누를시 이벤트 없음
             .show()
     }

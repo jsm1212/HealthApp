@@ -1,5 +1,6 @@
 package com.example.healthapp.fragment
 
+import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.Spinner
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.healthapp.OnMyKeyDown
 import com.example.healthapp.R
 import com.example.healthapp.work.WorkAdapter
 import com.example.healthapp.work.WorkVo
@@ -27,6 +29,11 @@ class WorklistFragment(val activity:Context, val applicationContext: Context) : 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = inflater.inflate(R.layout.fragment_worklist, container, false)
+
+        // 뒤로가기 버튼 2번 클릭시 어플 종료
+        view.isFocusableInTouchMode = true
+        view.requestFocus()
+        view.setOnKeyListener(OnMyKeyDown(activity as Activity))
 
         val reView = view.findViewById<RecyclerView>(R.id.rv)
 
@@ -50,8 +57,6 @@ class WorklistFragment(val activity:Context, val applicationContext: Context) : 
                 TODO("Not yet implemented")
             }
         }
-
-
         return view
     }
 }

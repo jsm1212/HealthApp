@@ -21,6 +21,9 @@ interface BbsReplyService{
     @GET("/deleteReply")
     fun deleteReply(@Query("seq") seq: Int) : Call<String>
 
+    // 해당 게시글의 댓글 수
+    @GET("/getReplyCount")
+    fun getReplyCount(@Query("seq") seq: Int) : Call<Int>
 }
 
 class BbsReplyDao {
@@ -67,6 +70,17 @@ class BbsReplyDao {
         val response = call?.execute()
 
         return response?.body() as String
+    }
+
+    // 해당 게시글의 댓글 수
+    fun getReplyCount(seq: Int) : Int{
+        val retrofit = RetrofitClient.getInstance()
+
+        val service = retrofit?.create(BbsReplyService::class.java)
+        val call = service?.getReplyCount(seq)
+        val response = call?.execute()
+
+        return response?.body() as Int
     }
 
 }

@@ -27,10 +27,12 @@ import com.example.healthapp.login.LoginMemberDao
 import kotlinx.coroutines.*
 
 
-// 슬라이드 될 페이지의 글로벌변수(전역변수)
-var imgArr : List<String> = arrayListOf()
+
 
 class BbsDetailActivity : AppCompatActivity() {
+
+    // 슬라이드 될 페이지의 글로벌변수(전역변수)
+    var imgArr : List<String> = arrayListOf()
 
     val b by lazy { ActivityBbsDetailBinding.inflate(layoutInflater) }
     // 아직 구현하지 못한 기능
@@ -155,9 +157,17 @@ class BbsDetailActivity : AppCompatActivity() {
         if(data?.bbsImage != null){
             val str = data?.bbsImage
             imgArr = str?.split(",")
-            // images/aaa_1649041103316.jpeg,images/aaa_1649041103341.jpeg
+        }else{
+            b.viewPager.visibility = View.GONE
         }
 
+    }
+
+    override fun onBackPressed() {
+        // 게시글목록으로 이동
+        WorkActivity.selectedFragment = 1
+        val intent = Intent(this, WorkActivity::class.java)
+        startActivity(intent)
     }
 
     fun reLoadView(){

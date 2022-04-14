@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import com.example.healthapp.R
 import com.example.healthapp.bbs.WorkActivity
 import com.example.healthapp.fragment.MainFragment
@@ -21,6 +22,7 @@ import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.AuthErrorCause.*
 import com.kakao.sdk.user.UserApiClient
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlin.system.exitProcess
 
 class LoginActivity : AppCompatActivity() {
 
@@ -289,9 +291,22 @@ class LoginActivity : AppCompatActivity() {
         }.addOnFailureListener {
 
         }
+    }
 
+    private var backPressedTime: Long = 0
 
+    override fun onBackPressed() {
+        Log.d("TAG", "뒤로가기")
 
+        if(System.currentTimeMillis() - backPressedTime >= 1500){
+            // 처음 클릭 메시지
+            backPressedTime = System.currentTimeMillis()
+            Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 앱이 종료됩니다.", Toast.LENGTH_SHORT).show()
+        }else{
+            ActivityCompat.finishAffinity(this)
+            System.runFinalization()
+            exitProcess(0)
+        }
     }
 
 }

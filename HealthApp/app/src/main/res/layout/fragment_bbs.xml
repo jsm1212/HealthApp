@@ -5,58 +5,72 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragment.BbsFragment">
+        tools:context=".fragment.BbsFragment"
+        android:background="@drawable/bbsback">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="517sp"
-            android:layout_height="0sp"
+            android:layout_width="491dp"
+            android:layout_height="550dp"
             app:layout_constraintHeight_percent="0.75"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:id="@+id/recyclerView" app:layout_constraintHorizontal_bias="0.506"
-    />
+            android:padding="15sp"
+            android:id="@+id/recyclerView" app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintTop_toBottomOf="@+id/spinner" android:layout_marginTop="12dp"/>
     <EditText
             android:layout_width="216sp"
-            android:layout_height="45sp"
+            android:layout_height="40sp"
             android:inputType="textPersonName|textNoSuggestions"
             android:textSize="15sp"
             android:ems="10"
+            android:textStyle="normal"
             android:id="@+id/WorkBbsSearchbar"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/itemback"
             app:layout_constraintEnd_toStartOf="@+id/WorkBbsSearchBtn"
-            app:layout_constraintTop_toTopOf="@+id/WorkBbsSearchBtn"
-            android:layout_marginEnd="4dp"/>
+            android:layout_marginEnd="4dp"
+            app:layout_constraintTop_toTopOf="@+id/spinner"
+            app:layout_constraintBottom_toBottomOf="@+id/spinner"/>
     <Button
-            android:text="검색"
+            android:text="🔍"
             android:layout_width="70sp"
             android:layout_height="45sp"
             android:id="@+id/WorkBbsSearchBtn"
+            android:textColor="@color/greenmain"
             android:textSize="15sp"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/recyclerView"
             app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="10dp" app:layout_constraintTop_toTopOf="@+id/WorkBbsSearchbar"
+            app:layout_constraintVertical_bias="1.0" android:layout_marginEnd="24dp"/>
     <TextView
-            android:text="커뮤니티"
             android:layout_width="100sp"
             android:layout_height="39sp"
             android:id="@+id/ComunityTitle"
+            android:text="자유게시판"
+            android:textStyle="normal"
             android:gravity="center"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="@+id/recyclerView"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerView"
-            android:layout_marginBottom="60dp"/>
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="@+id/recyclerView"
+            android:layout_marginTop="44dp"/>
     <Button
             android:text="글쓰기"
             android:layout_width="90sp"
+            android:textColor="@color/greenmain"
             android:layout_height="45sp" android:id="@+id/goWorkBbsWirte"
             android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="@+id/recyclerView"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" android:layout_marginTop="4dp"/>
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="@+id/WorkBbsSearchBtn"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerView" android:layout_marginTop="4dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.023"/>
     <Spinner
-            android:layout_width="120dp"
-            android:layout_height="45dp" android:id="@+id/spinner"
-            app:layout_constraintTop_toTopOf="@+id/WorkBbsSearchbar"
-            app:layout_constraintBottom_toBottomOf="@+id/WorkBbsSearchbar"
-            app:layout_constraintEnd_toStartOf="@+id/WorkBbsSearchbar" android:layout_marginEnd="12dp"/>
+            android:layout_width="70dp"
+            android:layout_height="40dp" android:id="@+id/spinner"
+            android:background="@drawable/spinnerback"
+            android:textAlignment="center"
+            android:spinnerMode="dialog"
+            app:layout_constraintEnd_toStartOf="@+id/WorkBbsSearchbar" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/ComunityTitle" android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/ComunityTitle" app:layout_constraintHorizontal_bias="1.0"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

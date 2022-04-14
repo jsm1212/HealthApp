@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.healthapp.OnMyKeyDown
 import com.example.healthapp.login.LoginActivity
 import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.R
@@ -24,6 +25,11 @@ import com.kakao.sdk.user.UserApiClient
 class MypageFragment(val activity:Context) : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
+
+        // 뒤로가기 버튼 2번 클릭시 어플 종료
+        view.isFocusableInTouchMode=true
+        view.requestFocus()
+        view.setOnKeyListener(OnMyKeyDown(activity as Activity))
 
         val nickName = view.findViewById<TextView>(R.id.MypageNickname)
         val updateBtn = view.findViewById<Button>(R.id.MypageUpdateBtn)
