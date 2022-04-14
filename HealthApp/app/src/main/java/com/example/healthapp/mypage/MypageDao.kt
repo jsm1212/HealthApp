@@ -45,6 +45,10 @@ interface MypageService {
     // 회원 목록 조회(관리자)
     @GET("/getMemberList_M")
     fun getMemberList(): Call<List<LoginMemberDto>>
+
+    // 메일 전송
+    @POST("/sendEmail_M")
+    fun sendEmail(@Body email:String): Call<Int>
 }
 class MypageDao {
     companion object{
@@ -153,5 +157,15 @@ class MypageDao {
         val response = call?.execute()
 
         return response?.body() as ArrayList<LoginMemberDto>
+    }
+
+    // 메일 전송
+    fun sendEmail(email:String) : Int?{
+        val retrofit = RetrofitClient.getInstance()
+        val service = retrofit?.create(MypageService::class.java)
+        val call = service?.sendEmail(email)
+        val response = call?.execute()
+
+        return response?.body() as Int
     }
 }

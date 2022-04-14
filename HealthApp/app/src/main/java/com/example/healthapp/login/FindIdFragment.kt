@@ -15,7 +15,7 @@ import com.example.healthapp.R
 class FindIdFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.activity_find_id_fragment, container, false)
+        val view = inflater.inflate(R.layout.login_find_id_fragment, container, false)
 
         val findName = view.findViewById<EditText>(R.id.findNameEditText)
         val findTel = view.findViewById<EditText>(R.id.findTelEditText)

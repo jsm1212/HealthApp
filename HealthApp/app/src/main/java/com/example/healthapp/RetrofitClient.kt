@@ -22,17 +22,9 @@ class RetrofitClient {
                     .setLenient()
                     .create()
 
-//                val okHttpClient = OkHttpClient.Builder()
-//                    .connectTimeout(100, TimeUnit.SECONDS)
-//                    .readTimeout(100, TimeUnit.SECONDS)
-//                    .writeTimeout(100, TimeUnit.SECONDS)
-//                    .build()
-                //
-
                 instance = Retrofit
                     .Builder()
-                    .baseUrl("http://192.168.0.99:3000/") // 본인 IP주소로 입력하기!!
-//                     .baseUrl("http://192.168.45.152:3000/") // 본인 IP주소로 입력하기!!
+                    .baseUrl("http://192.168.51.104:3000/") // 본인 IP주소로 입력하기!!
                     .addConverterFactory(ScalarsConverterFactory.create()) // 문자열 리턴받는경우
                     .addConverterFactory(GsonConverterFactory.create(gson)) // object, integer
                     .build()

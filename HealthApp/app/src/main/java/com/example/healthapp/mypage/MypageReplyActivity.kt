@@ -17,7 +17,7 @@ class MypageReplyActivity : AppCompatActivity() {
     )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mypage_reply)
+        setContentView(R.layout.mypage_reply)
 
         val id = LoginMemberDao.user?.id
         println("확인!!!!!!!!!! $id")

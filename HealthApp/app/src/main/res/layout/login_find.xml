@@ -18,7 +18,7 @@
               android:layout_height="wrap_content"
               android:id="@+id/find_fragment_menu"
               android:name="com.example.healthapp.login.FindFragmentMenu"
-              tools:layout="@layout/activity_find_fragment_menu"
+              tools:layout="@layout/login_find_fragment_menu"
               tools:ignore="Instantiatable,MissingConstraints" tools:layout_editor_absoluteY="0dp"
               tools:layout_editor_absoluteX="-16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

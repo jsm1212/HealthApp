@@ -17,7 +17,7 @@ class MypageLikeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_mypage_like)
+        setContentView(R.layout.mypage_like)
 
         var recycleV = findViewById<RecyclerView>(R.id.recyLike)
 

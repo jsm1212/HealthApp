@@ -14,9 +14,9 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.healthapp.R
 import com.example.healthapp.login.LoginActivity
 import com.example.healthapp.login.LoginMemberDao
-import com.example.healthapp.R
 import com.example.healthapp.mypage.*
 import com.google.firebase.auth.FirebaseAuth
 import com.kakao.sdk.user.UserApiClient
@@ -137,5 +137,10 @@ class MypageFragment(val activity:Context) : Fragment() {
             startActivity(intent)
         }
         return view
+    }
+
+    fun refresh(){
+        val re = fragmentManager?.beginTransaction()
+        re!!.detach(this).detach(this).commit()
     }
 }

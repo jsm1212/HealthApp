@@ -7,20 +7,12 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:padding="10dp">
-    <CheckBox
-            android:id="@+id/myrpCheck"
-            android:layout_width="wrap_content" android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:id="@+id/myrpReply"
-            android:layout_width="300dp" android:layout_height="wrap_content"
+            android:layout_width="380dp" android:layout_height="wrap_content"
             android:hint="댓글"
-            app:layout_constraintStart_toEndOf="@+id/myrpCheck"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="10dp"
-            app:layout_constraintBottom_toBottomOf="@+id/myrpCheck"/>
+            app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:id="@+id/myrpDate"
             android:layout_width="100dp" android:layout_height="wrap_content"
