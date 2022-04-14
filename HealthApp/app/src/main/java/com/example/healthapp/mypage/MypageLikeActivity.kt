@@ -19,6 +19,11 @@ class MypageLikeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_like)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         var recycleV = findViewById<RecyclerView>(R.id.recyLike)
 
         val adap = AdapterLike(this, test)

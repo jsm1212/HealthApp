@@ -19,6 +19,11 @@ class MypageReplyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_reply)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         val id = LoginMemberDao.user?.id
         println("확인!!!!!!!!!! $id")
         val data = MypageDao.getInstance().getMyReply(id!!)

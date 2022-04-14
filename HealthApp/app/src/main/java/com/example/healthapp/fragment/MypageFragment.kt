@@ -128,13 +128,12 @@ class MypageFragment(val activity:Context) : Fragment() {
 
                     if (msg == "yes") {
                         Toast.makeText(activity, "회원탈퇴완료", Toast.LENGTH_LONG).show()
+                        val intent = Intent(activity, LoginActivity::class.java)
+                        startActivity(intent)
                     } else {
                         Toast.makeText(activity, "다시 시도해 주십시오.", Toast.LENGTH_LONG).show()
                     }
                 }).show()
-
-            val intent = Intent(activity, LoginActivity::class.java)
-            startActivity(intent)
         }
         return view
     }

@@ -17,15 +17,18 @@
             android:layout_marginTop="50dp"/>
     <Button
             android:id="@+id/MypageUpdateBtn"
-            android:text="회원정보 수정"
+            android:text="회원정보 수정" android:textSize="20sp"
+            android:backgroundTint="@color/maincolor"
             android:layout_width="200dp" android:layout_height="60dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.167" app:layout_constraintTop_toBottomOf="@+id/MypageNickname"
+            app:layout_constraintHorizontal_bias="0.167"
+            app:layout_constraintTop_toBottomOf="@+id/MypageNickname"
             android:layout_marginTop="30dp"/>
     <Button
             android:id="@+id/MypageLogoutBtn"
-            android:text="로그아웃"
+            android:text="로그아웃" android:textSize="20sp"
+            android:backgroundTint="@color/maincolor"
             android:layout_width="200dp" android:layout_height="60dp"
             app:layout_constraintStart_toEndOf="@+id/MypageUpdateBtn"
             app:layout_constraintTop_toTopOf="@+id/MypageUpdateBtn"
@@ -34,7 +37,7 @@
             app:layout_constraintVertical_bias="0.0"/>
     <Button
             android:id="@+id/MypageRoutineBtn"
-            android:text="내 운동루틴"
+            android:text="내 운동루틴" android:textSize="20sp"
             android:layout_width="match_parent" android:layout_height="100dp"
             android:background="@drawable/mypage_line"
             android:textColor="@color/black"
@@ -44,7 +47,7 @@
             android:layout_marginTop="120dp"/>
     <Button
             android:id="@+id/MypageWriteBtn"
-            android:text="내 게시글"
+            android:text="내 게시글" android:textSize="20sp"
             android:layout_width="match_parent" android:layout_height="100dp"
             android:background="@drawable/mypage_line"
             android:textColor="@color/black"
@@ -54,7 +57,7 @@
             android:layout_marginTop="-3dp"/>
     <Button
             android:id="@+id/MypageReplyBtn"
-            android:text="내 댓글"
+            android:text="내 댓글" android:textSize="20sp"
             android:layout_width="match_parent" android:layout_height="100dp"
             android:background="@drawable/mypage_line"
             android:textColor="@color/black"
@@ -64,7 +67,7 @@
             android:layout_marginTop="-3dp"/>
     <Button
             android:id="@+id/MypageLikeBtn"
-            android:text="내가 공감한 글"
+            android:text="내가 공감한 글" android:textSize="20sp"
             android:layout_width="match_parent" android:layout_height="100dp"
             android:background="@drawable/mypage_line"
             android:textColor="@color/black"
