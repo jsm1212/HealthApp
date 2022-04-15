@@ -205,7 +205,5 @@ class RegiActivity : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 }

@@ -7,110 +7,105 @@
         android:layout_height="match_parent"
         tools:context=".login.LoginActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="528dp"
-            android:layout_height="628dp"
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent" android:layout_height="650dp"
+            android:layout_margin="20dp"
             android:background="@drawable/border_line"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.138"
-            android:id="@+id/constraintLayout" app:layout_constraintHorizontal_bias="0.43">
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
         <ImageView
-                android:layout_width="239dp"
-                android:layout_height="236dp" app:srcCompat="@drawable/home" android:id="@+id/imageView"
+                android:layout_width="250dp" android:layout_height="250dp"
+                app:srcCompat="@drawable/home"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintVertical_bias="0.147"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="80dp"/>
+        <TextView
+                android:text="아이디"
+                android:textSize="20dp" android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="100dp" android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/loginEditId"
+                app:layout_constraintTop_toTopOf="@+id/loginEditId"/>
         <EditText
                 android:id="@+id/loginEditId"
                 android:textSize="18dp"
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
+                android:gravity="center|left"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_line"
+                android:layout_width="250dp" android:layout_height="50dp"
+                android:inputType="textMultiLine|textNoSuggestions|textPersonName"
                 android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.713" app:layout_constraintVertical_bias="0.577"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.7"
+                android:layout_marginTop="350dp"/>
         <TextView
-                android:id="@+id/loginTextView2"
                 android:text="비밀번호"
-                android:textSize="20dp"
+                android:textSize="20dp" android:textStyle="bold"
                 android:gravity="center"
-                android:layout_width="105dp"
-                android:layout_height="70dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.257" app:layout_constraintVertical_bias="0.747"/>
-        <TextView
-                android:id="@+id/loginTextView"
-                android:text="아이디"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_width="105dp"
-                android:layout_height="70dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.257" app:layout_constraintVertical_bias="0.578"/>
+                android:layout_width="100dp" android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/loginEditPwd"
+                app:layout_constraintTop_toTopOf="@+id/loginEditPwd"/>
         <EditText
                 android:id="@+id/loginEditPwd"
                 android:textSize="18dp"
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
+                android:gravity="center|left"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_line"
+                android:layout_width="250dp" android:layout_height="50dp"
+                android:inputType="textMultiLine|textNoSuggestions|textPassword"
                 android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.716" app:layout_constraintVertical_bias="0.735"/>
+                app:layout_constraintTop_toBottomOf="@+id/loginEditId"
+                app:layout_constraintEnd_toEndOf="@+id/loginEditId"
+                android:layout_marginTop="10dp"/>
+        <CheckBox
+                android:text="자동로그인" android:textSize="15dp"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:id="@+id/autoLogin"
+                app:layout_constraintTop_toBottomOf="@+id/loginEditPwd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="30dp"/>
         <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/loginBtn"
                 android:text="로그인"
-                android:textSize="20dp"
-                android:textColor="@color/subcolor"
+                android:textSize="20dp" android:textStyle="bold"
                 android:background="@color/maincolor"
                 android:gravity="center"
-                android:layout_width="174dp"
-                android:layout_height="53dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.943"/>
-        <CheckBox
-                android:text="자동로그인"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/autoLogin"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/loginBtn"
-                app:layout_constraintTop_toBottomOf="@+id/loginEditPwd" app:layout_constraintVertical_bias="1.0"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="521dp"
-            android:layout_height="192dp"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintStart_toStartOf="@+id/guideline3"
-            app:layout_constraintVertical_bias="0.111" app:layout_constraintHorizontal_bias="0.43">
-
-        <ImageButton
-                android:id="@+id/kakao_login_button"
-                android:layout_width="246dp"
-                android:layout_height="49dp"
-                android:src="@drawable/kakao_login_medium_narrow"
-                android:background="@android:color/transparent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintVertical_bias="0.139" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.12"/>
-        <com.google.android.gms.common.SignInButton
-                android:id="@+id/sign_in_button"
-                android:layout_width="183dp"
-                android:layout_height="49dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_margin="20dp"
+                android:layout_width="180dp" android:layout_height="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/autoLogin"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.869"
-                app:layout_constraintVertical_bias="0.0"/>
+                android:layout_marginTop="20dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+        <ImageButton
+                android:id="@+id/kakao_login_button"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:src="@drawable/kakao_login_medium_narrow"
+                android:background="@android:color/transparent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.2"
+                android:layout_marginTop="20dp"/>
+        <com.google.android.gms.common.SignInButton
+                android:id="@+id/sign_in_button"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/kakao_login_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.8"/>
         <TextView
                 android:id="@+id/moveRegi"
                 android:text="회원가입"
@@ -118,21 +113,10 @@
                 android:gravity="center"
                 android:layout_width="105dp"
                 android:layout_height="40dp"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.73" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.038"/>
-        <TextView
-                android:id="@+id/moveTrainerRegi"
-                android:text="트레이너이신가요?"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="144dp"
-                android:layout_height="40dp"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.73" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.957"/>
+                app:layout_constraintTop_toBottomOf="@+id/kakao_login_button"
+                android:layout_marginTop="30dp"
+                app:layout_constraintStart_toStartOf="@+id/kakao_login_button"
+                app:layout_constraintEnd_toEndOf="@+id/kakao_login_button"/>
         <TextView
                 android:id="@+id/moveFIndIdPwd"
                 android:text="아이디/비밀번호 찾기"
@@ -140,14 +124,9 @@
                 android:gravity="center"
                 android:layout_width="180dp"
                 android:layout_height="40dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/kakao_login_button"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.442" app:layout_constraintVertical_bias="0.506"/>
+                app:layout_constraintTop_toBottomOf="@+id/sign_in_button"
+                app:layout_constraintStart_toStartOf="@+id/sign_in_button"
+                app:layout_constraintEnd_toEndOf="@+id/sign_in_button"
+                android:layout_marginTop="30dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <androidx.constraintlayout.widget.Guideline
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:layout_constraintGuide_begin="0dp" android:id="@+id/guideline3"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

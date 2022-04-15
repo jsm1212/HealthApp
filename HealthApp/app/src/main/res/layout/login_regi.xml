@@ -5,86 +5,180 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/border_line"
+        android:layout_margin="30dp"
         tools:context=".login.RegiActivity">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="534dp"
-            android:layout_height="728dp"
-            android:background="@drawable/border_line"
+    <TextView
+            android:text="아이디" android:gravity="center"
+            android:textSize="18dp" android:textStyle="bold"
+            android:layout_width="100dp" android:layout_height="50dp"
+            app:layout_constraintEnd_toStartOf="@+id/regiIdEditText"
+            app:layout_constraintTop_toTopOf="@+id/regiIdEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/regiIdEditText"/>
+    <TextView
+            android:id="@+id/regiPwdText"
+            android:text="비밀번호"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/constraintLayout2"
-            app:layout_constraintHorizontal_bias="0.575" app:layout_constraintVertical_bias="0.439">
-
-        <TextView
-                android:id="@+id/regiIdText"
-                android:text="아이디"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.09" app:layout_constraintVertical_bias="0.048"/>
-        <EditText
-                android:id="@+id/regiIdEditText"
-                android:textSize="16dp"
-                android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
-                android:inputType="text"
-                android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.514" app:layout_constraintVertical_bias="0.046"/>
-        <EditText
+            app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.159"/>
+    <TextView
+            android:id="@+id/regiPwdCheckText"
+            android:text="비밀번호확인"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.265"/>
+    <TextView
+            android:id="@+id/regiNameText"
+            android:text="이름"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.091" app:layout_constraintVertical_bias="0.361"/>
+    <TextView
+            android:id="@+id/regiNickNameText"
+            android:text="닉네임"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.469"/>
+    <TextView
+            android:id="@+id/regiGenderText"
+            android:text="성별"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.091" app:layout_constraintVertical_bias="0.582"/>
+    <TextView
+            android:id="@+id/regiAgeText"
+            android:text="나이"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.709"/>
+    <TextView
+            android:text="이메일"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp" android:id="@+id/regiEmailText"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.812"/>
+    <TextView
+            android:id="@+id/regiTelText"
+            android:text="전화번호"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.926"/>
+    <TextView
+            android:id="@+id/regiIdCheckText"
+            android:textSize="10dp"
+            android:gravity="left"
+            android:layout_width="216dp"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.115"/>
+    <TextView
+            android:id="@+id/exPwdText"
+            android:text="문자, 숫자, 특수문자를 포함하여 8자 이상만 가능합니다."
+            android:textSize="10dp"
+            android:layout_width="240dp"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.224" app:layout_constraintHorizontal_bias="0.544"/>
+    <TextView
+            android:id="@+id/regiNicknameCheckText"
+            android:text="특수문자를 제외한 2~8자리만 가능합니다."
+            android:textSize="10dp"
+            android:gravity="left"
+            android:layout_width="215dp"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.516" app:layout_constraintHorizontal_bias="0.501"/>
+    <TextView
+            android:id="@+id/regiEmailCheckText"
+            android:textSize="10dp"
+            android:gravity="left"
+            android:layout_width="216dp"
+            android:layout_height="16dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.844"/>
+    <EditText
+            android:id="@+id/regiIdEditText"
+            android:layout_width="250dp" android:layout_height="50dp"
+            android:textSize="15dp" android:gravity="center|left"
+            android:paddingStart="10dp"
+            android:background="@drawable/border_line"
+            android:inputType="textMultiLine|textNoSuggestions|text"
+            android:ems="10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"/>
+    <EditText
                 android:id="@+id/regiIdEditPwd"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="textPassword"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.523" app:layout_constraintVertical_bias="0.159"/>
-        <TextView
-                android:id="@+id/regiPwdText"
-                android:text="비밀번호"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.159"/>
-        <EditText
+    <EditText
                 android:id="@+id/regiIdEditPwdCheck"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="textPassword"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.526" app:layout_constraintVertical_bias="0.266"/>
-        <TextView
-                android:id="@+id/regiPwdCheckText"
-                android:text="비밀번호확인"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.265"/>
-        <EditText
+    <EditText
                 android:id="@+id/regiNameEditText"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="textPersonName"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -94,42 +188,21 @@
                 android:id="@+id/regiNicknameEditText"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="textPersonName"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.523" app:layout_constraintVertical_bias="0.467"/>
-        <TextView
-                android:id="@+id/regiNameText"
-                android:text="이름"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.091" app:layout_constraintVertical_bias="0.361"/>
-        <TextView
-                android:id="@+id/regiNickNameText"
-                android:text="닉네임"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.094" app:layout_constraintVertical_bias="0.469"/>
-        <RadioGroup
+    <RadioGroup
                 android:id="@+id/regiGenderRadioGroup"
-                android:layout_width="260dp"
-                android:layout_height="60dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.58" app:layout_constraintVertical_bias="0.591"
-        >
+                app:layout_constraintHorizontal_bias="0.58" app:layout_constraintVertical_bias="0.591">
             <RadioButton
                     android:id="@+id/regiManRadioBtn"
                     android:text="남자"
@@ -141,167 +214,71 @@
                     android:layout_width="110dp"
                     android:layout_height="wrap_content"/>
         </RadioGroup>
-        <TextView
-                android:id="@+id/regiGenderText"
-                android:text="성별"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.091" app:layout_constraintVertical_bias="0.582"/>
-        <EditText
+    <EditText
                 android:id="@+id/regiAgeEditText"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="text|number"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.513" app:layout_constraintVertical_bias="0.711"/>
-        <TextView
-                android:id="@+id/regiAgeText"
-                android:text="나이"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.709"/>
-        <EditText
+    <EditText
                 android:id="@+id/regiEmailEditText"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="textEmailAddress"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.526" app:layout_constraintVertical_bias="0.812"/>
-        <TextView
-                android:text="이메일"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp" android:id="@+id/regiEmailText"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.812"/>
-        <EditText
+    <EditText
                 android:id="@+id/regiTelEditText"
                 android:textSize="16dp"
                 android:gravity="left"
-                android:layout_width="232dp"
-                android:layout_height="52dp"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
                 android:inputType="text|phone"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintHorizontal_bias="0.526" app:layout_constraintVertical_bias="0.928"/>
-        <TextView
-                android:id="@+id/regiTelText"
-                android:text="전화번호"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.084" app:layout_constraintVertical_bias="0.926"/>
-        <Button
-                android:id="@+id/regiIdCheckBtn"
-                android:text="중복확인"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.045"/>
-        <Button
-                android:id="@+id/regiNicknameCheckBtn"
-                android:text="중복확인"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.47"/>
-        <Button
-                android:id="@+id/regiEmailCheckBtn"
-                android:text="중복확인"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.807"/>
-        <TextView
-                android:id="@+id/regiIdCheckText"
-                android:textSize="10dp"
-                android:gravity="left"
-                android:layout_width="216dp"
-                android:layout_height="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.498" app:layout_constraintVertical_bias="0.115"/>
-        <TextView
-                android:id="@+id/exPwdText"
-                android:text="문자, 숫자, 특수문자를 포함하여 8자 이상만 가능합니다."
-                android:textSize="10dp"
-                android:layout_width="240dp"
-                android:layout_height="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.224" app:layout_constraintHorizontal_bias="0.544"/>
-        <TextView
-                android:id="@+id/regiNicknameCheckText"
-                android:text="특수문자를 제외한 2~8자리만 가능합니다."
-                android:textSize="10dp"
-                android:gravity="left"
-                android:layout_width="215dp"
-                android:layout_height="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.516" app:layout_constraintHorizontal_bias="0.501"/>
-        <TextView
-                android:id="@+id/regiEmailCheckText"
-                android:textSize="10dp"
-                android:gravity="left"
-                android:layout_width="216dp"
-                android:layout_height="16dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.844"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-            android:id="@+id/regiText"
-            android:text="회원가입"
-            android:textSize="20dp"
-            android:gravity="center"
-            android:layout_width="234dp"
-            android:layout_height="63dp"
+    <Button
+            android:id="@+id/regiIdCheckBtn"
+            android:text="중복확인"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/maincolor"
+            app:layout_constraintStart_toEndOf="@+id/regiIdEditText"
+            app:layout_constraintTop_toTopOf="@+id/regiIdEditText"
+            app:layout_constraintBottom_toBottomOf="@+id/regiIdEditText"/>
+    <Button
+            android:id="@+id/regiNicknameCheckBtn"
+            android:text="중복확인"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.017"/>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="576dp"
-            android:layout_height="95dp"
+            app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.47"/>
+    <Button
+            android:id="@+id/regiEmailCheckBtn"
+            android:text="중복확인"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintHorizontal_bias="0.708">
-
-        <Button
-                android:id="@+id/regiBtn"
-                android:text="가입하기"
-                android:layout_width="215dp"
-                android:layout_height="67dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.501"
-                app:layout_constraintVertical_bias="0.928"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.923" app:layout_constraintVertical_bias="0.807"/>
+    <Button
+            android:id="@+id/regiBtn"
+            android:text="가입하기"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="837dp"
+            app:layout_constraintHorizontal_bias="0.501"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
