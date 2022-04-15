@@ -19,11 +19,13 @@ class AdapterWriter(private val context: Context, private val dataList: ArrayLis
         private val wtitle = itemView.findViewById<TextView>(R.id.mywTitle)
         private val wdate = itemView.findViewById<TextView>(R.id.mywDate)
         private val wread = itemView.findViewById<TextView>(R.id.mywReadcount)
+        private val wlike = itemView.findViewById<TextView>(R.id.mywLike)
 
         fun bind(dto: BbsDto, context: Context){
             wtitle.text = dto.title
-            wdate.text = dto.wdate
+            wdate.text = dto.wdate!!.substring(0, 10)
             wread.text = dto.readcount.toString()
+            wlike.text = dto.bbsLike.toString()
 
             // 게시글 디테일로 이동
             itemView.setOnClickListener {

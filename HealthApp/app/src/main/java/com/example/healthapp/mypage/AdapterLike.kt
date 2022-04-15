@@ -22,7 +22,7 @@ class AdapterLike(private val context: Context, private val dataList: ArrayList<
         fun bind(dto: BbsDto, context: Context){
             ltitle.text = dto.title
             lperson.text = dto.nickname
-            ldate.text = dto.wdate
+            ldate.text = dto.wdate!!.substring(0, 10)
 
             // 게시글 디테일로 이동
             itemView.setOnClickListener {

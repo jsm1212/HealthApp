@@ -16,6 +16,11 @@ class MypageRoutineActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_routine)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         var recycleV = findViewById<RecyclerView>(R.id.recyRoutine)
 
         val adap = AdapterRoutine(this, test)

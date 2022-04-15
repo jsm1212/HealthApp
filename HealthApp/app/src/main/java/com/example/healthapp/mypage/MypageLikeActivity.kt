@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.healthapp.R
 import com.example.healthapp.bbs.BbsDto
+import com.example.healthapp.login.LoginMemberDao
 
 class MypageLikeActivity : AppCompatActivity() {
     var test = arrayListOf<BbsDto>(
@@ -19,9 +20,17 @@ class MypageLikeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_like)
 
-        var recycleV = findViewById<RecyclerView>(R.id.recyLike)
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
 
-        val adap = AdapterLike(this, test)
+        val id = LoginMemberDao.user?.id
+        println("확인!!!!!!!!!! $id")
+        val data = MypageDao.getInstance().getMyLike(id!!)
+
+        var recycleV = findViewById<RecyclerView>(R.id.recyLike)
+        val adap = AdapterLike(this, data!!)
         recycleV.adapter = adap
 
         val layout = LinearLayoutManager(this)

@@ -9,7 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="maincolor">#99f2c8</color>
     <color name="subcolor">#1f4037</color>
-    <color name="mainfontcolor">#1f4037</color>
     <color name="warn">#FF0000</color>
-    <color name="greenmain">#1f4037</color>
 </resources>

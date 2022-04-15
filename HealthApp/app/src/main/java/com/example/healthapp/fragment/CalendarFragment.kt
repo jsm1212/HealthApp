@@ -27,10 +27,8 @@ class CalendarFragment(val activity:Context) : Fragment() {
         view.setOnKeyListener(OnMyKeyDown(activity as Activity))
 
         val content = view.findViewById<EditText>(R.id.contextEditText) //내용 Edit
-        val date = view.findViewById<TextView>(R.id.diaryTextView) //날짜 TEXT
         val calendarView = view.findViewById<CalendarView>(R.id.calendarView) //달력
         val contentView = view.findViewById<TextView>(R.id.contentView) //내용 TEXT
-        val caltextView = view.findViewById<TextView>(R.id.caltextView) //안내 TEXT
         val saveBtn = view.findViewById<Button>(R.id.save_Btn) //저장 버튼
         val chrBtn = view.findViewById<Button>(R.id.cha_Btn) //수정 버튼
         val delBtn = view.findViewById<Button>(R.id.del_Btn) //삭제 버튼
@@ -39,7 +37,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
         contentView.visibility = View.INVISIBLE
         chrBtn.visibility = View.INVISIBLE
         delBtn.visibility = View.INVISIBLE
-        caltextView.visibility = View.INVISIBLE
         saveBtn.visibility = View.INVISIBLE
         content.visibility = View.INVISIBLE
 
@@ -47,7 +44,7 @@ class CalendarFragment(val activity:Context) : Fragment() {
         val currentUserId = LoginMemberDao.user?.id
 
         content.setText("")
-        val psearchBtn = view.findViewById<Button>(R.id.psearchBtn)
+        val psearchBtn = view.findViewById<ImageView>(R.id.psearchBtn)
         psearchBtn.setOnClickListener {
             val s = Intent(activity,psearch::class.java)
             startActivity(s)
@@ -55,8 +52,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
 
         // 달력 날짜 선택
         calendarView.setOnDateChangeListener { view, year, month, dayOfMonth ->
-            date.visibility = View.VISIBLE
-            date.text = String.format("%d/%d/%d", year, month + 1, dayOfMonth)
             dateDB = choiceDate(year, month+1, dayOfMonth)
             // 날짜를 보여주는 텍스트에 해당 날짜를 넣는다.
 
@@ -68,12 +63,10 @@ class CalendarFragment(val activity:Context) : Fragment() {
                     contentView.visibility = View.VISIBLE
                     chrBtn.visibility = View.VISIBLE
                     delBtn.visibility = View.VISIBLE
-                    caltextView.visibility = View.VISIBLE
                     saveBtn.visibility = View.INVISIBLE
                     content.visibility = View.VISIBLE
                 }else{
                     contentView.text=""
-                    caltextView.visibility = View.VISIBLE
                     contentView.visibility = View.VISIBLE
                     saveBtn.visibility = View.VISIBLE
                     chrBtn.visibility = View.INVISIBLE
@@ -90,7 +83,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
                     contentView.visibility = View.INVISIBLE
                     chrBtn.visibility = View.INVISIBLE
                     delBtn.visibility = View.INVISIBLE
-                    caltextView.visibility = View.INVISIBLE
                     saveBtn.visibility = View.INVISIBLE
                     content.visibility = View.INVISIBLE
                 }else{
@@ -109,7 +101,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
                     contentView.visibility = View.VISIBLE
                     chrBtn.visibility = View.VISIBLE
                     delBtn.visibility = View.VISIBLE
-                    caltextView.visibility = View.VISIBLE
                     saveBtn.visibility = View.INVISIBLE
                     content.visibility = View.VISIBLE
 
@@ -124,7 +115,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
 
         chrBtn.setOnClickListener {
             val c = content.text.toString()
-            caltextView.visibility = View.VISIBLE
             saveBtn.visibility = View.VISIBLE
                 if(c != "" && c != null){
                     val msg = CalendarDao.getInstance().updateCalendar_M(CalendarDto(0,"",c,"",0,currentUserId,dateDB))
@@ -134,7 +124,6 @@ class CalendarFragment(val activity:Context) : Fragment() {
                             contentView.visibility = View.VISIBLE
                             chrBtn.visibility = View.VISIBLE
                             delBtn.visibility = View.VISIBLE
-                            caltextView.visibility = View.VISIBLE
                             saveBtn.visibility = View.INVISIBLE
                             content.visibility = View.VISIBLE
                     }else{
@@ -161,7 +150,4 @@ class CalendarFragment(val activity:Context) : Fragment() {
 
         return year.toString() + Month + Day
     }
-
 }
-
-

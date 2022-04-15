@@ -48,7 +48,7 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
     private var backPressedTime: Long = 0
 
     override fun onBackPressed() {
-        println("뒤로가기버트!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        println("뒤로가기버튼!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
         if(System.currentTimeMillis() - backPressedTime >= 1500){
             // 처음 클릭 메시지

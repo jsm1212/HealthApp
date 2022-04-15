@@ -43,7 +43,7 @@ interface MypageService {
     fun getMyLike(@Body id:String): Call<List<BbsDto>>
 
     // 회원 목록 조회(관리자)
-    @GET("/getMemberList_M")
+    @GET("/getMemberList")
     fun getMemberList(): Call<List<LoginMemberDto>>
 
     // 메일 전송

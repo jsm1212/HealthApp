@@ -2,7 +2,6 @@ package com.example.healthapp.mypage
 
 import android.app.AlertDialog
 import android.content.DialogInterface
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -11,12 +10,16 @@ import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
 import com.example.healthapp.Timer
-import com.example.healthapp.fragment.MypageFragment
 
 class MypageInformUpdateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_inform_update)
+
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
 
         val updateName = findViewById<TextView>(R.id.updateName)
         val updateNick = findViewById<EditText>(R.id.updateNick)

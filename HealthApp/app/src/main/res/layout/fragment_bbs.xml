@@ -37,7 +37,7 @@
             android:layout_width="70sp"
             android:layout_height="45sp"
             android:id="@+id/WorkBbsSearchBtn"
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:textSize="15sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/recyclerView"
@@ -57,7 +57,7 @@
     <Button
             android:text="글쓰기"
             android:layout_width="90sp"
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:layout_height="45sp" android:id="@+id/goWorkBbsWirte"
             android:textSize="15sp"
             android:textStyle="normal"

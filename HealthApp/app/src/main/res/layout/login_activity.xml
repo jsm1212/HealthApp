@@ -68,7 +68,7 @@
                 android:id="@+id/loginBtn"
                 android:text="로그인"
                 android:textSize="20dp"
-                android:textColor="@color/mainfontcolor"
+                android:textColor="@color/subcolor"
                 android:background="@color/maincolor"
                 android:gravity="center"
                 android:layout_width="174dp"

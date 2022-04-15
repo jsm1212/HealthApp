@@ -20,6 +20,11 @@ class MypageWriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.mypage_write)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         // 내 게시글 불러오기
         val id = LoginMemberDao.user?.id
         val data = MypageDao.getInstance().getMyBbs(id!!)

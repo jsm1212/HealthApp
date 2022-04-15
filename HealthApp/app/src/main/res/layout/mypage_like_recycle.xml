@@ -6,31 +6,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="10dp">
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
     <TextView
             android:id="@+id/mylTitle"
-            android:layout_width="350dp" android:layout_height="wrap_content"
-            android:hint="제목" android:textSize="20sp"
+            android:layout_width="390dp" android:layout_height="wrap_content"
+            android:hint="제목" android:textSize="15sp"
             android:gravity="center"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:id="@+id/mylPerson"
-            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:layout_width="100dp" android:layout_height="30dp"
             android:hint="작성자"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mylTitle"
-            android:layout_marginStart="10dp"/>
+            app:layout_constraintTop_toTopOf="@+id/mylTitle" app:layout_constraintBottom_toBottomOf="@+id/mylTitle"/>
     <TextView
             android:id="@+id/mylDate"
-            android:layout_width="100dp" android:layout_height="wrap_content"
+            android:layout_width="100dp" android:layout_height="30dp"
             android:hint="작성날짜"
             android:gravity="center"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mylPerson"
-            android:layout_marginStart="10dp"/>
+            app:layout_constraintTop_toTopOf="@+id/mylPerson"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
