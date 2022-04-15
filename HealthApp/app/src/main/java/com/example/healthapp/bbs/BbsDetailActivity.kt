@@ -114,6 +114,7 @@ class BbsDetailActivity : AppCompatActivity() {
                     BbsDao.getInstance().deleteBbs(data?.seq!!)
                     AlertDialog.Builder(this, R.style.MyDialogTheme).setMessage("삭제가 완료되었습니다").setCancelable(false)
                         .setPositiveButton("확인"){ _, _ ->   // 확인 누를시 이벤트
+                            WorkActivity.selectedFragment = 1
                             val i = Intent(this, MainFragment::class.java)
                             startActivity(i)
                         }.show()

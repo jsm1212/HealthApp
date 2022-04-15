@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import com.example.healthapp.fragment.BbsFragment
 import com.example.healthapp.fragment.CalendarFragment
 import com.example.healthapp.fragment.MypageFragment
 import com.example.healthapp.fragment.WorklistFragment
+import com.example.healthapp.login.LoginMemberDao
 import kotlin.system.exitProcess
 
 class WorkActivity : AppCompatActivity(), View.OnClickListener {
@@ -25,11 +27,14 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_main)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         val fm = supportFragmentManager
 
         val fragmentTransaction = fm.beginTransaction()
-//        fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
-//        fragmentTransaction.commit()
 
         if(selectedFragment == 0){
             fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
@@ -43,6 +48,27 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
             fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
         }
         fragmentTransaction.commit()
+
+        // 버튼 숨기기
+        val mypageBtn = findViewById<Button>(R.id.MyPageBtn)
+        val adminBtn = findViewById<Button>(R.id.AdminBtn)
+        val calBtn = findViewById<Button>(R.id.myCalendarBtn)
+
+        mypageBtn.visibility = View.GONE
+        adminBtn.visibility = View.GONE
+        calBtn.visibility = View.GONE
+
+        // 버튼 보여주기
+        val auth = LoginMemberDao.user?.auth
+        when(auth){
+            // 관리자
+            1 -> adminBtn.visibility = View.VISIBLE
+            // 회원
+            3, 4, 5 -> {
+                mypageBtn.visibility = View.VISIBLE
+                calBtn.visibility = View.VISIBLE
+            }
+        }
     }
 
     private var backPressedTime: Long = 0
