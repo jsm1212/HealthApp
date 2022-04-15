@@ -82,5 +82,4 @@ class BbsReplyDao {
 
         return response?.body() as Int
     }
-
 }

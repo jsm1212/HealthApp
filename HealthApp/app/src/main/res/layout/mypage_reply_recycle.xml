@@ -6,24 +6,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:padding="10dp">
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
     <TextView
             android:id="@+id/myrpReply"
-            android:layout_width="380dp" android:layout_height="wrap_content"
-            android:hint="댓글"
+            android:layout_width="390dp"
+            android:layout_height="wrap_content"
+            android:hint="댓글" android:textSize="15sp"
+            android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     <TextView
             android:id="@+id/myrpDate"
-            android:layout_width="100dp" android:layout_height="wrap_content"
-            android:hint="작성날짜"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:hint="작성날짜" android:textSize="15sp"
+            android:textAlignment="center"
             android:gravity="center"
             app:layout_constraintStart_toEndOf="@+id/myrpReply"
-            app:layout_constraintTop_toTopOf="@+id/myrpReply"/>
+            app:layout_constraintTop_toTopOf="@+id/myrpReply" app:layout_constraintBottom_toBottomOf="@+id/myrpReply"/>
     <TextView
             android:id="@+id/myrpLike"
-            android:layout_width="100dp" android:layout_height="wrap_content"
-            android:hint="좋아요"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:hint="좋아요" android:textSize="15sp"
+            android:textAlignment="center"
             android:gravity="center"
             app:layout_constraintTop_toTopOf="@+id/myrpDate"
             app:layout_constraintStart_toEndOf="@+id/myrpDate"/>

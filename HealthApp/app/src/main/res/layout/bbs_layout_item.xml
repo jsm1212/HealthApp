@@ -10,7 +10,7 @@
 
 
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="열네번째 테스트 게시글"
             android:layout_width="400sp"
             android:layout_height="30sp"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="닉네임은여덟글자"
             android:layout_width="120dp"
             android:layout_height="25dp"
@@ -36,7 +36,7 @@
             app:layout_constraintStart_toStartOf="@+id/WorkBbsTitle"
             app:layout_constraintTop_toBottomOf="@+id/WorkBbsTitle" android:layout_marginTop="16dp"/>
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="2022-04-12 13:25"
             android:layout_width="140sp"
             android:textSize="12sp"
@@ -48,7 +48,7 @@
             app:layout_constraintTop_toTopOf="@+id/WorkBbsWriter"
             android:layout_marginStart="20dp"/>
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="댓글수"
             android:layout_width="70sp"
             android:layout_height="25sp" android:id="@+id/WorkBbsReplyCount"
@@ -59,7 +59,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toTopOf="@+id/WorkBbsReadCount"/>
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="37"
             android:layout_width="70sp"
             android:textSize="15sp"
@@ -71,7 +71,7 @@
             app:layout_constraintTop_toTopOf="@+id/WorkBbsWdate"
             app:layout_constraintBottom_toBottomOf="@+id/WorkBbsWdate"/>
     <TextView
-            android:textColor="@color/greenmain"
+            android:textColor="@color/subcolor"
             android:text="❤50"
             android:layout_width="70sp"
             android:textSize="15sp"

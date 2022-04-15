@@ -21,12 +21,12 @@ class AdapterReply(private val context: Context, private val dataList: ArrayList
 
         fun bind(dto: BbsReplyDto, context: Context){
             rpreply.text = dto.content
-            rpdate.text = dto.wdate
+            rpdate.text = dto.wdate!!.substring(0, 10)
             rplike.text = dto.replyLike.toString()
 
-            val moveData = BbsDao.bbsData
-
             // 게시글 디테일로 이동
+            val moveData = BbsDao.bbsData // 게시판 디테일 데이터
+
             itemView.setOnClickListener {
                 Intent(context, BbsDetailActivity::class.java).apply {
                     BbsDao.bbsSeq = dto.replyNum
