@@ -7,6 +7,7 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.healthapp.R
+import com.example.healthapp.bbs.WorkActivity
 import com.example.healthapp.login.LoginMemberDao
 
 class MainFragment : AppCompatActivity(), View.OnClickListener {
@@ -39,9 +40,20 @@ class MainFragment : AppCompatActivity(), View.OnClickListener {
                 calBtn.visibility = View.VISIBLE
             }
         }
+        val fm = supportFragmentManager
+        val fragmentTransaction = fm.beginTransaction()
 
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
+        if(WorkActivity.selectedFragment == 0){
+            fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
+        }else if(WorkActivity.selectedFragment == 1){
+            fragmentTransaction.add(R.id.frView, BbsFragment(this))
+        }else if(WorkActivity.selectedFragment == 2){
+            fragmentTransaction.add(R.id.frView, CalendarFragment(this))
+        }else if(WorkActivity.selectedFragment == 3){
+            fragmentTransaction.add(R.id.frView, MypageFragment(this))
+        }else{
+            fragmentTransaction.add(R.id.frView, WorklistFragment(this, applicationContext))
+        }
         fragmentTransaction.commit()
     }
 

@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 LoginMemberDao.user=dto
 
                 Toast.makeText(this, "${dto.nickname}님 환영합니다", Toast.LENGTH_LONG).show()
-
+                WorkActivity.selectedFragment = 0
                 val i = Intent(this, MainFragment::class.java)
                 startActivity(i)
             }else{
@@ -93,14 +93,14 @@ class LoginActivity : AppCompatActivity() {
                     LoginMemberDao.user = dto
 
                     Toast.makeText(this, "${dto.nickname}님 환영합니다", Toast.LENGTH_LONG).show()
-
+                    WorkActivity.selectedFragment = 0
                     val i = Intent(this, MainFragment::class.java)
                     startActivity(i)
                 } else if(dto.auth == 1){
                     LoginMemberDao.user = dto
 
                     Toast.makeText(this, "관리자 로그인", Toast.LENGTH_LONG).show()
-
+                    WorkActivity.selectedFragment = 0
                     val a = Intent(this, MainFragment::class.java)
                     startActivity(a)
                 } else {
@@ -170,6 +170,7 @@ class LoginActivity : AppCompatActivity() {
                                 val kakaoLogin = LoginMemberDao.getInstance().login_M(LoginMemberDto(kakaoNum,kakaoNum,kakaoName,kakaoName," ",0,email," ",4,"","", 0))
                                 LoginMemberDao.user = kakaoLogin
                                 Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()
+                                WorkActivity.selectedFragment = 0
                                 val i = Intent(this, MainFragment::class.java)
                                 startActivity(i)
                             }else{
@@ -180,6 +181,7 @@ class LoginActivity : AppCompatActivity() {
                             if(kakaoLogin != null){
                                 LoginMemberDao.user = kakaoLogin
                                 Toast.makeText(this, "${kakaoName}님 환영합니다.", Toast.LENGTH_SHORT).show()
+                                WorkActivity.selectedFragment = 0
                                 val i = Intent(this, MainFragment::class.java)
                                 startActivity(i)
                             }else{
