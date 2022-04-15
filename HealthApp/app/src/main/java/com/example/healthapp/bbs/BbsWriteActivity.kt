@@ -27,6 +27,12 @@ class BbsWriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
+
         // 사진선택 버튼 클릭시 이벤트(다중사진 업로드)
         b.imageUploadBtn.setOnClickListener {
             // 사진 다중선택 알림창 띄우기

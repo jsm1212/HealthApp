@@ -46,6 +46,12 @@ class BbsDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
+
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         // 서버에서 가져온 데이터 세팅
         val data = BbsDao.getInstance().bbsDetail_M(ReadCountBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
 //
