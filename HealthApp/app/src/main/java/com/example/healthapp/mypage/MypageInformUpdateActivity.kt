@@ -56,7 +56,8 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val authnum = findViewById<EditText>(R.id.emailAuthNum)
         val emailauth = findViewById<Button>(R.id.emailAuthOkBtn)
         emailauth.setOnClickListener {
-            if(authnum.text.toString().toInt() != num || authnum.text.toString() == null){
+            // 인증번호 미입력 및 불일치(isEmpty가 앞에 와야 함)
+            if(authnum.text.isEmpty() || authnum.text.toString().toInt() != num){
                 AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
                     .setTitle("확인").setMessage("인증번호를 다시 입력해주세요.")
                     .setCancelable(false)
@@ -65,7 +66,9 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                     }).show()
             }else{
                 Toast.makeText(this, "인증완료", Toast.LENGTH_LONG).show()
+                authnum.setText("")
                 authView.visibility = View.GONE
+                num = 100
             }
         }
 
@@ -73,22 +76,25 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val beforeEmail = LoginMemberDao.user?.email
         val okBtn = findViewById<TextView>(R.id.updateOkBtn)
         okBtn.setOnClickListener {
-            if(beforeEmail != updateEmail.text.toString() && num < 0){
-                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
-                    .setTitle("확인").setMessage("이메일 인증을 진행해 주세요.")
-                    .setCancelable(false)
-                    .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
-                        authView.visibility = View.GONE
-                    }).show()
-            }else{
+            // 이메일 인증을 완료해야 수정할 수 있음
+            if(beforeEmail != updateEmail.text.toString() && num == 100){
                 val data = LoginMemberDto(LoginMemberDao.user?.id, "", "", updateNick.text.toString(),"", 0,
                     updateEmail.text.toString(), updateTel.text.toString(),0, "", "", 0)
                 println("확인!!!!!!!!!! $data")
                 MypageDao.getInstance().updateMember(data)
 
                 Toast.makeText(this, "정보 수정 완료", Toast.LENGTH_LONG).show()
+                authnum.setText("")
+                authView.visibility = View.GONE
 
                 super.onBackPressed()
+            }else{
+                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
+                    .setTitle("확인").setMessage("이메일 인증을 진행해 주세요.")
+                    .setCancelable(false)
+                    .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
+                        authnum.setText("")
+                    }).show()
             }
         }
     }
