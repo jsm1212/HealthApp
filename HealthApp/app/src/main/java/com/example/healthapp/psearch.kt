@@ -33,7 +33,7 @@ class psearch : AppCompatActivity() {
         println("!!!!!!!!!!" + nowYear + nowMonth + nowDay)
 
         // 시작날짜
-        val start = findViewById<ImageButton>(R.id.startDate)
+        val start = findViewById<ImageView>(R.id.startDate)
         var startView = findViewById<TextView>(R.id.startDateView)
         var startDate = ""
         start.setOnClickListener{
@@ -62,7 +62,7 @@ class psearch : AppCompatActivity() {
         }
 
         // 종료날짜
-        val end = findViewById<ImageButton>(R.id.endDate)
+        val end = findViewById<ImageView>(R.id.endDate)
         var endView = findViewById<TextView>(R.id.endDateView)
         var endDate = ""
 

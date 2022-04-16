@@ -21,14 +21,15 @@
             android:gravity="center" android:textSize="15sp"
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:background="@drawable/border_line"
             app:layout_constraintEnd_toStartOf="@+id/startDate"
             app:layout_constraintTop_toTopOf="@+id/startDate"
             android:layout_marginEnd="20dp"/>
-    <ImageButton
+    <ImageView
             android:id="@+id/startDate"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:srcCompat="@android:drawable/ic_dialog_dialer"
+            app:srcCompat="@drawable/cal02"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,14 +49,15 @@
             android:gravity="center" android:textSize="15sp"
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:background="@drawable/border_line"
             app:layout_constraintEnd_toStartOf="@+id/endDate"
             app:layout_constraintTop_toTopOf="@+id/endDate"
             android:layout_marginEnd="20dp"/>
-    <ImageButton
+    <ImageView
             android:id="@+id/endDate"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            app:srcCompat="@android:drawable/ic_dialog_dialer"
+            app:srcCompat="@drawable/cal02"
             app:layout_constraintTop_toBottomOf="@+id/startDate"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="@+id/startDate"/>
@@ -72,10 +74,10 @@
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="500dp"
-            android:layout_height="480dp"
+            android:layout_height="450dp"
             android:background="@drawable/border_line"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datesearchBtn"
-            android:layout_marginTop="50dp"/>
+            android:layout_marginTop="30dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

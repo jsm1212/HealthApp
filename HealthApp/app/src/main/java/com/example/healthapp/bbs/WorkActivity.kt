@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
@@ -50,9 +51,9 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
         fragmentTransaction.commit()
 
         // 버튼 숨기기
-        val mypageBtn = findViewById<Button>(R.id.MyPageBtn)
-        val adminBtn = findViewById<Button>(R.id.AdminBtn)
-        val calBtn = findViewById<Button>(R.id.myCalendarBtn)
+        val mypageBtn = findViewById<ImageView>(R.id.MyPageBtn)
+        val adminBtn = findViewById<ImageView>(R.id.AdminBtn)
+        val calBtn = findViewById<ImageView>(R.id.myCalendarBtn)
 
         mypageBtn.visibility = View.GONE
         adminBtn.visibility = View.GONE

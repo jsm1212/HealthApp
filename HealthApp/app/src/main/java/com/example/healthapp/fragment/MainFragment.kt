@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.healthapp.R
@@ -21,9 +22,9 @@ class MainFragment : AppCompatActivity(), View.OnClickListener {
         getSupportActionBar()!!.setElevation(0F)
 
         // 버튼 숨기기
-        val mypageBtn = findViewById<Button>(R.id.MyPageBtn)
-        val adminBtn = findViewById<Button>(R.id.AdminBtn)
-        val calBtn = findViewById<Button>(R.id.myCalendarBtn)
+        val mypageBtn = findViewById<ImageView>(R.id.MyPageBtn)
+        val adminBtn = findViewById<ImageView>(R.id.AdminBtn)
+        val calBtn = findViewById<ImageView>(R.id.myCalendarBtn)
 
         mypageBtn.visibility = View.GONE
         adminBtn.visibility = View.GONE

@@ -1,61 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
+              xmlns:app="http://schemas.android.com/apk/res-auto" android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-
-    <Button
+    <ImageView
             android:id="@+id/workListBtn"
-            android:text="운동목록"
-            android:backgroundTint="@color/maincolor"
-            android:textColor="@color/subcolor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:background="@color/maincolor"
+            app:srcCompat="@drawable/frag01"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_weight="1"/>
-    <Button
+    <ImageView
             android:id="@+id/BbsListBtn"
-            android:text="커뮤니티"
-            android:backgroundTint="@color/maincolor"
-            android:textColor="@color/subcolor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:background="@color/maincolor"
+            app:srcCompat="@drawable/frag02"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_weight="1"/>
-    <Button
+    <ImageView
             android:id="@+id/myCalendarBtn"
-            android:text="나의일정"
-            android:backgroundTint="@color/maincolor"
-            android:textColor="@color/subcolor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:background="@color/maincolor"
+            app:srcCompat="@drawable/frag03"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_weight="1"/>
-    <Button
+    <ImageView
             android:id="@+id/MyPageBtn"
-            android:text="마이페이지"
-            android:backgroundTint="@color/maincolor"
-            android:textColor="@color/subcolor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:background="@color/maincolor"
+            app:srcCompat="@drawable/frag04"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_weight="1"/>
-    <Button
+    <ImageView
             android:id="@+id/AdminBtn"
-            android:text="회원관리"
-            android:backgroundTint="@color/maincolor"
-            android:textColor="@color/subcolor"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_width="wrap_content"
+            android:background="@color/maincolor"
+            app:srcCompat="@drawable/frag05"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:onClick="onClick"
             android:layout_weight="1"/>

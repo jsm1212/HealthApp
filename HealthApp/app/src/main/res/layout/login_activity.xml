@@ -8,7 +8,7 @@
         tools:context=".login.LoginActivity">
     <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="match_parent" android:layout_height="650dp"
+            android:layout_width="match_parent" android:layout_height="600dp"
             android:layout_margin="20dp"
             android:background="@drawable/border_line"
             app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="80dp"/>
+                android:layout_marginTop="50dp"/>
         <TextView
                 android:text="아이디"
                 android:textSize="20dp" android:textStyle="bold"
@@ -35,13 +35,13 @@
                 android:paddingStart="10dp"
                 android:background="@drawable/border_line"
                 android:layout_width="250dp" android:layout_height="50dp"
-                android:inputType="textMultiLine|textNoSuggestions|textPersonName"
+                android:inputType="textNoSuggestions|textPersonName"
                 android:ems="10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.7"
-                android:layout_marginTop="350dp"/>
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginTop="330dp"/>
         <TextView
                 android:text="비밀번호"
                 android:textSize="20dp" android:textStyle="bold"
@@ -56,7 +56,7 @@
                 android:paddingStart="10dp"
                 android:background="@drawable/border_line"
                 android:layout_width="250dp" android:layout_height="50dp"
-                android:inputType="textMultiLine|textNoSuggestions|textPassword"
+                android:inputType="textNoSuggestions|textPassword"
                 android:ems="10"
                 app:layout_constraintTop_toBottomOf="@+id/loginEditId"
                 app:layout_constraintEnd_toEndOf="@+id/loginEditId"
@@ -96,8 +96,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintHorizontal_bias="0.2"
-                android:layout_marginTop="20dp"/>
+                app:layout_constraintHorizontal_bias="0.2"/>
         <com.google.android.gms.common.SignInButton
                 android:id="@+id/sign_in_button"
                 android:layout_width="180dp"

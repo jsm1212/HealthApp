@@ -6,6 +6,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".login.FindActivity">
+    <fragment android:layout_width="match_parent"
+              android:layout_height="60dp"
+              android:id="@+id/find_fragment_menu"
+              android:name="com.example.healthapp.login.FindFragmentMenu"
+              tools:layout="@layout/login_find_fragment_menu"
+              tools:ignore="Instantiatable,MissingConstraints"/>
     <FrameLayout
             android:id="@+id/content"
             android:layout_width="540dp"
@@ -13,12 +19,4 @@
             app:layout_constraintTop_toTopOf="@+id/find_fragment_menu"
             android:layout_marginTop="24dp" app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"/>
-
-    <fragment android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:id="@+id/find_fragment_menu"
-              android:name="com.example.healthapp.login.FindFragmentMenu"
-              tools:layout="@layout/login_find_fragment_menu"
-              tools:ignore="Instantiatable,MissingConstraints" tools:layout_editor_absoluteY="0dp"
-              tools:layout_editor_absoluteX="-16dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

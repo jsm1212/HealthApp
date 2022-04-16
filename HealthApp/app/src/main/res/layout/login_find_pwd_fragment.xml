@@ -6,95 +6,93 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".login.FindPwdFragment">
+    <TextView
+            android:text="비밀번호 찾기"
+            android:textSize="20dp" android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="100dp"/>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="513dp"
-            android:layout_height="400dp"
-            android:id="@+id/constraintLayout5" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="200dp">
         <TextView
                 android:text="아이디"
-                android:textSize="20dp"
+                android:textSize="20dp" android:textStyle="bold"
                 android:gravity="center"
-                android:layout_width="136dp"
-                android:layout_height="56dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.146" app:layout_constraintVertical_bias="0.169"
-                android:id="@+id/findIdText2"/>
+                android:layout_width="150dp" android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/findIdEditText2"
+                android:layout_marginEnd="20dp"/>
         <TextView
-                android:textSize="20dp"
-                android:gravity="center"
                 android:text="이름"
-                android:layout_width="136dp"
-                android:layout_height="56dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.145" app:layout_constraintVertical_bias="0.473"
-                android:id="@+id/findNameText2"/>
-        <TextView
-                android:textSize="20dp"
+                android:textSize="20dp" android:textStyle="bold"
                 android:gravity="center"
+                android:layout_width="150dp" android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/findNameEditText2"
+                app:layout_constraintTop_toTopOf="@+id/findNameEditText2"
+                android:layout_marginEnd="20dp"/>
+        <TextView
                 android:text="전화번호"
-                android:layout_width="136dp"
-                android:layout_height="56dp"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.145" app:layout_constraintVertical_bias="0.791"
-                android:id="@+id/findTelText2"/>
+                android:textSize="20dp" android:textStyle="bold"
+                android:gravity="center"
+                android:layout_width="150dp" android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@+id/findTelEditText2"
+                app:layout_constraintTop_toTopOf="@+id/findTelEditText2"
+                android:layout_marginEnd="20dp"/>
         <EditText
-                android:textSize="18dp"
-                android:gravity="left"
-                android:layout_width="251dp"
-                android:layout_height="62dp"
-                android:inputType="textPersonName"
+                android:id="@+id/findIdEditText2"
+                android:textSize="15dp"
+                android:gravity="center|left"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_line"
+                android:layout_width="250dp" android:layout_height="50dp"
+                android:inputType="textNoSuggestions|textPersonName"
                 android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.846" app:layout_constraintVertical_bias="0.173"
-                android:id="@+id/findIdEditText2"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.75"/>
         <EditText
-                android:textSize="18dp"
-                android:gravity="left"
-                android:layout_width="251dp"
-                android:layout_height="62dp"
-                android:inputType="textPersonName"
+                android:id="@+id/findNameEditText2"
+                android:textSize="15dp"
+                android:gravity="center|left"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_line"
+                android:layout_width="250dp" android:layout_height="50dp"
+                android:inputType="textNoSuggestions|textPersonName"
                 android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.843" app:layout_constraintVertical_bias="0.482"
-                android:id="@+id/findNameEditText2"/>
+                app:layout_constraintTop_toBottomOf="@+id/findIdEditText2"
+                app:layout_constraintEnd_toEndOf="@+id/findIdEditText2"
+                android:layout_marginTop="30dp"/>
         <EditText
-                android:textSize="18dp"
-                android:gravity="left"
-                android:layout_width="251dp"
-                android:layout_height="62dp"
-                android:inputType="textPersonName"
+                android:id="@+id/findTelEditText2"
+                android:textSize="15dp"
+                android:gravity="center|left"
+                android:paddingStart="10dp"
+                android:background="@drawable/border_line"
+                android:layout_width="250dp" android:layout_height="50dp"
+                android:inputType="textNoSuggestions|phone"
                 android:ems="10"
-                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintHorizontal_bias="0.846" app:layout_constraintVertical_bias="0.782"
-                android:id="@+id/findTelEditText2"/>
+                app:layout_constraintTop_toBottomOf="@+id/findNameEditText2"
+                app:layout_constraintEnd_toEndOf="@+id/findNameEditText2"
+                android:layout_marginTop="30dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <TextView
-            android:textSize="20dp"
-            android:gravity="center"
-            android:text="비밀번호 찾기"
-            android:layout_width="209dp"
-            android:layout_height="63dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintVertical_bias="0.238" android:id="@+id/findPwdText"/>
     <Button
-            android:textSize="18dp"
-            android:gravity="center"
+            android:id="@+id/findMyPwdBtn"
             android:text="찾기"
-            android:layout_width="256dp"
-            android:layout_height="74dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.803" android:id="@+id/findMyPwdBtn"/>
-
+            android:textSize="20dp" android:textStyle="bold"
+            android:backgroundTint="@color/maincolor"
+            android:gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="70dp"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="50dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
