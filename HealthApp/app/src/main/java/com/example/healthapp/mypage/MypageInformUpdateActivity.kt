@@ -77,7 +77,14 @@ class MypageInformUpdateActivity : AppCompatActivity() {
         val okBtn = findViewById<TextView>(R.id.updateOkBtn)
         okBtn.setOnClickListener {
             // 이메일 인증을 완료해야 수정할 수 있음
-            if(beforeEmail != updateEmail.text.toString() && num == 100){
+            if(beforeEmail != updateEmail.text.toString() && num != 100){
+                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
+                    .setTitle("확인").setMessage("이메일 인증을 진행해 주세요.")
+                    .setCancelable(false)
+                    .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
+                        authnum.setText("")
+                    }).show()
+            }else{
                 val data = LoginMemberDto(LoginMemberDao.user?.id, "", "", updateNick.text.toString(),"", 0,
                     updateEmail.text.toString(), updateTel.text.toString(),0, "", "", 0)
                 println("확인!!!!!!!!!! $data")
@@ -88,13 +95,6 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                 authView.visibility = View.GONE
 
                 super.onBackPressed()
-            }else{
-                AlertDialog.Builder(this@MypageInformUpdateActivity, R.style.MyDialogTheme)
-                    .setTitle("확인").setMessage("이메일 인증을 진행해 주세요.")
-                    .setCancelable(false)
-                    .setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
-                        authnum.setText("")
-                    }).show()
             }
         }
     }
