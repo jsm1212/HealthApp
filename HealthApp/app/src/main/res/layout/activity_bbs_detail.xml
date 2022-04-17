@@ -82,6 +82,7 @@
                     android:paddingRight="20sp"
                     android:paddingTop="20sp"
                     android:paddingBottom="20sp"
+                    android:lineSpacingExtra="10sp"
                     android:background="@drawable/itemback"
                     android:layout_height="wrap_content" android:id="@+id/bbsDetailContent"/>
             <LinearLayout
