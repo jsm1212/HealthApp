@@ -1,5 +1,7 @@
 package com.example.healthapp.bbs
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -90,6 +92,7 @@ class WorkActivity : AppCompatActivity(), View.OnClickListener {
 
 
 
+    @SuppressLint("ResourceAsColor")
     override fun onClick(view: View?) {
         var fr:Fragment? = null
 
