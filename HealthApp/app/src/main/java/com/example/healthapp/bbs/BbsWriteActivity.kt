@@ -41,12 +41,14 @@ class BbsWriteActivity : AppCompatActivity() {
             .setCancelable(false)   // 로그창 밖 터치해도 안꺼짐
             .setPositiveButton("사진선택하기"){ _, _ ->
                 getImgFromGallery()
+                // 사진선택 버튼 비활성화
+                b.imageUploadBtn.visibility = View.INVISIBLE
+                // 사진 다시선택 버튼 활성화
+                b.WorkBbsReSelectImg.visibility = View.VISIBLE
+            }.setNegativeButton("취소") { _, _ ->
             }.show()
-            // 사진선택 버튼 비활성화
-            b.imageUploadBtn.visibility = View.INVISIBLE
-            // 사진 다시선택 버튼 활성화
-            b.WorkBbsReSelectImg.visibility = View.VISIBLE
         }
+
         // 다시선택 버튼 클릭시 이벤트(기존 업로드데이터 삭제 후 다시 다중업로드)
         b.WorkBbsReSelectImg.setOnClickListener {
             // 앞에 업로드 됐던 이미지 삭제

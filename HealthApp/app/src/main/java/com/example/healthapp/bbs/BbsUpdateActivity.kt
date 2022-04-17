@@ -25,6 +25,11 @@ class BbsUpdateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(b.root)
 
+        getSupportActionBar()!!.setIcon(R.drawable.appbar)
+        getSupportActionBar()!!.setDisplayUseLogoEnabled(true)
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true)
+        getSupportActionBar()!!.setElevation(0F)
+
         // 게시글 내용에서 가져온 게시글 데이터
         val data = intent.getParcelableExtra<BbsDto>("BbsInfo")
         println("!!!!!!!!!!!!!!!!!!!!!!!!!!!! : " + data?.bbsImage)
@@ -34,12 +39,9 @@ class BbsUpdateActivity : AppCompatActivity() {
         // 게시글 수정페이지 수정할 View세팅
         b.BbsUpdateTitle.setText(data?.title)           // 제목
         b.BbsUpdateContent.setText(data?.content)       // 내용
-        // 이미지
-        if(data?.bbsImage != null) {
-            b.BbsUpdateSelectImg.text = data.bbsImage.split(",")[0]
-        }else{
-            b.BbsUpdateSelectImg.visibility = View.GONE
-        }
+        b.bbsUpdateId.text = data?.nickname             // 작성자 아이디
+        b.bbsUpdateWdate.text = data?.wdate             // 작성일
+        b.bbsUpdateCount.text = "👍 ${data?.bbsLike} / ${data?.readcount}"   // 좋아요 및 조회수
 
         // 목록으로 버튼 클릭시 이벤트
         b.goToDetailBtn.setOnClickListener {
