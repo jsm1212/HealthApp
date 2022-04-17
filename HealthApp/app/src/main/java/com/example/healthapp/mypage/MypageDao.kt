@@ -3,7 +3,7 @@ package com.example.healthapp.mypage
 import com.example.healthapp.*
 import com.example.healthapp.bbs.*
 import com.example.healthapp.login.LoginMemberDto
-import com.example.healthapp.work.WorkVo
+import com.example.healthapp.work.WorkDto
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -28,7 +28,7 @@ interface MypageService {
 
     // 운동 루틴
     @POST("/getMyRoutine_M")
-    fun getMyRoutine(@Body id:String): Call<List<WorkVo>>
+    fun getMyRoutine(@Body id:String): Call<List<WorkDto>>
 
     // 내 게시글 목록
     @POST("/getMyBbs_M")
@@ -104,13 +104,13 @@ class MypageDao {
     }
 
     // 운동 루틴
-    fun getMyRoutine(id:String) : ArrayList<WorkVo>?{
+    fun getMyRoutine(id:String) : ArrayList<WorkDto>?{
         val retrofit = RetrofitClient.getInstance()
         val service = retrofit?.create(MypageService::class.java)
         val call = service?.getMyRoutine(id)
         val response = call?.execute()
 
-        return response?.body() as ArrayList<WorkVo>
+        return response?.body() as ArrayList<WorkDto>
     }
 
     // 내 게시글 목록

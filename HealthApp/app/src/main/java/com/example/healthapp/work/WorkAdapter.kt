@@ -16,7 +16,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.healthapp.R
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
-import com.example.healthapp.work.WorkListDetail
 
 class WorkAdapter(private val context: Context, private val dataList: ArrayList<WorkDto>) :
     RecyclerView.Adapter<WorkAdapter.ItemViewHolder>(), Filterable {
