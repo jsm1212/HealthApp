@@ -43,7 +43,7 @@
                 android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".fragment.AdminFragment"
-                android:exported="true"/>
+                android:exported="true" tools:ignore="Instantiatable"/>
         <activity
                 android:name=".bbs.BbsWriteActivity"
                 android:exported="true"/>
@@ -89,6 +89,9 @@
         <activity
                 android:name=".fragment.CalendarFragment"
                 android:exported="true" tools:ignore="Instantiatable"/>
+        <activity
+                android:name=".work.WorkListDetail"
+                android:exported="true" />
         <activity
                 android:name=".MainActivity"
                 android:exported="true">

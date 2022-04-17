@@ -5,30 +5,25 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bbsback"
         tools:context=".work.WorkListDetail">
 
     <TextView
             android:id="@+id/workdetitle"
             android:text="운동 이름"
+            android:gravity="center"
             android:textSize="30sp"
             android:layout_width="416dp"
             android:layout_height="wrap_content"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:background="@drawable/itemback"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="44dp"
-    />
-    <ImageView
-            android:id="@+id/workdeimg"
-            android:layout_width="400dp"
-            android:layout_height="400dp"
-            tools:src="@tools:sample/avatars"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/workdetitle"
-            android:layout_marginTop="25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.0"
     />
     <!--<Button
             android:text="운동 목록에 담기"
@@ -40,43 +35,46 @@
             app:layout_constraintTop_toTopOf="@+id/hearticon"
             app:layout_constraintBottom_toBottomOf="@+id/hearticon"/>-->
     <ImageView
+            android:id="@+id/workdeimg"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            tools:src="@tools:sample/avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/workdetitle"
+            android:layout_marginTop="16dp"
+    />
+    <ImageView
             android:src="@drawable/emtyheart"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/hearticon"
             app:layout_constraintStart_toStartOf="@+id/workdetitle"
-            app:layout_constraintTop_toBottomOf="@+id/workdetitle"
-            android:layout_marginTop="452dp" android:layout_marginStart="20dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"/>
-    <TextView
-            android:id="@+id/workdelikecount"
-            android:text="좋아요 0"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/hearticon"
-            app:layout_constraintTop_toTopOf="@+id/hearticon" app:layout_constraintStart_toEndOf="@+id/hearticon"
-            android:layout_marginStart="12dp" app:layout_constraintVertical_bias="0.511"/>
+            app:layout_constraintTop_toBottomOf="@+id/workdeimg"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.029"/>
     <TextView
             android:text="workcontent"
             android:layout_width="417dp"
-            android:layout_height="266dp"
+            android:layout_height="230dp"
             android:id="@+id/workcontent"
-            app:layout_constraintStart_toStartOf="@+id/workdeimg"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:background="@drawable/itemback"
             app:layout_constraintTop_toBottomOf="@+id/hearticon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0.384"
-            app:layout_constraintEnd_toEndOf="@+id/workdeimg"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="@+id/workdeimg"
+            app:layout_constraintEnd_toEndOf="@+id/workdeimg"/>
     <Button
             android:id="@+id/backbtn"
             android:text="목록으로"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@+id/workdelikecount"
+            app:layout_constraintStart_toEndOf="@+id/hearticon"
             tools:ignore="MissingConstraints"
-            app:layout_constraintTop_toTopOf="@+id/workdelikecount"
-            app:layout_constraintBottom_toBottomOf="@+id/workdelikecount" android:layout_marginStart="180dp"
-            app:layout_constraintVertical_bias="0.521"/>
+            app:layout_constraintTop_toTopOf="@+id/hearticon"
+            app:layout_constraintBottom_toBottomOf="@+id/hearticon"
+            app:layout_constraintVertical_bias="0.333" android:layout_marginStart="256dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
