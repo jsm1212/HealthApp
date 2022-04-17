@@ -64,7 +64,7 @@ class BbsDetailActivity : AppCompatActivity() {
         b.bbsDetailTitle.text = data?.title                                  // 게시글 제목
         b.bbsDetailWriter.text = "${data?.nickname}"            // 게시글 작성자
         b.bbsDetailWdate.text = "${dateArr!![0]}:${dateArr!![1]}"            // 게시글 작성일
-        b.bbsDetailRcLike.text = "❤${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
+        b.bbsDetailRcLike.text = "👍 ${data?.bbsLike} / ${data?.readcount}"   // 게시글 조회수/좋아요
         b.bbsDetailContent.text = data?.content
         if(LoginMemberDao.user?.id == data?.id || LoginMemberDao.user?.auth == 1){
             b.bbsUpdateView.visibility = View.VISIBLE

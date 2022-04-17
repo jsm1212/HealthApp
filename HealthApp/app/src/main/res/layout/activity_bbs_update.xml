@@ -5,44 +5,42 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bbsback"
         tools:context=".bbs.BbsUpdateActivity">
 
     <EditText
             android:id="@+id/BbsUpdateTitle"
-            android:layout_width="495sp"
+            android:layout_width="430sp"
             android:layout_height="50sp"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|textNoSuggestions"
             android:ems="10"
             android:textSize="23sp"
             android:gravity="center|left"
             android:hint="title..."
-            android:background="@android:color/transparent"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:background="@drawable/itemback"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="96dp" app:layout_constraintHorizontal_bias="0.504"/>
-    <TextView
-            android:text="No file selected"
-            android:layout_width="495sp"
-            android:textSize="15sp"
-            android:gravity="center|left"
-            android:layout_height="30sp" android:id="@+id/BbsUpdateSelectImg"
-            app:layout_constraintStart_toStartOf="@+id/BbsUpdateTitle"
-            app:layout_constraintEnd_toEndOf="@+id/BbsUpdateTitle"
-            app:layout_constraintTop_toBottomOf="@+id/BbsUpdateTitle" android:layout_marginTop="20dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            android:layout_marginTop="108dp"/>
     <EditText
-            android:layout_width="495sp"
+            android:layout_width="430sp"
             android:layout_height="500sp"
-            android:inputType="textPersonName"
+            android:inputType="textMultiLine|textNoSuggestions"
             android:hint="content..."
             android:ems="10"
             android:gravity="top|left"
             android:textSize="20sp"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            android:paddingBottom="10sp"
+            android:paddingTop="10sp"
+            android:background="@drawable/itemback"
             android:id="@+id/BbsUpdateContent"
             app:layout_constraintStart_toStartOf="@+id/BbsUpdateTitle"
             app:layout_constraintEnd_toEndOf="@+id/BbsUpdateTitle"
-            app:layout_constraintTop_toBottomOf="@+id/BbsUpdateSelectImg" android:layout_marginTop="20dp"
-            app:layout_constraintHorizontal_bias="0.0"/>
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" android:layout_marginTop="24dp"/>
     <Button
             android:text="목록으로"
             android:layout_width="wrap_content"
@@ -56,4 +54,38 @@
             app:layout_constraintTop_toTopOf="@+id/goToDetailBtn"
             app:layout_constraintBottom_toBottomOf="@+id/goToDetailBtn"
             app:layout_constraintEnd_toEndOf="@+id/BbsUpdateContent"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="430sp"
+            android:layout_height="35sp"
+            android:background="@drawable/itemback"
+            android:gravity="center"
+            android:paddingRight="10sp"
+            android:paddingLeft="10sp"
+            app:layout_constraintStart_toStartOf="@+id/BbsUpdateTitle"
+            app:layout_constraintEnd_toEndOf="@+id/BbsUpdateTitle"
+            app:layout_constraintTop_toBottomOf="@+id/BbsUpdateTitle" android:layout_marginTop="24dp"
+            app:layout_constraintHorizontal_bias="0.0" android:id="@+id/linearLayout">
+        <TextView
+                android:text="아이디는여덟글자"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bbsUpdateId"
+                android:layout_weight="3"/>
+        <TextView
+                android:text="2022-04-10 17:35"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5sp"
+                android:layout_marginLeft="5sp"
+                android:id="@+id/bbsUpdateWdate"
+                android:layout_weight="3"/>
+        <TextView
+                android:text="👍10 / 5"
+                android:gravity="right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bbsUpdateCount"
+                android:layout_weight="3"/>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

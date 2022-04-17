@@ -38,8 +38,8 @@ class ItemViewHolderReply(view: View) : RecyclerView.ViewHolder(view){
         replyWriter.text = "${replyDto.nickname}"
         replyContent.text = "${replyDto.content}"
 
-        if(replyDto.id != LoginMemberDao.user?.id){
-            replyDelete.visibility = View.INVISIBLE
+        if(replyDto.id == LoginMemberDao.user?.id || LoginMemberDao.user?.auth != 1){
+            replyDelete.visibility = View.VISIBLE
         }
 
         replyDelete.setOnClickListener {

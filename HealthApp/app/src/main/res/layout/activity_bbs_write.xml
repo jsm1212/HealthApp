@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".bbs.BbsWriteActivity">
+        tools:context=".bbs.BbsWriteActivity"
+        android:background="@drawable/bbsback">
     <TextView
             android:id="@+id/textView4"
             android:text="Add Images"
@@ -13,6 +14,7 @@
             android:layout_height="32sp"
             android:textSize="20sp"
             android:gravity="center|left"
+            android:paddingLeft="10sp"
             app:layout_constraintTop_toBottomOf="@+id/WorkBbsWriteTitle"
             android:layout_marginTop="8dp" app:layout_constraintStart_toStartOf="@+id/WorkBbsWriteTitle"/>
     <EditText
@@ -23,21 +25,21 @@
             android:ems="10"
             android:textSize="23sp"
             android:gravity="center|left"
-            android:hint="title..."
+            android:hint="제목을 입력해주세요"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="144dp" app:layout_constraintHorizontal_bias="0.505"
+            android:layout_marginTop="90dp"
             android:paddingRight="10sp"
             android:paddingLeft="10sp"
-            android:background="@drawable/edittext_border"/>
+            android:background="@drawable/itemback"/>
     <EditText
             android:layout_width="430sp"
-            android:layout_height="420sp"
+            android:layout_height="460sp"
             android:inputType="textMultiLine"
             android:ems="10"
             android:gravity="top|left"
             android:textSize="20sp"
-            android:hint="content..."
+            android:hint="내용을 입력해주세요"
             android:id="@+id/WorkBbsWriteContent"
             android:scrollHorizontally="false"
             app:layout_constraintStart_toStartOf="@+id/textView4"
@@ -46,9 +48,11 @@
             android:layout_marginTop="12dp"
             android:paddingRight="10sp"
             android:paddingLeft="10sp"
-            android:background="@drawable/edittext_border"/>
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:background="@drawable/itemback"/>
     <TextView
-            android:text="No file selected"
+            android:text="선택된 파일 없음"
             android:layout_width="331sp"
             android:layout_height="30sp"
             android:id="@+id/WorkSelectedImg"
@@ -59,7 +63,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"
             android:paddingRight="10sp"
             android:paddingLeft="10sp"
-            android:background="@drawable/edittext_border"/>
+            android:background="@drawable/itemback"/>
     <Button
             android:text="사진선택"
             android:layout_width="95sp"
@@ -89,11 +93,5 @@
             app:layout_constraintEnd_toEndOf="@+id/imageUploadBtn"
             app:layout_constraintStart_toStartOf="@+id/imageUploadBtn"
             app:layout_constraintBottom_toBottomOf="@+id/imageUploadBtn"/>
-    <ImageView
-            android:layout_width="247dp"
-            android:layout_height="78dp" app:srcCompat="@drawable/sublogo" android:id="@+id/imageView3"
-            app:layout_constraintBottom_toTopOf="@+id/WorkBbsWriteTitle" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.501"
-            android:layout_marginBottom="16dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
