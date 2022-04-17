@@ -2,6 +2,7 @@ package com.example.healthapp.mypage
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.healthapp.login.LoginMemberDao
 import com.example.healthapp.login.LoginMemberDto
 import com.example.healthapp.R
 import com.example.healthapp.Timer
+import com.example.healthapp.bbs.WorkActivity
 
 class MypageInformUpdateActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,7 +96,9 @@ class MypageInformUpdateActivity : AppCompatActivity() {
                 authnum.setText("")
                 authView.visibility = View.GONE
 
-                super.onBackPressed()
+                WorkActivity.selectedFragment = 3
+                val intent = Intent(this, WorkActivity::class.java)
+                startActivity(intent)
             }
         }
     }
