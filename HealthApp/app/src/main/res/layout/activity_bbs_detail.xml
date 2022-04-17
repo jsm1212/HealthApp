@@ -142,6 +142,10 @@
                     android:text="작성된 댓글이 없습니다."
                     android:layout_width="match_parent"
                     android:visibility="gone"
+                    android:layout_marginLeft="20sp"
+                    android:layout_marginRight="20sp"
+                    android:paddingLeft="10sp"
+                    android:paddingRight="10sp"
                     android:layout_height="34dp" android:id="@+id/nonReply"/>
             <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
