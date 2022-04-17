@@ -37,7 +37,7 @@ class WorklistFragment(val activity:Context, val applicationContext: Context) : 
         val reView = view.findViewById<RecyclerView>(R.id.rv)
 
         val workSpinner = view.findViewById<Spinner>(R.id.workSpinner)
-        val workcategory = listOf("전체", "어깨","가슴", "복부", "하체", "팔")
+        val workcategory = listOf("전체", "어깨","가슴", "복부", "하체", "팔", "등", "전신")
 
         workSpinner.adapter = ArrayAdapter<String>(activity, R.layout.item_spinner, workcategory)
         val worklist=WorkDao.getInstance().getWorkList()

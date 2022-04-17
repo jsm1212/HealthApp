@@ -81,6 +81,8 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
                 2 -> workCategory.text = "복부"
                 3 -> workCategory.text = "하체"
                 4 -> workCategory.text = "팔"
+                5 -> workCategory.text = "등"
+                6 -> workCategory.text = "전신"
             }
 
             //itemView 클릭시
