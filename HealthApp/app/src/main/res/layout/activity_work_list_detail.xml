@@ -58,6 +58,7 @@
             android:layout_width="417dp"
             android:layout_height="230dp"
             android:id="@+id/workcontent"
+            android:scrollbars="vertical"
             android:paddingRight="10sp"
             android:paddingLeft="10sp"
             android:paddingTop="5sp"

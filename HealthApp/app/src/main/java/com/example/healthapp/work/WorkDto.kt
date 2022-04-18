@@ -5,11 +5,11 @@ import android.os.Parcelable
 
 class WorkDto(
     val workseq: Int, val workname: String?, val workcontent: String?
-    , val part: Int, val worklike: Int, val workimage: String?
+    , val part: Int, val worklike: Int, val workimage: Int, val workdetail: String?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(), parcel.readString(), parcel.readString(),
-        parcel.readInt(), parcel.readInt(),parcel.readString()
+        parcel.readInt(), parcel.readInt(),parcel.readInt(), parcel.readString()
     )
 
 
@@ -19,7 +19,8 @@ class WorkDto(
         parcel.writeString(workcontent)
         parcel.writeInt(part)
         parcel.writeInt(worklike)
-        parcel.writeString(workimage)
+        parcel.writeInt(workimage)
+        parcel.writeString(workdetail)
     }
 
     override fun describeContents(): Int {

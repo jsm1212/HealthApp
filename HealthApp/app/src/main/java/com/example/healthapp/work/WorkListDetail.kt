@@ -2,6 +2,7 @@ package com.example.healthapp.work
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -33,9 +34,11 @@ class WorkListDetail : AppCompatActivity() {
         val heart =findViewById<ImageView>(R.id.hearticon)
 
         workdetitle.text=data?.workname
-        workexplanation.text=data?.workcontent
+        workexplanation.text=data?.workdetail
+        workexplanation.setMovementMethod(ScrollingMovementMethod())
         println("+++++++++++++++++++++++"+data?.workimage)
-        getImages("workimg/"+(data?.workimage).toString(), workimg)
+//        getImages("workimg/"+(data?.workimage).toString(), workimg)
+        workimg.setImageResource(data!!.workimage)
 
         // 좋아요 이미지 보여주기
         var likeOK = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))

@@ -2,6 +2,7 @@ package com.example.healthapp.work
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,7 +72,16 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
         fun bind(WorkDto: WorkDto, context: Context) {
             workName.text = WorkDto.workname
             workexplanation.text = WorkDto.workcontent
-            getImages("workimg/"+(WorkDto?.workimage).toString(), workimg, context)
+            workimg.setImageResource(WorkDto.workimage)
+            println("크런치 : " + R.drawable.core)
+            println("마운틴 클레이머 : " + R.drawable.mountain)
+            println("플랭크 : " + R.drawable.plank)
+            println("숄더프레스 : " + R.drawable.press1)
+            println("덤벨 프레스 : " + R.drawable.press2)
+            println("덤벨로우 : " + R.drawable.row)
+            println("덤벨 스쿼트 : " + R.drawable.squat)
+            println("맨몸스쿼트 : " + R.drawable.squat2)
+//            getImages("workimg/"+(WorkDto?.workimage).toString(), workimg, context)
             when (WorkDto.part) {
                 0 -> workCategory.text = "어깨"
                 1 -> workCategory.text = "가슴"
@@ -85,8 +95,8 @@ class WorkAdapter(private val context: Context, private val dataList: ArrayList<
             //itemView 클릭시
             itemView.setOnClickListener {
                 Intent(context, WorkListDetail::class.java).apply {
-                    val gotodetailDto = WorkDao.getInstance().getWorkDetail(WorkDto.workseq)
-                    putExtra("worklistdata", gotodetailDto)
+//                    val gotodetailDto = WorkDao.getInstance().getWorkDetail(WorkDto.workseq)
+                    putExtra("worklistdata", WorkDto)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
             }
