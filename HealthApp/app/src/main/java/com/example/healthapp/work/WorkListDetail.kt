@@ -38,7 +38,7 @@ class WorkListDetail : AppCompatActivity() {
         getImages("workimg/"+(data?.workimage).toString(), workimg)
 
         // 좋아요 이미지 보여주기
-        var likeOK = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(WorkDao.wordseq!!, LoginMemberDao.user?.id!!))
+        var likeOK = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
         if(likeOK == "notCount"){
             heart.setImageResource(R.drawable.fillheart)
         }else{
@@ -47,10 +47,10 @@ class WorkListDetail : AppCompatActivity() {
 
         // 좋아요 클릭
         heart.setOnClickListener {
-            val like = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(WorkDao.wordseq!!, LoginMemberDao.user?.id!!))
+            val like = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
             if(like == "notCount"){
                 heart.setImageResource(R.drawable.emtyheart)
-                WorkDao.getInstance().likeCountCancelWork_M(LikeWorkDto(WorkDao.wordseq!!, LoginMemberDao.user?.id!!))
+                WorkDao.getInstance().likeCountCancelWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
             }else{
                 heart.setImageResource(R.drawable.fillheart)
             }

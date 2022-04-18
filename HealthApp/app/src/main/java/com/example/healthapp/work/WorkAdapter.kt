@@ -19,8 +19,6 @@ import com.google.firebase.storage.ktx.storage
 
 class WorkAdapter(private val context: Context, private val dataList: ArrayList<WorkDto>) :
     RecyclerView.Adapter<WorkAdapter.ItemViewHolder>(), Filterable {
-    private val storage = Firebase.storage("gs://healthapp-client.appspot.com")
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.view_item_layout, parent, false)
         return ItemViewHolder(view)

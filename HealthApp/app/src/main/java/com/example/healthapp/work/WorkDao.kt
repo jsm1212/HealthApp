@@ -21,15 +21,11 @@ interface WorkListService{
     // 좋아요 취소
     @POST("/likeCountCancelWork_M")
     fun likeCountCancelWork_M(@Body dto:LikeWorkDto) : Call<String>
-
-    @GET("/getmylist")
-    fun getMyList()
-
 }
 class WorkDao {
     companion object{
         var workDao:WorkDao?=null
-        var wordseq:Int? = null
+        var workseq:Int? = null
 
         fun getInstance():WorkDao{
             if(workDao==null)

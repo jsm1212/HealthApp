@@ -8,10 +8,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.healthapp.R
 import com.example.healthapp.work.WorkDao
 import com.example.healthapp.work.WorkDto
 import com.example.healthapp.work.WorkListDetail
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 
 class AdapterRoutine(private val context: Context, private val dataList: ArrayList<WorkDto>)
 : RecyclerView.Adapter<AdapterRoutine.ItemViewHolder>() {
@@ -19,9 +24,10 @@ class AdapterRoutine(private val context: Context, private val dataList: ArrayLi
         private val rtImage = itemView.findViewById<ImageView>(R.id.myrtImage)
         private val rtName = itemView.findViewById<TextView>(R.id.myrtName)
         private val rtPart = itemView.findViewById<TextView>(R.id.myrtPart)
+        private val storage = Firebase.storage("gs://healthapp-client.appspot.com")
 
         fun bind(dto: WorkDto, context: Context){
-            rtImage.setImageResource(R.drawable.fillheart)
+            getImages("workimg/"+(dto.workimage).toString(), rtImage, context)
             rtName.text = dto.workname
             when (dto.part) {
                 0 -> rtPart.text = "어깨"
@@ -39,6 +45,19 @@ class AdapterRoutine(private val context: Context, private val dataList: ArrayLi
                     putExtra("worklistdata", gotodetailDto)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run { context.startActivity(this) }
+            }
+        }
+        private fun getImages(path: String, view:ImageView, context:Context){
+            storage.getReference(path).downloadUrl.addOnSuccessListener { uri ->
+                /*
+                if(activity == null)
+                    return@addOnSuccessListener
+                */
+                val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+                Glide.with(context).load(uri).apply(requestOptions).into(view)
+                println(uri)
+            }.addOnFailureListener{
+                println("스토리지 다운로드 에러 => ${it.message}")
             }
         }
     }
