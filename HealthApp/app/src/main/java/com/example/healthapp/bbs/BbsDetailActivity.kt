@@ -82,6 +82,7 @@ class BbsDetailActivity : AppCompatActivity() {
             // 코드
             val likeStr = BbsDao.getInstance().likeCount_M(LikeBbsDto(BbsDao.bbsSeq!!, LoginMemberDao.user?.id!!))
             if(likeStr == "count"){
+
                 Toast.makeText(this,"좋아요를 눌렀습니다!", Toast.LENGTH_SHORT).show()
                 reLoadView()
             }else{

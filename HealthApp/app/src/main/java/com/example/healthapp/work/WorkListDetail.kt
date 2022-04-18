@@ -1,6 +1,5 @@
 package com.example.healthapp.work
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -10,8 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.healthapp.R
-import com.example.healthapp.bbs.WorkActivity
-import com.example.healthapp.fragment.WorklistFragment
+import com.example.healthapp.login.LoginMemberDao
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 
@@ -38,15 +36,23 @@ class WorkListDetail : AppCompatActivity() {
         workexplanation.text=data?.workcontent
         println("+++++++++++++++++++++++"+data?.workimage)
         getImages("workimg/"+(data?.workimage).toString(), workimg)
-        var abc:Int=0
+
+        // 좋아요 이미지 보여주기
+        var likeOK = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
+        if(likeOK == "notCount"){
+            heart.setImageResource(R.drawable.fillheart)
+        }else{
+            heart.setImageResource(R.drawable.emtyheart)
+        }
+
+        // 좋아요 클릭
         heart.setOnClickListener {
-            if (abc==0) {
-                heart.setImageResource(R.drawable.fillheart)
-                abc=1
-            }
-            else{
+            val like = WorkDao.getInstance().likeCountWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
+            if(like == "notCount"){
                 heart.setImageResource(R.drawable.emtyheart)
-                abc=0
+                WorkDao.getInstance().likeCountCancelWork_M(LikeWorkDto(data!!.workseq, LoginMemberDao.user?.id!!))
+            }else{
+                heart.setImageResource(R.drawable.fillheart)
             }
         }
         backbtn?.setOnClickListener {
